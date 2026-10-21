@@ -31,7 +31,7 @@ try {
   // Use the Python executable on PATH when the local Windows environment is absent.
 }
 
-execFileSync(python, [resolve(ROOT, 'scripts/catalogue/create-range-catalogue.py'), ...process.argv.slice(2)], {
+execFileSync(python, [resolve(ROOT, 'scripts/catalogue/create-focused-catalogue.py'), ...process.argv.slice(2)], {
   cwd: ROOT,
   stdio: 'inherit'
 });
