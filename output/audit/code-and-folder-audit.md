@@ -1,95 +1,47 @@
-# Code and folder audit
+# Code, folders, catalogue and SEO audit
 
-Date: October 17, 2026. Scope: 316 tracked files, readable local folder contents, source references, catalogue/image manifests, and the generated deployment. No application code or business assets were deleted, moved or rewritten for this audit.
+21 October 2026. This records changes completed in the local workspace.
 
-## Assessment
+## Catalogue
 
-Keep the current static-site architecture. The existing split between `assets/`, `scripts/`, `tests/` and generated `dist/` is appropriate. A staged cleanup would improve maintainability; moving every file or adding a framework would provide little value for this project.
+The 34-page PDF has 31 product pages plus cover, directory and contact pages. All 43 published specification rows from 15 products are copied from assets/js/catalogue-data.js. They include dimensions, thickness, pack counts, weight and formats where the website supplies them. Products without published measurements retain an enquiry note. The PDF checks each row against text extracted from its own product page and checks product enquiry URLs, page count, logo presence and text bounds. All pages were rendered and reviewed, including the six-variant sanitary bags and micrometre symbols.
 
-Validation passed: seven browser-script syntax checks, catalogue synchronization, all 35 tests, the 70-page build, and deployment verification of 2,669 local links/assets and structured data. No standalone category-guide pages are generated.
+The browser edition uses the same data and specification rows. Its 31 embedded images, specification coverage, script syntax and next/previous/selector boundary behavior were checked. This was a scripted navigation check, not a full browser rendering audit.
 
-## Files and folders
+Embedded-image optimization reduced the specification-bearing PDF from 17,755,257 bytes to 3,937,032 bytes (about 78% smaller). Source images are preserved. The published PDF path is unchanged and the refreshed file is included in dist/.
 
-| Finding | Evidence | Recommended treatment |
-| --- | --- | --- |
-| Six temporary files are tracked despite `tmp/` being ignored | `git ls-files -ci --exclude-standard` lists six files under `tmp/pdfs/` | Untrack them during cleanup, preserving local copies. Retain reference artwork in an intentional authoring/reference location if it is still needed. `.gitignore` does not untrack existing files. |
-| Four old images have no active source references and are absent from `dist/` | Listed below; the three recycled products now use WebP images | Archive or remove the superseded files after confirming originals are not needed for future artwork. About 6.73 MiB of repository files; they already contribute no current website download weight. |
-| The old paper-only social graphic is still published | `assets/images/share-preview.png` remains in the build allowlist, but current page metadata uses the sugarcane food-packaging image | Remove from the deployment allowlist; archive/remove the old graphic if no external use needs it. It is approximately 70 KiB. |
-| Large development cache | `.uv-cache/` contains approximately 236.46 MiB in the readable inventory | Re-creatable cache, not website content. A candidate for local disk cleanup. Savings may differ from logical sizes because caches can use links. |
-| Temporary folder mixes sources, tools and disposable output | `tmp/` contains approximately 226.99 MiB, including original images and a PDF virtual environment | Sort before cleaning. Preserve useful original artwork; separate it from logs, old migration scripts, contact sheets and rendered previews. |
-| Local Python runtime | `.uv-python/` contains approximately 60.71 MiB | Keep while local image/PDF tools rely on it. It is a development dependency, not an unrelated website folder. |
-| Identical PDF copies | `assets/catalogues/MA-Industries-Paper-Catalogue.pdf` and `output/pdf/MA-Industries-Catalogue.pdf` have identical SHA-256 hashes | The public copy serves downloads; the output copy is a generator artifact. Keep the public PDF. Any artifact-retention change can wait for the deferred catalogue work. |
-| Visiting-card files and generators | `scripts/cards/` and `output/pdf/` support documented collateral generation | Related business tooling, not runtime website content. Already excluded from deployment. No need to delete them merely because HTML does not reference them. |
+## Cleanup and maintenance
 
-Tracked temporary files:
+| Completed change | Reason |
+| --- | --- |
+| Removed 25 unused legacy gallery assets, the old share graphic and 3 disposable card renders | No active manifest/site references; 1,820,852 bytes removed |
+| Removed create-range-catalogue.py | Superseded multi-product-per-page generator; the catalogue command now uses the focused generator |
+| Archived four superseded logo/product originals under scripts/references/legacy-images/ | Keeps inactive source artwork out of the website asset folders without losing it |
+| Extracted browser_catalogue.py and interactive.html | Browser markup and CSS no longer sit inside the PDF layout generator |
+| Added catalogue_images.py | One cached conversion shared by PDF and browser output |
+| Reused loadCatalogue and escapeHtml helpers | Removed duplicate data-loading and escaping implementations |
+| Removed studio.js from Contact | That page has no material studio or pointer-effect targets |
+| Limited responsive gallery generation to recycling photos | Prevents obsolete derivatives from returning |
+| Added npm run audit and dependency documentation | Repeatable read-only inventory and authoring setup |
+| Replaced contradictory SEO/performance notes | Documentation now matches the five-page build |
 
-- `tmp/pdfs/adil-reference.png`
-- `tmp/pdfs/card-1.png`
-- `tmp/pdfs/card-2.png`
-- `tmp/pdfs/card-raw.pdf` — generated by the visiting-card script
-- `tmp/pdfs/mohammed-reference.png`
-- `tmp/pdfs/reference.png`
+Reference artwork, original product photos, final visiting cards and other user deliverables are retained. The ignored .uv-cache/, .uv-python/ and tmp/pdf-venv/ provide the local authoring runtime; they are not deployed. Reference images still tracked under tmp/pdfs/ were retained as source artwork rather than deleted as disposable output. No unrelated user PDFs were modified.
 
-Unused/superseded image candidates:
+The deployed website remains a small static site with no frontend package dependencies. Existing CSS modules, responsive images, local fonts, progressive motion, popup navigation and enquiry behavior are retained. A framework migration or broad speculative rewrite would not improve this task.
 
-- `assets/images/logo.jpeg` — current site and card generator use `brand-logo.png`.
-- `assets/images/products/recycled-cleaning-tools-photo.jpg`
-- `assets/images/products/recycled-hangers-photo.jpg`
-- `assets/images/products/recycled-storage-boxes-photo.jpg`
+## SEO
 
-The JPEG/WebP pairs are alternative versions of the same product imagery, not byte-identical duplicate files. Current catalogue data references the WebP versions. All product images in the active product-image manifest are used by the catalogue; no unused manifest entries were found.
+All five source pages now have synchronized, page-specific titles and descriptions across search and social metadata. scripts/site/seo.mjs owns metadata and structured data. The generated graph contains Organization, WebSite, page-specific schema, sales ContactPoint, BreadcrumbList and relevant ItemList/DigitalDocument entries. IDs use the configured origin. The current phone is consistent across the graph. No prices, reviews, stock levels or certifications were fabricated.
 
-Important temporary-folder contents:
+Canonicals, the five-page sitemap, robots.txt, responsive image URLs and font assets are verified in the production build. Existing product popup destinations and retired-product redirects are preserved. Added /index.html to / redirect configuration. Product information and supplied specifications remain available in the no-JavaScript fallback.
 
-| Folder | Approximate readable size | Treatment |
-| --- | ---: | --- |
-| `tmp/pdf-venv/` | 79.21 MiB | Local PDF dependencies; preserve unless replacing/rebuilding the environment |
-| `tmp/product-images/` | 68.76 MiB | Original authoring inputs for the product image optimizer |
-| `tmp/sugarcane-images/` | 27.96 MiB | Original/source imagery; review before deletion |
-| `tmp/category-images/` | 14.87 MiB | Original authoring inputs for the category image optimizer |
-| `tmp/sugarcane-additions/` | 14.31 MiB | Source/review imagery; review before deletion |
-| `tmp/gallery/` | 11.70 MiB | Source/reference imagery; review before deletion |
-| `tmp/pdfs/` | 4.65 MiB | Mixed references, intermediate files and rendered output |
+See SEO-PLAN.md for official guidance and deployment steps. Changes are local: production deployment, Render route synchronization, Search Console submission, live indexing and real-user performance measurements remain outstanding.
 
-Folder measurements are approximate logical sizes of readable files; linked directories and `.git` contents were not traversed. Source images, environments and caches are not interchangeable cleanup targets.
+## Final validation
 
-## Code findings
-
-1. **Legacy CSS is the largest cleanup opportunity.** `assets/css/shared.css` is 4,026 lines / approximately 61 KiB before bundling and compression. Confirmed static-search candidates include old `.art-grid`, `.paper-object`, `.category-swatch`, `.home-categories` and `.motion-in-view` components. Their selectors remain in CSS but the current HTML/browser scripts do not create those components or toggle the old motion class. Remove complete obsolete component groups carefully, then review all pages and breakpoints. Repeated selectors alone are not proof of dead CSS: responsive and interaction rules intentionally repeat selectors.
-
-2. **Some browser branches target removed components.** `assets/js/app.js` still binds `[data-category-link]`, updates `.category-card[data-category-link]`, and looks for `.art-tag b`. Current production pages use URL-based category cards and no longer contain those elements. The test fixture still simulates some of them. Remove the obsolete branches and matching fixture code together, retaining current URL filtering, counts and dialog tests.
-
-3. **Header/footer markup is copied between the four source pages.** Some differences are intentional, such as active navigation and home anchors. Shared build-time partials would reduce maintenance duplication. Preserve root page URLs and source-preview behavior when introducing them; this does not require a frontend framework.
-
-4. **`shared.css` should be split further after obsolete styles are removed.** Suggested ownership: base/tokens, header/navigation, home sections, about/team, and product/dialog components. Existing `catalogue.css`, `footer.css`, `studio.css` and `motion.css` can stay. Preserve cascade order and verify layouts; a mechanical file split alone does not reduce the deployed CSS payload.
-
-5. **The two older image optimizers duplicate most of their implementation.** `scripts/images/optimize-product-images.py` and `optimize-category-images.py` perform the same square conversion/contact-sheet workflow with different directories. They remain useful authoring tools; combine their common implementation or add one `--kind` option rather than treating them as unused. Keep responsive-derivative generation distinct from source artwork preparation.
-
-6. **Documentation and setup need a small maintenance pass.** The README directory map omits several newer modules and still labels `seo-pages.mjs` as generating category/product pages. It now generates only product pages. The documented PDF dependencies omit `pypdf`, imported by the visiting-card generator. Add a development requirements file for the Python maintenance tools so local environments are reproducible. Keep historical validation counts clearly labeled as historical.
-
-7. **Avoid cosmetic renaming of compatibility identifiers.** Internal names such as `papers`, `paper` form fields and `#paper-<id>` reflect the site's origins. They are not unused. Existing product links and enquiry flows depend on some of them. Clarify comments or introduce internal aliases during a planned refactor; preserve public URLs and stable IDs.
-
-## Keep
-
-- `assets/images/responsive/`: intentionally different sizes for device/browser selection, not accidental duplicate images.
-- Original images still referenced by catalogue data, dialogs or generation tools.
-- Local fonts and their OFL license files.
-- `scripts/references/`: authoring/research material, already excluded from the public build.
-- `tests/`, image manifests and the public-file allowlist.
-- Public PDF catalogue and current product IDs/URLs.
-
-The build allowlist is working: temporary inputs, caches, Python environments, research notes, tests and visiting-card output are not copied into the deployment. Source `assets/` is approximately 17.75 MiB, while the generated deployment is approximately 12.15 MiB at audit time.
-
-## Suggested cleanup sequence
-
-1. Untrack the six temporary files while preserving local copies; review/archive unused image versions and remove the obsolete social graphic from the public allowlist.
-2. Separate reusable source artwork from disposable temporary output. Clean caches independently of Python runtimes/environments.
-3. Remove verified legacy CSS and obsolete DOM branches, with test-fixture updates and phone/tablet/desktop review.
-4. Extract shared page partials and split the remaining large CSS module without changing URLs or appearance.
-5. Consolidate duplicate authoring utilities and refresh README/development dependency documentation.
-
-Optional organization: put project reports in `docs/`, keep runtime assets in `assets/`, keep authoring generators in `scripts/`, and keep generated deliverables in `output/`. Root HTML pages can remain where they are. No wholesale directory migration is required.
-
-## Limits
-
-This is a source/reference and build audit, not a JavaScript execution-coverage or CSS coverage trace. CSS candidates require visual verification across interactive states before deletion. Files with no website references can still be valuable authoring inputs or business collateral. No cleanup actions have been performed, and the PDF catalogue was not regenerated.
+- 41 regression tests passed.
+- All 7 browser scripts passed syntax checks.
+- Catalogue counts/labels and all five source metadata sets are synchronized.
+- Production build: 5 HTML pages, 252 allowlisted public assets.
+- Deployment verifier: 305 local links/assets checked, with canonical/sitemap consistency, structured-data identities, current contact, breadcrumbs, responsive candidates and local fonts verified.
+- PDF: 34 pages, 31 products, all 43 specification rows verified against source data and rendered for inspection.

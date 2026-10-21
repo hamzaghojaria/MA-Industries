@@ -16,6 +16,9 @@ services:
         value: 'attachment; filename="MA-Industries-Paper-Catalogue.pdf"'
     routes:
       - type: redirect
+        source: /index.html
+        destination: /
+      - type: redirect
         source: /product-duplex-paper.html
         destination: "/products.html?category=boards#paper-duplex-paper"
       - type: redirect

@@ -11,8 +11,10 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[2]
 manifest = {}
 sources = [ROOT / 'assets/images/brand-logo.png']
-for folder in ('ranges', 'gallery', 'categories', 'founders'):
+for folder in ('ranges', 'categories', 'founders'):
     sources.extend(sorted((ROOT / 'assets/images' / folder).iterdir()))
+# Only the active recycling gallery belongs in the published manifest.
+sources.extend(sorted((ROOT / 'assets/images/gallery').glob('recycling-*.jpg')))
 # JPEG catalogue photos now lead the collection; keep their cards lightweight.
 product_files = json.loads((ROOT / 'scripts/site/manifests/product-images.json').read_text(encoding='utf-8'))
 sources.extend(ROOT / 'assets/images/products' / name for name in product_files if name.endswith('.jpg'))

@@ -2,7 +2,7 @@
 
 A static catalogue led by sugarcane-based essentials and recycled household goods, supported by traditional paper and packaging. The current catalogue has **67 products in 12 categories**. No database, checkout, backend form submission, or npm dependencies are required.
 
-The shared merchandising order is sugarcane household goods, sugarcane food packaging, sugarcane paper, recycled household products, then traditional paper categories. `assets/js/catalogue-data.js` defines that order for products, filters, enquiry suggestions and generated pages. Product IDs and original reference numbers remain stable; card display numbers follow the current browsing order. The existing PDF catalogue is unchanged and will be revised separately.
+The shared merchandising order is sugarcane household goods, sugarcane food packaging, sugarcane paper, recycled household products, then traditional paper categories. `assets/js/catalogue-data.js` defines that order for products, filters, enquiry suggestions and generated pages. Product IDs and original reference numbers remain stable; card display numbers follow the current browsing order. The PDF catalogue covers the sugarcane and recycled collection, with one product per page and specifications drawn from the same data.
 
 After adding or replacing a JPEG product photo, run `python scripts/images/create-responsive-images.py` before building. It creates the card previews and responsive candidates; use source photos at least 640 pixels wide. The build rejects missing card-preview entries. Commit the generated files and image manifest together.
 
@@ -121,7 +121,7 @@ Preserve the `products`, `pagination`, `results-count`, `active-category`, `cate
 
 Menu behavior belongs in `navigation.js`, shared by all pages. Catalogue scripts load in data → utilities → app order. Navigation initializes independently. Motion must enhance content without blocking access to it.
 
-Content photos display the M&A Industries logo/name watermark through `watermarks.css`. The shared `watermarkImages()` helper wraps product, category, range, gallery, and founder images in static pages, generated pages, product cards, and dialogs. It skips logos/icons and existing wrappers. These are website overlays; original image files and downloadable PDFs remain unchanged.
+Content photos display the M&A Industries logo/name watermark through `watermarks.css`. The shared `watermarkImages()` helper wraps product, category, range, gallery, and founder images in static pages, generated pages, product cards, and dialogs. It skips logos/icons and existing wrappers. These are website overlays; source image files are preserved. The PDF has its own logo and layout.
 
 Contributor conventions:
 
@@ -150,7 +150,7 @@ The cleanup was compared against preceding layout measurements for all four page
 
 ## Deployment
 
-Render runs `node scripts/site/build.mjs` and publishes `dist/`. `SITE_URL` sets the canonical origin; production is `https://maindustries.in`. The build resolves share-image URLs, adds canonical URLs/structured data, and generates sitemap/robots files. It produces only the four main HTML pages. Individual product and category-guide pages are not generated. Old product URLs are mapped to catalogue popups by the redirect rules in render.yaml; apply the Blueprint routing changes when deploying.
+Render runs `node scripts/site/build.mjs` and publishes `dist/`. `SITE_URL` sets the canonical origin; production is `https://maindustries.in`. The build resolves share-image URLs, adds canonical URLs/structured data, and generates sitemap/robots files. It produces only the five main HTML pages. Individual product and category-guide pages are not generated. Old product URLs are mapped to catalogue popups by the redirect rules in render.yaml; apply the Blueprint routing changes when deploying.
 
 Only allowlisted public files are deployed. Keep image manifests and the build public-file list current. CSS source modules are bundled into `dist/assets/css/style.css`. Documentation, internal tools, prompts, temporary files, and credentials are not published. Never edit generated `dist/` directly.
 
@@ -171,3 +171,12 @@ After validation, this Windows PowerShell 5 one-liner stages, commits, and pushe
 ```powershell
 git add .; if ($LASTEXITCODE -eq 0) { git commit -m "Refactor shared website styles and checks"; if ($LASTEXITCODE -eq 0) { git push } }
 ```
+
+
+## Catalogue and repository maintenance
+
+The downloadable catalogue covers the 31 sugarcane and recycled products only, one product per page. It includes every published specification row from the website, with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF retains the burgundy/cream palette and logo on every page.
+
+Run `npm run catalogue` to regenerate the PDF and self-contained browser edition under `output/pdf/`. The public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
+
+Run `npm run audit` for a read-only file/asset inventory. `npm run sync:metadata` synchronizes search and social text from `scripts/site/seo.mjs`. Run `npm run validate` before deployment. See `SEO-PLAN.md` and `PERFORMANCE.md` for current setup and remaining deployment checks.

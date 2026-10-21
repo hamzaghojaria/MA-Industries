@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/site/build.mjs",
-    "check": "node scripts/site/check.mjs && node scripts/site/catalogue-markup.mjs",
+    "check": "node scripts/site/check.mjs && node scripts/site/catalogue-markup.mjs && node scripts/site/seo.mjs",
+    "sync:metadata": "node scripts/site/seo.mjs --write",
+    "audit": "node scripts/site/audit.mjs",
     "sync:catalogue": "node scripts/site/catalogue-markup.mjs --write",
     "verify:build": "node scripts/site/verify-build.mjs",
     "validate": "npm run check && npm test && npm run build && npm run verify:build",

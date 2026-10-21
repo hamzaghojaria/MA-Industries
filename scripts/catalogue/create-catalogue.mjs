@@ -1,19 +1,13 @@
 /** Generate the catalogue PDF using the current website catalogue data. */
 import { execFileSync } from 'node:child_process';
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { Script, runInNewContext } from 'node:vm';
+import { loadCatalogue } from '../site/catalogue-markup.mjs';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
-const sourcePath = resolve(ROOT, 'assets/js/catalogue-data.js');
-const dataSource = await readFile(sourcePath, 'utf8');
-new Script(dataSource, { filename: sourcePath });
-
-const context = { window: {} };
-runInNewContext(dataSource, context);
-const catalogue = context.window.MACatalogueData;
+const catalogue = await loadCatalogue();
 if (!catalogue || !Array.isArray(catalogue.papers) || !Array.isArray(catalogue.categories)) {
   throw new Error('Catalogue data is missing products or categories.');
 }

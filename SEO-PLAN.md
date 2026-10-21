@@ -1,21 +1,27 @@
-# SEO and product navigation
+# Search setup and maintenance
 
-Updated: 17 October 2026
+Updated: 21 October 2026.
 
-The site has four main pages: Home, About, Categories and Products. All 67 products open in the same in-page catalogue popup, with image, overview, material, uses, specifications and enquiry actions. Separate product pages and category-guide pages are not generated. Do not reintroduce product-page links or standalone detail pages.
+The website has five canonical pages: Home, About, Categories, Products and Contact. All 67 products remain in the existing catalogue with stable popup links. No standalone product or category-guide pages are generated.
 
-The old product-page generator has been removed. Product URLs have been removed from the sitemap and structured-data links now point to the matching catalogue popups. The build verifier rejects any HTML pages outside the four main pages.
+## Implemented
 
-Product descriptions, uses and available specifications also remain in the catalogue's no-JavaScript fallback, without links to standalone product pages. Canonical URLs, main-page metadata, branded sharing images, Organization/WebSite/CollectionPage and ItemList structured data remain in place. The PDF catalogue is unchanged.
+- Unique page titles and descriptions, with matching Open Graph and Twitter text, live in scripts/site/seo.mjs. Run npm run sync:metadata after editing them; npm run check detects stale source metadata.
+- The production build emits absolute canonical and sharing URLs using SITE_URL (default https://maindustries.in), a five-page sitemap and robots.txt.
+- Organization, WebSite, page-specific types, sales ContactPoint, BreadcrumbList and category/product ItemList schema use the current content and Maaz's +91 98191 57417 number. Home and Products also describe the downloadable sugarcane/recycled PDF as a DigitalDocument.
+- Source HTML retains product descriptions, applications and available specifications in its no-JavaScript fallback. Photos have existing alternative text and responsive candidates; decorative images remain decorative.
+- Render redirects /index.html to /. Existing exact redirects preserve retired product URLs and open the matching catalogue popup.
+- Product prices, stock guarantees, ratings, reviews and certifications are not invented. This enquiry catalogue does not claim Google shopping rich-result eligibility.
 
-## Deployment
+## Verification and deployment
 
-Publish a fresh dist build. The build clears old output before writing the four main pages, so old product files are not included. render.yaml contains exact permanent redirects for the 67 retired product URLs to their matching catalogue popups. Apply/sync the Render Blueprint routes or add those redirects in Render's dashboard if the service is not managed by this Blueprint. The route changes and removed files affect the live domain only after deployment. Other hosts need equivalent redirects.
+Run npm run validate. It checks browser syntax, source synchronization, regression tests, the clean production build, page links, canonical/sitemap agreement, structured data, local fonts and responsive image candidates.
 
-After deployment, confirm an old URL such as /product-reusable-cups.html redirects to /products.html?category=sugarcane-kitchenware#paper-reusable-cups and opens the correct popup. Submit the updated sitemap in Google Search Console. Live deployment state, indexing and search rankings have not been verified locally.
+Deploy dist/ and apply render.yaml route changes. After deployment, submit https://maindustries.in/sitemap.xml in the verified Google Search Console property and inspect all five page URLs. Search Console access and production deployment were not performed in this workspace task. Live indexing, rankings and Core Web Vitals have not been measured for this build.
 
-## References
+## Official guidance used
 
-- https://render.com/docs/redirects-rewrites
-- https://render.com/docs/blueprint-spec
-- https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+- [Google's developer SEO guide](https://developers.google.com/search/docs/fundamentals/get-started-developers): crawlable links and accessible content.
+- [Canonical URL guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls): consistent canonical signals.
+- [Sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap): canonical sitemap entries.
+- [Product snippet requirements](https://developers.google.com/search/docs/appearance/structured-data/product-snippet): no fabricated prices or reviews to obtain rich results.

@@ -6,13 +6,11 @@ import { Script } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { bundleStyles } from './styles.mjs';
 import { responsiveImages } from './images.mjs';
-import { loadCatalogue, syncCatalogueMarkup } from './catalogue-markup.mjs';
+import { loadCatalogue, syncCatalogueMarkup, escapeHtml } from './catalogue-markup.mjs';
 import { PAGES, JAVASCRIPT_FILES } from './config.mjs';
+import { syncPageMetadata, buildStructuredData } from './seo.mjs';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
-const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-}[character]));
 const normalizeHomeLinks = html => html.replace(/href="index\.html(#[^"]*)?"/g, (_, fragment = '') => `href="/${fragment}"`);
 const OUTPUT = resolve(ROOT, 'dist');
 const PRODUCT_IMAGES = JSON.parse(await readFile(resolve(ROOT, 'scripts/site/manifests/product-images.json'), 'utf8'));
@@ -57,7 +55,7 @@ function applyPublicUrl(html, origin, pagePath = '') {
     .replace(/(<meta (?:property="og:image"|name="twitter:image") content=")(assets\/[^"\s]+)(")/g,
       (_, start, image, end) => start + escapeHtml(new URL(image, url).href) + end)
     .replace('</head>', '<meta name="robots" content="index,follow,max-image-preview:large">\n<link rel="canonical" href="' + escapeHtml(pageUrl) + '">\n' +
-      '<meta property="og:url" content="' + escapeHtml(pageUrl) + '">\n</head>');
+      '<meta property="og:url" content="' + escapeHtml(pageUrl) + '">\n<meta property="og:locale" content="en_IN">\n</head>');
 }
 
 const pages = new Map();
@@ -94,56 +92,18 @@ for (const file of PAGES) {
     if (!publicFiles.has(asset)) throw new Error(`${file}: asset missing from build allowlist: ${asset}`);
   }
   pages.set(file, applyPublicUrl(
-    syncCatalogueMarkup(html, catalogue),
+    syncPageMetadata(syncCatalogueMarkup(html, catalogue), file),
     siteOrigin,
     file === 'index.html' ? '' : file
   ));
 }
 const baseUrl = new URL('/', siteOrigin);
-const organisation = {
-  '@context': 'https://schema.org', '@type': 'Organization',
-  '@id': new URL('#organization', baseUrl).href,
-  name: 'M&A Industries', url: baseUrl.href,
-  logo: new URL('assets/images/brand-logo.png', baseUrl).href,
-  email: 'info@maindustries.in', telephone: '+91 98191 57417',
-  address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
-  areaServed: 'Worldwide',
-  description: 'Sugarcane-based essentials and recycled household products, alongside an established paper and packaging range.',
-  knowsAbout: catalogue.categories.map(category => category.name)
-};
 for (const [file, sourceHtml] of pages) {
   const html = responsiveImages(watermarkImages(sourceHtml), RESPONSIVE_IMAGES).replace(/((?:src|href)=")(assets\/(?:js|css)\/[^"?]+)(?:\?[^"\s]*)?(")/g,
     (_, start, file, end) => assetVersions.has(file) ? `${start}${file}?v=${assetVersions.get(file)}${end}` : `${start}${file}${end}`);
-  const pageUrl = new URL(file === 'index.html' ? '' : file, baseUrl).href;
-  const name = html.match(/<title>\s*([\s\S]*?)\s*<\/title>/)[1].replaceAll('&amp;', '&');
-  const graph = [organisation, {
-    '@type': file === 'contact.html' ? 'ContactPage' : file === 'about.html' ? 'AboutPage' : ['categories.html', 'products.html'].includes(file) ? 'CollectionPage' : 'WebPage', '@id': pageUrl + '#webpage',
-    url: pageUrl, name, inLanguage: 'en',
-    description: html.match(/<meta name="description" content="([^"]+)"/)[1]
-      .replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'"),
-    publisher: { '@id': organisation['@id'] },
-    isPartOf: { '@id': new URL('#website', baseUrl).href }
-  }, { '@type': 'WebSite', '@id': new URL('#website', baseUrl).href,
-    url: baseUrl.href, name: organisation.name, publisher: { '@id': organisation['@id'] } }];
-  if (file === 'categories.html') {
-    graph[1].mainEntity = { '@id': pageUrl + '#categories' };
-    graph.push({ '@type': 'ItemList', '@id': pageUrl + '#categories', name: 'Product categories',
-      itemListElement: catalogue.categories.map((category, index) => ({
-        '@type': 'ListItem', position: index + 1, name: category.name,
-        url: new URL(`products.html?category=${category.id}#collection`, baseUrl).href
-      })) });
-  }
-  if (file === 'products.html') {
-    graph[1].mainEntity = { '@id': pageUrl + '#catalogue' };
-    graph.push({ '@type': 'ItemList', '@id': pageUrl + '#catalogue', name: 'M&A Industries product catalogue',
-      numberOfItems: catalogue.papers.length,
-      itemListElement: catalogue.papers.map((product, index) => ({
-        '@type': 'ListItem', position: index + 1, name: product.name,
-        url: new URL(`products.html?category=${product.group}#paper-${product.id}`, baseUrl).href
-      })) });
-  }
+  const structuredData = buildStructuredData(file, catalogue, baseUrl);
   pages.set(file, html.replace('</head>', '<script type="application/ld+json">' +
-    JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c') + '</script>\n</head>'));
+    JSON.stringify(structuredData).replaceAll('<', '\\u003c') + '</script>\n</head>'));
 }
 
 // Delete only this generated directory, never the checkout or source assets.

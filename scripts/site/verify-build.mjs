@@ -1,6 +1,8 @@
 /** Check every deployed HTML asset, page link and static anchor without network requests. */
 import { access, readFile, readdir } from 'node:fs/promises';
 import { ROOT, PAGES } from './config.mjs';
+import { PAGE_META } from './seo.mjs';
+import { escapeHtml } from './catalogue-markup.mjs';
 
 const output = new URL('dist/', ROOT);
 const files = (await readdir(output)).filter(file => file.endsWith('.html'));
@@ -22,6 +24,9 @@ for (const [file, html] of pages) {
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   if (!title || titles.has(title)) throw new Error(`${file}: missing or duplicate title`);
   if (!description || descriptions.has(description)) throw new Error(`${file}: missing or duplicate description`);
+  if (title !== escapeHtml(PAGE_META[file].title) || description !== escapeHtml(PAGE_META[file].description)) {
+    throw new Error(`${file}: deployed metadata differs from the shared SEO configuration`);
+  }
   titles.add(title);
   descriptions.add(description);
   if ([...html.matchAll(/<h1(?:\s[^>]*)?>/g)].length !== 1) throw new Error(`${file}: expected one main heading`);
@@ -53,7 +58,19 @@ for (const [file, html] of pages) {
     }
     links++;
   }
-  for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(json);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  if (schemas.length !== 1) throw new Error(`${file}: expected one structured-data graph`);
+  const graph = JSON.parse(schemas[0][1])['@graph'];
+  const pageSchema = graph.find(item => item['@id'] === canonical.href + '#webpage');
+  if (!pageSchema || pageSchema.url !== canonical.href) throw new Error(`${file}: structured-data page identity differs from canonical`);
+  const graphIds = graph.map(item => item['@id']);
+  if (new Set(graphIds).size !== graphIds.length) throw new Error(`${file}: duplicate structured-data identity`);
+  for (const id of graphIds) {
+    if (!id.startsWith(canonical.origin + '/')) throw new Error(`${file}: structured-data identity uses another origin`);
+  }
+  if (file !== 'index.html' && !graph.some(item => item['@type'] === 'BreadcrumbList')) throw new Error(`${file}: missing breadcrumbs`);
+  const organization = graph.find(item => item['@type'] === 'Organization');
+  if (organization?.telephone !== '+91 98191 57417') throw new Error(`${file}: stale organization contact`);
   // Responsive candidates are separate resources, not covered by src/href checks.
   for (const [, candidates] of html.matchAll(/\bsrcset="([^"]+)"/g)) {
     for (const candidate of candidates.split(',')) {
