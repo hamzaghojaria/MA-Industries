@@ -156,7 +156,7 @@ test('keyboard product selection opens details and preselects the enquiry', () =
   assert.match(page.get('detail-body').innerHTML, /Kraft paper/);
   const whatsappHref = page.get('detail-body').innerHTML.match(/href="(https:\/\/wa\.me\/[^\"]+)"/)[1];
   const draft = new URL(whatsappHref.replaceAll('&#39;', "'").replaceAll('&amp;', '&'));
-  assert.equal(draft.pathname, '/919769681761');
+  assert.equal(draft.pathname, '/919819157417');
   assert.match(draft.searchParams.get('text'), /I'm interested in Kraft paper/);
   assert.match(page.get('detail-body').innerHTML, /WhatsApp connect/);
   assert.ok(page.get('detail-body').innerHTML.includes('assets/images/products/kraft-paper.webp'));
@@ -176,7 +176,7 @@ test('enquiry prepares email and WhatsApp links without transmitting messages', 
   assert.match(new URL(page.location.href).searchParams.get('body'), /Quantity: 500 kg/);
   page.get('brief').dispatch('submit', { submitter: { value: 'whatsapp' } });
   const url = new URL(page.openedLinks[0]);
-  assert.equal(url.pathname, '/919769681761');
+  assert.equal(url.pathname, '/919819157417');
   assert.match(url.searchParams.get('text'), /Product: Kraft paper/);
 });
 

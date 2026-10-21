@@ -66,7 +66,7 @@ def page(label):
     text(W-60,27,f'{page_number:02}',8,color=MUTED)
 
 def contact(y):
-    for label,url in [('+91 97696 81761','https://wa.me/919769681761?text='+quote('Hello M&A Industries, I viewed your catalogue. Please help with product options, specifications, pricing and availability.')),('info@maindustries.in','mailto:info@maindustries.in'),('maindustries.in','http://maindustries.in/')]:
+    for label,url in [('+91 98191 57417','https://wa.me/919819157417?text='+quote('Hello M&A Industries, I viewed your catalogue. Please help with product options, specifications, pricing and availability.')),('info@maindustries.in','mailto:info@maindustries.in'),('maindustries.in','http://maindustries.in/')]:
         text(44,y,label,12,'Helvetica-Bold',RED); c.linkURL(url,(44,y-3,400,y+14)); y-=27
 
 page('THE COMPLETE COLLECTION')

@@ -19,7 +19,7 @@ parser.add_argument('--person', choices=['maaz', 'aadil', 'mohammed', 'yahya', '
 args = parser.parse_args()
 WEBSITE = args.website
 NAME, PHONE, DISPLAY_PHONE, FILE_NAME = {
-    'maaz': ('Maaz Dawa', '919769681761', '+91 97696 81761', 'Maaz'),
+    'maaz': ('Maaz Dawa', '919819157417', '+91 98191 57417', 'Maaz'),
     'hamza': ('Hamza Ghojaria', '919892203101', '+91 98922 03101', 'Hamza'),
     'aadil': ('Aadil Dhukka', '919769554745', '+91 97695 54745', 'Aadil'),
     'mohammed': ('Mohammed Dhukka', '919773233219', '+91 97732 33219', 'Mohammed'),

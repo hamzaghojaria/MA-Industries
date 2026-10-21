@@ -105,7 +105,7 @@ const organisation = {
   '@id': new URL('#organization', baseUrl).href,
   name: 'M&A Industries', url: baseUrl.href,
   logo: new URL('assets/images/brand-logo.png', baseUrl).href,
-  email: 'info@maindustries.in', telephone: '+91 97696 81761',
+  email: 'info@maindustries.in', telephone: '+91 98191 57417',
   address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
   areaServed: 'Worldwide',
   description: 'Sugarcane-based essentials and recycled household products, alongside an established paper and packaging range.',
