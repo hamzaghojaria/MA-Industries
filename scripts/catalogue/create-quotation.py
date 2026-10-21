@@ -22,7 +22,7 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--source',type=Path,default=Path(r'C:\Users\Hamza\Downloads\Ecomass_Quotation_261019 (1).xlsx'))
 args=parser.parse_args()
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'output/pdf/Ecomass_Quotation_without_USD_pricing.pdf'
+OUT=ROOT/'output/pdf/M&AIndustries_Product_Specs.pdf'
 TMP=ROOT/'tmp/pdfs/quotation-review'
 TMP.mkdir(parents=True,exist_ok=True)
 cells,images=load_quotation(args.source)
