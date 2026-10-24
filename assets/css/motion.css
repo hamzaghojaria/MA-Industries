@@ -9,7 +9,7 @@
   position: fixed;
   inset: 0 0 auto;
   height: 3px;
-  background: linear-gradient(90deg, #a70027, #cb8a6d);
+  background: linear-gradient(90deg, #245c3a, #8fae88);
   transform: scaleX(0);
   transform-origin: left;
   z-index: 100;
@@ -124,7 +124,7 @@
 }
 
 .directory-jumps .collection-jump-label {
-  color: var(--red);
+  color: var(--accent);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.4px;
@@ -153,12 +153,12 @@
   height: 32px;
   border: 1px solid #d8cbbb;
   border-radius: 50%;
-  color: var(--red);
+  color: var(--accent);
   font-size: 18px;
 }
 
 .collection-jump:focus-visible {
-  outline: 3px solid var(--red);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .faq details[open] {
-  border-color: #bc8d8f;
+  border-color: #8fae88;
 }
 
 .faq summary span {
@@ -227,12 +227,12 @@
 
 .faq details[open] summary span {
   transform: rotate(45deg);
-  color: var(--red);
+  color: var(--accent);
 }
 
 .button:focus-visible, .card-whatsapp:focus-visible, .directory-card:focus-visible,
 .range-gateway:focus-visible, .offering-grid>a:focus-visible {
-  outline: 3px solid #a70027;
+  outline: 3px solid #245c3a;
   outline-offset: 5px;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .enquiry input:user-invalid {
-  border-color: #ffb8ad;
+  border-color: #b7d2aa;
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -351,7 +351,7 @@
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   a:not(.directory-card):not(.range-gateway):not(.button):not(.text-button):not(.nav-cta):not(.footer-enquiry-link):not(.card-whatsapp):not(.floating-whatsapp):not(.brand-link):not(.brand-card):not(.footer-contact-actions a):not(.category-explore-button):not(.gallery-image):hover {
-    color: var(--red);
+    color: var(--accent);
     text-decoration-color: currentColor;
   }
 }

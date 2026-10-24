@@ -26,7 +26,7 @@
 }
 
 .brands-section h2 em {
-  color: var(--red);
+  color: var(--accent);
 }
 
 .brands-intro {
@@ -67,7 +67,7 @@
 }
 
 .brand-card:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -135,7 +135,7 @@
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 2px;
     scrollbar-width: thin;
-    scrollbar-color: #a70027 #d9dfd3;
+    scrollbar-color: #245c3a #d9dfd3;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -196,7 +196,7 @@
 }
 
 .brand-card-actions .brand-card-link:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .brand-card-actions .brand-card-link:hover {
-  color: var(--red);
+  color: var(--accent);
 }
 
 @media (max-width: 600px) {

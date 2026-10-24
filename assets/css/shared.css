@@ -11,7 +11,7 @@
 
 :root {
   --ink: #262922;
-  --red: #a70027;
+  --accent: #245c3a;
   --cream: #f5f2e9;
   --line: #dcd9cf;
   --section-space: 40px;
@@ -106,7 +106,7 @@ nav {
   display: inline-block;
   width: 7px;
   height: 7px;
-  background: var(--red);
+  background: var(--accent);
   border-radius: 50%;
   margin-right: 9px;
 }
@@ -122,7 +122,7 @@ h1 {
 em {
   font-family: 'Playfair Display',Georgia,serif;
   font-weight: 500;
-  color: var(--red);
+  color: var(--accent);
 }
 
 .intro {
@@ -136,7 +136,7 @@ em {
   justify-content: space-between;
   gap: 38px;
   align-items: center;
-  background: var(--red);
+  background: var(--accent);
   color: white;
   width: max-content;
   padding: 18px 25px;
@@ -147,7 +147,7 @@ em {
 }
 
 .button:hover {
-  background: #80001e;
+  background: #173d2a;
 }
 
 .button span {
@@ -199,7 +199,7 @@ em {
 }
 
 .s3 {
-  background-color: #a70027;
+  background-color: #245c3a;
   left: 21%;
   top: 20%;
 }
@@ -245,14 +245,14 @@ em {
   position: absolute;
   bottom: 34px;
   left: 28px;
-  border: 1px solid #a70027;
+  border: 1px solid #245c3a;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   display: grid;
   place-items: center;
   font-size: 8px;
-  color: var(--red);
+  color: var(--accent);
   transform: rotate(-20deg);
 }
 
@@ -435,7 +435,7 @@ h3 {
 
 .steps article>span {
   font-size: 11px;
-  color: var(--red);
+  color: var(--accent);
   padding-top: 6px;
 }
 
@@ -492,7 +492,7 @@ h3 {
 }
 
 .enquiry em {
-  color: #dda99e;
+  color: #b7d2aa;
 }
 
 .enquiry>div>p:not(.eyebrow) {
@@ -595,7 +595,7 @@ dialog p {
 
 .dialog-tag {
   font-size: 11px;
-  color: var(--red);
+  color: var(--accent);
   letter-spacing: 2px;
 }
 
@@ -988,13 +988,13 @@ nav a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
 }
 
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #dda99e;
+  outline: 2px solid #b7d2aa;
 }
 
 .hero-art {
@@ -1027,7 +1027,7 @@ textarea:focus-visible {
   position: absolute;
   inset: 0 0 auto;
   height: 3px;
-  background: var(--red);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .4s;
@@ -1106,7 +1106,7 @@ textarea {
 .enquiry select:focus,
 .enquiry textarea:focus {
   background: #ffffff12;
-  border-color: #dda99e;
+  border-color: #b7d2aa;
 }
 
 .reveal {
@@ -1138,7 +1138,7 @@ textarea {
 
 @media(hover:hover) and (pointer:fine) {
   nav a:hover {
-    color: var(--red);
+    color: var(--accent);
   }
 
   .nav-cta:hover {
@@ -1149,7 +1149,7 @@ textarea {
 
   .button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 22px #a7002726;
+    box-shadow: 0 8px 22px #245c3a26;
   }
 
   .button:hover span {
@@ -1196,7 +1196,7 @@ textarea {
   }
 
   .product:hover {
-    border-color: var(--red);
+    border-color: var(--accent);
   }
 
   .product:hover .product-visual::after,
@@ -1206,14 +1206,14 @@ textarea {
   }
 
   .detail-button:hover {
-    background: var(--red);
+    background: var(--accent);
     color: white;
-    border-color: var(--red);
+    border-color: var(--accent);
     transform: rotate(45deg);
   }
 
   .text-button:hover {
-    color: var(--red);
+    color: var(--accent);
   }
 
   .filters button:not(.active):hover {
@@ -1223,7 +1223,7 @@ textarea {
 
   .steps article:hover {
     transform: translateX(6px);
-    border-color: var(--red);
+    border-color: var(--accent);
   }
 
   .sample-row div:hover {
@@ -1558,8 +1558,8 @@ textarea {
 }
 
 .pagination button[aria-current] {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
@@ -1569,7 +1569,7 @@ textarea {
 }
 
 .pagination button:not(:disabled):hover {
-  border-color: var(--red);
+  border-color: var(--accent);
 }
 
 .enquiry .note {
@@ -1645,10 +1645,10 @@ header .logo {
   gap: 24px;
   min-height: 58px;
   padding: 10px 10px 10px 22px;
-  border: 1px solid #a7002730;
+  border: 1px solid #245c3a30;
   border-radius: 999px;
   background: #fffaf3;
-  color: var(--red);
+  color: var(--accent);
   font-size: 14px;
   line-height: 1.4;
   text-decoration: none;
@@ -1666,16 +1666,16 @@ header .logo {
   height: 38px;
   flex: 0 0 38px;
   border-radius: 50%;
-  background: var(--red);
+  background: var(--accent);
   color: #fff;
   font-size: 22px;
   transition: transform .25s ease;
 }
 
 .category-explore-button:hover {
-  background: #f6e9e6;
-  border-color: var(--red);
-  box-shadow: 0 6px 18px #a7002710;
+  background: #e5ede2;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px #245c3a10;
 }
 
 .category-explore-button:hover .category-explore-arrow {
@@ -1683,7 +1683,7 @@ header .logo {
 }
 
 .category-explore-button:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 5px;
 }
 
@@ -1794,7 +1794,7 @@ header nav a:not(.nav-cta)::after,
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--red);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .3s cubic-bezier(.22,1,.36,1);
@@ -1806,7 +1806,7 @@ header nav a:not(.nav-cta) {
 
 header nav a:focus-visible,
 .site-footer a:focus-visible {
-  color: var(--red);
+  color: var(--accent);
 }
 
 header nav a:focus-visible::after,
@@ -1820,7 +1820,7 @@ header nav a:focus-visible::after,
 
 .menu[aria-expanded=true] {
   background: #f5f2e9;
-  color: var(--red);
+  color: var(--accent);
 }
 
 @media(hover:hover) and (pointer:fine) {
@@ -1952,7 +1952,7 @@ header nav a:focus-visible::after,
   top: 12px;
   left: 12px;
   z-index: 50;
-  background: var(--red);
+  background: var(--accent);
   color: white;
   padding: 13px 20px;
   transform: translateY(-160%);
@@ -1976,7 +1976,7 @@ header.scrolled {
 }
 
 header nav a.is-current {
-  color: var(--red);
+  color: var(--accent);
 }
 
 header nav a.is-current::after {
@@ -2032,7 +2032,7 @@ header nav a.is-current::after {
   font-size: 23px;
   font-weight: 400;
   transition: transform .25s;
-  color: var(--red);
+  color: var(--accent);
 }
 
 .faq-items details[open] summary span {
@@ -2040,7 +2040,7 @@ header nav a.is-current::after {
 }
 
 .faq-items summary:hover {
-  color: var(--red);
+  color: var(--accent);
 }
 
 .faq-items p {
@@ -2161,7 +2161,7 @@ button:active {
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
-  scrollbar-color: #a70027 #ded8cb;
+  scrollbar-color: #245c3a #ded8cb;
   overscroll-behavior-x: contain;
 }
 
@@ -2180,12 +2180,12 @@ button:active {
 }
 
 .filters::-webkit-scrollbar-thumb {
-  background: #a70027;
+  background: #245c3a;
   border-radius: 10px;
 }
 
 .filters::-webkit-scrollbar-thumb:hover {
-  background: #80001e;
+  background: #173d2a;
 }
 
 .results-count {
@@ -2427,12 +2427,12 @@ button:active {
 }
 
 .product:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 6px;
 }
 
 .product:focus-within {
-  border-bottom-color: var(--red);
+  border-bottom-color: var(--accent);
 }
 
 @media(hover:hover) and (pointer:fine) {
@@ -2471,7 +2471,7 @@ button:active {
 .hero h1 em {
   display: inline-block;
   font-style: italic;
-  color: var(--red);
+  color: var(--accent);
   position: relative;
 }
 
@@ -2481,7 +2481,7 @@ button:active {
   width: 45%;
   height: 2px;
   margin-top: 12px;
-  background: linear-gradient(90deg,var(--red),#a7002700);
+  background: linear-gradient(90deg,var(--accent),#245c3a00);
 }
 
 .brand-tagline {
@@ -2546,7 +2546,7 @@ button:active {
 
 .category-grid:focus-visible,
 .products:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 5px;
 }
 
@@ -2563,7 +2563,7 @@ button:active {
 
   .mobile-swipe-hint span {
     font-size: 18px;
-    color: var(--red);
+    color: var(--accent);
   }
 
   .category-grid,
@@ -2583,7 +2583,7 @@ button:active {
     padding: 6px 2px 16px;
     margin-top: 0;
     scrollbar-width: thin;
-    scrollbar-color: #a70027 #ded8cb;
+    scrollbar-color: #245c3a #ded8cb;
   }
 
   .category-grid::-webkit-scrollbar,
@@ -2599,7 +2599,7 @@ button:active {
 
   .category-grid::-webkit-scrollbar-thumb,
   .products::-webkit-scrollbar-thumb {
-    background: var(--red);
+    background: var(--accent);
     border-radius: 10px;
   }
 
@@ -2700,13 +2700,13 @@ button:active {
   
   0%,
   100% {
-  background: #a700270a;
-  box-shadow: 0 0 0 0 #a7002700;
+  background: #245c3a0a;
+  box-shadow: 0 0 0 0 #245c3a00;
   }
   
   50% {
-  background: #a7002715;
-  box-shadow: 0 0 0 5px #a7002705;
+  background: #245c3a15;
+  box-shadow: 0 0 0 5px #245c3a05;
   }
   
 }
@@ -2769,7 +2769,7 @@ button:active {
     height: 34px;
     padding: 0;
     border-radius: 50%;
-    background: #a700270a;
+    background: #245c3a0a;
   }
 
   .approach .steps h3 {
@@ -2811,7 +2811,7 @@ button:active {
     display: block;
     width: 55px;
     height: 2px;
-    background: var(--red);
+    background: var(--accent);
     margin-top: 18px;
     transform-origin: left;
   }
@@ -3222,7 +3222,7 @@ body.product-modal-open {
   right: 20px;
   padding: 10px 14px;
   background: #fffaf2ed;
-  color: var(--red);
+  color: var(--accent);
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: 19px;
@@ -3287,7 +3287,7 @@ body.product-modal-open {
 }
 
 .about-hero-copy .founder-name {
-  color: var(--red);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -3354,24 +3354,24 @@ body.product-modal-open {
 }
 
 .founder-grid .founder-card:focus-within {
-  border-color: #c68a98;
-  box-shadow: 0 8px 24px #a7002712;
+  border-color: #8fae88;
+  box-shadow: 0 8px 24px #245c3a12;
 }
 
 @media (hover: none) and (pointer: coarse) {
   .founder-grid .founder-card:active {
     transform: translateY(-3px);
-    border-color: #c68a98;
-    box-shadow: 0 8px 24px #a7002718;
-    background: #fffafa;
+    border-color: #8fae88;
+    box-shadow: 0 8px 24px #245c3a18;
+    background: #f5f8f2;
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .founder-grid .founder-card:hover {
     transform: translateY(-5px);
-    border-color: #c68a98;
-    box-shadow: 0 12px 28px #a7002718;
+    border-color: #8fae88;
+    box-shadow: 0 12px 28px #245c3a18;
   }
 }
 
@@ -3401,7 +3401,7 @@ body.product-modal-open {
 }
 
 .about-value-grid article > span {
-  color: var(--red);
+  color: var(--accent);
   display: inline-block;
   font-size: clamp(28px, 3vw, 36px);
   font-weight: 600;
@@ -3472,7 +3472,7 @@ body.product-modal-open {
 }
 
 .founder-card > .founder-qualification {
-  color: var(--red);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.5;
@@ -3511,7 +3511,7 @@ body.product-modal-open {
     scroll-padding-inline: 2px;
     overscroll-behavior-x: contain;
     scrollbar-width: thin;
-    scrollbar-color: var(--red) #ded8cb;
+    scrollbar-color: var(--accent) #ded8cb;
     margin-top: 0;
     padding: 4px 2px 14px;
     max-width: 100%;
@@ -3540,7 +3540,7 @@ body.product-modal-open {
   }
 
   .founder-grid::-webkit-scrollbar-thumb {
-    background: var(--red);
+    background: var(--accent);
     border-radius: 10px;
   }
 }
@@ -3560,14 +3560,14 @@ body.product-modal-open {
   min-height: 48px;
   margin-top: auto;
   padding: 10px;
-  border: 1px solid #d9bdc2;
+  border: 1px solid #c5d5c0;
   border-radius: 6px;
-  background: #fff7f7;
-  color: var(--red);
+  background: #f3f7ef;
+  color: var(--accent);
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
-  -webkit-tap-highlight-color: #a7002726;
+  -webkit-tap-highlight-color: #245c3a26;
   transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
@@ -3581,10 +3581,10 @@ body.product-modal-open {
 .founder-grid .founder-card .text-button:hover,
 .founder-grid .founder-card .text-button:focus-visible,
 .founder-grid .founder-card .text-button:active {
-  background: var(--red);
+  background: var(--accent);
   color: #fff;
-  border-color: var(--red);
-  box-shadow: 0 4px 12px #a7002720;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px #245c3a20;
 }
 
 .founder-card .text-button:hover .action-arrow,
@@ -3626,8 +3626,8 @@ body.product-modal-open {
 .product-gsm strong {
   padding: 3px 9px;
   border-radius: 20px;
-  background: #f6ecec;
-  color: #a70027;
+  background: #e5ede2;
+  color: #245c3a;
   font-weight: 600;
 }
 
@@ -3645,7 +3645,7 @@ body.product-modal-open {
 }
 
 .detail-gsm > strong {
-  color: #a70027;
+  color: #245c3a;
   font-size: 17px;
 }
 
@@ -3752,7 +3752,7 @@ header, .collection, .approach, .feature, .faq, .enquiry.enquiry-simple,
   overscroll-behavior-x: contain;
   padding-bottom: 10px;
   scrollbar-width: thin;
-  scrollbar-color: var(--red) #ded8cb;
+  scrollbar-color: var(--accent) #ded8cb;
 }
 
 .industry-gallery-grid figure {
@@ -3813,7 +3813,7 @@ header, .collection, .approach, .feature, .faq, .enquiry.enquiry-simple,
 }
 
 .industry-gallery-grid::-webkit-scrollbar-thumb {
-  background: var(--red);
+  background: var(--accent);
   border-radius: 8px;
 }
 
@@ -3847,11 +3847,11 @@ button:disabled {
   }
 
   .product:hover {
-    border-bottom-color: var(--red);
+    border-bottom-color: var(--accent);
   }
 
   .faq-items summary:hover {
-    color: var(--red);
+    color: var(--accent);
   }
 
   .founder-card:hover {
@@ -3882,7 +3882,7 @@ button:disabled {
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--red);
+  background: var(--accent);
   transform: scaleX(.18);
   transform-origin: left;
   transition: transform .3s ease;
@@ -3898,10 +3898,10 @@ button:disabled {
 }
 
 .paper-guide-grid article:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
   background: #fff;
-  box-shadow: 0 10px 26px #a7002712;
+  box-shadow: 0 10px 26px #245c3a12;
 }
 
 .paper-guide-grid article:focus-visible::before,
@@ -3910,16 +3910,16 @@ button:disabled {
 }
 
 .paper-guide-grid article:active {
-  background: #f6ecec;
-  border-color: #a7002755;
+  background: #e5ede2;
+  border-color: #245c3a55;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .paper-guide-grid article:hover {
     transform: translateY(-5px);
     background: #fff;
-    border-color: #a7002740;
-    box-shadow: 0 12px 28px #a7002712;
+    border-color: #245c3a40;
+    box-shadow: 0 12px 28px #245c3a12;
   }
 
   .paper-guide-grid article:hover::before {
@@ -3927,7 +3927,7 @@ button:disabled {
   }
 
   .paper-guide-grid article:hover h3 {
-    color: var(--red);
+    color: var(--accent);
   }
 }
 
@@ -3981,13 +3981,13 @@ button:disabled {
 }
 
 header nav .nav-products {
-  color: var(--red);
+  color: var(--accent);
   font-weight: 600;
 }
 
 header nav .nav-cta {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
   border-radius: 5px;
   transition: background .25s, box-shadow .25s, transform .25s;
@@ -3995,13 +3995,13 @@ header nav .nav-cta {
 
 header nav .nav-cta:hover,
 header nav .nav-cta:focus-visible {
-  background: #80001e;
+  background: #173d2a;
   color: #fff;
-  box-shadow: 0 4px 14px #a7002720;
+  box-shadow: 0 4px 14px #245c3a20;
 }
 
 header nav .nav-cta:active {
-  background: #680018;
+  background: #123020;
 }
 
 header nav .nav-cta.is-current {

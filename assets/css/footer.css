@@ -109,7 +109,7 @@ footer {
 }
 
 .site-footer a:hover {
-  color: var(--red);
+  color: var(--accent);
 }
 
 .footer-contact-actions {
@@ -178,7 +178,7 @@ footer {
   top: 0;
   width: 70px;
   height: 3px;
-  background: var(--red);
+  background: var(--accent);
   transition: width .6s;
 }
 
@@ -197,10 +197,10 @@ footer {
   }
 
   .footer-contact-actions a:hover {
-    background: var(--red);
+    background: var(--accent);
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px #a7002720;
+    box-shadow: 0 5px 15px #245c3a20;
   }
 
   .site-footer:hover::before {
@@ -502,7 +502,7 @@ footer {
 
 .site-footer .footer-explore h3 {
   text-decoration: underline;
-  text-decoration-color: var(--red);
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
   margin: 7px 0 22px;
@@ -591,7 +591,7 @@ footer {
   min-height: 44px;
   padding: 8px 12px;
   border-radius: 5px;
-  background: var(--red);
+  background: var(--accent);
   color: #fff;
   font-weight: 600;
   transition: background .25s, box-shadow .25s, transform .25s;
@@ -599,14 +599,14 @@ footer {
 
 .site-footer .footer-explore .footer-enquiry-link:hover,
 .site-footer .footer-explore .footer-enquiry-link:focus-visible {
-  background: #80001e;
+  background: #173d2a;
   color: #fff;
-  box-shadow: 0 4px 14px #a7002720;
+  box-shadow: 0 4px 14px #245c3a20;
   text-decoration: none;
 }
 
 .site-footer .footer-explore .footer-enquiry-link:active {
-  background: #680018;
+  background: #123020;
   color: #fff;
 }
 

@@ -72,7 +72,7 @@
   background: var(--cream);
   box-shadow: 0 2px 10px #0001;
 }
-#detail > .close:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+#detail > .close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .product-modal-content {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -180,7 +180,7 @@
   font-size: 12px;
   line-height: 1.8;
   color: #6d7065;
-  border-left: 2px solid var(--red);
+  border-left: 2px solid var(--accent);
 }
 
 @media(max-width:600px) {
@@ -214,7 +214,7 @@
 
 .reset-catalogue:hover {
   background: #e8e3d5;
-  border-color: var(--red);
+  border-color: var(--accent);
 }
 
 @media(max-width:1000px) {
@@ -505,7 +505,7 @@
   }
 
   .mobile-category-filter select:focus-visible {
-    outline: 2px solid var(--red);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 
@@ -550,7 +550,7 @@
   }
 
   .catalogue-tools .product-search input:focus-visible {
-    outline: 2px solid var(--red);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 
