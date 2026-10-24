@@ -59,8 +59,10 @@ footer {
 }
 
 .site-footer {
+  --line: #52715a;
+  color: #f5f2e9;
   display: block;
-  border-top: 1px solid #d3cdbf;
+  border-top: 1px solid #52715a;
 }
 
 .footer-grid {
@@ -68,6 +70,8 @@ footer {
 }
 
 .footer-logo {
+  background: #fffdf8;
+  padding: 8px;
   display: block;
   width: 100%;
   max-width: 285px;
@@ -76,18 +80,19 @@ footer {
 }
 
 .site-footer h3 {
-  color: #454b3f;
+  color: #f5f2e9;
   font-size: 13px;
   font-weight: 700;
   margin: 7px 0 23px;
 }
 
+.site-footer .brand-tagline,
 .site-footer p {
   font-family: 'DM Sans',Arial,sans-serif;
   font-style: normal;
   font-size: 12px;
   line-height: 1.8;
-  color: #62675c;
+  color: #cdd9c7;
 }
 
 .site-footer ul {
@@ -109,7 +114,7 @@ footer {
 }
 
 .site-footer a:hover {
-  color: var(--accent);
+  color: #d8c7a5;
 }
 
 .footer-contact-actions {
@@ -286,7 +291,7 @@ footer {
 }
 
 .site-footer {
-  background: #fff;
+  background: #173d2a;
 }
 
 .footer-contact-actions {
@@ -317,7 +322,7 @@ footer {
 @media(max-width:600px) {
   .site-footer {
     padding: 30px var(--page-gutter) 24px;
-    background: #fff;
+    background: #173d2a;
   }
 
   .site-footer::before {
@@ -380,7 +385,7 @@ footer {
 
   .site-footer .footer-explore h3 {
     font-size: 12px;
-    color: #454b3f;
+    color: #f5f2e9;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -435,6 +440,7 @@ footer {
 }
 
 .site-footer .footer-contact-actions > :is(a, span) {
+  color: #173d2a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -502,7 +508,7 @@ footer {
 
 .site-footer .footer-explore h3 {
   text-decoration: underline;
-  text-decoration-color: var(--accent);
+  text-decoration-color: #d8c7a5;
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
   margin: 7px 0 22px;
@@ -514,7 +520,7 @@ footer {
 
 .site-footer .footer-link-group h4 {
   margin: 0 0 8px;
-  color: #77796e;
+  color: #b7d2aa;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .8px;
@@ -574,7 +580,7 @@ footer {
   max-width: 390px;
   font-size: 12px;
   line-height: 1.8;
-  color: #626958;
+  color: #cdd9c7;
   margin: 16px 0;
 }
 

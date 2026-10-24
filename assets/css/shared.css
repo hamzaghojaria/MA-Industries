@@ -13,7 +13,7 @@
   --ink: #262922;
   --accent: #245c3a;
   --cream: #f5f2e9;
-  --line: #dcd9cf;
+  --line: #cdd9c7;
   --section-space: 40px;
   --section-space-compact: 32px;
 }
@@ -61,7 +61,7 @@ header {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
-  background: #fff;
+  background: var(--cream);
   z-index: 10;
 }
 
@@ -2488,7 +2488,7 @@ button:active {
   font-family: 'Playfair Display',Georgia,serif;
   font-style: italic;
   font-weight: 500;
-  color: #6d5147;
+  color: #52624a;
   letter-spacing: .3px;
 }
 

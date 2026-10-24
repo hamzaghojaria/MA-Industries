@@ -1032,6 +1032,8 @@ header nav a[aria-current="page"] {
 .gallery-controls button {
   display: grid;
   place-items: center;
+  padding: 0;
+  line-height: 1;
   width: 48px;
   height: 48px;
   border: 1px solid var(--accent);
@@ -1043,6 +1045,7 @@ header nav a[aria-current="page"] {
 }
 
 .gallery-controls svg {
+  display: block;
   width: 24px;
   height: 24px;
 }
@@ -1140,7 +1143,13 @@ header nav a[aria-current="page"] {
 }
 
 @media (max-width: 600px) {
-  .industry-gallery .gallery-intro {
+  @media (max-width: 800px) {
+  .gallery-controls {
+    display: none;
+  }
+}
+
+.industry-gallery .gallery-intro {
     gap: 10px;
     margin-top: 26px;
     font-size: 26px;
