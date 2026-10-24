@@ -29,7 +29,7 @@ groups = [g for g in data['categories'] if g.get('collection') == 'sugarcane-rec
 products = [p for g in groups for p in data['papers'] if p['group'] == g['id']]
 assert products and len(groups) == 4
 W, H = 595.276, 841.89
-INK, GREEN, RED, MUTED = '#262922', '#a70027', '#a70027', '#727168'
+INK, GREEN, RED, MUTED = '#262922', '#245c3a', '#245c3a', '#727168'
 DEST = OUT / 'MA-Industries-Catalogue.pdf'
 c = canvas.Canvas(str(DEST), pagesize=(W,H), pageCompression=1)
 c.setTitle('M&A Industries | Sugarcane & Recycled Collection')
@@ -55,10 +55,10 @@ def photo(p,x,y,w,h):
     c.drawImage(image,x+(w-iw*scale)/2,y+(h-ih*scale)/2,iw*scale,ih*scale,mask='auto')
 
 def base(n,label):
-    rect(0,0,W,H,'#fff5f3')
+    rect(0,0,W,H,'#f5f2e9')
     c.drawImage(str(ROOT/'assets/images/brand-logo.png'),40,792,width=174,height=31.5,mask='auto')
     text(40,777,label.upper(),8,GREEN)
-    rect(40,48,W-80,.6,'#dbaba7')
+    rect(40,48,W-80,.6,'#cdd9c7')
     text(40,30,'SUGARCANE / RECYCLED COLLECTION',7,MUTED)
     text(525,30,f'{n:02}',8,MUTED)
 
@@ -153,7 +153,7 @@ for folder in [ROOT/'assets/catalogues',ROOT/'dist/assets/catalogues']:
     folder.mkdir(parents=True,exist_ok=True)
     shutil.copyfile(DEST,folder/'MA-Industries-Paper-Catalogue.pdf')
 
-sheet=Image.new('RGB',(6*220,6*330),'#eddcdd')
+sheet=Image.new('RGB',(6*220,6*330),'#e5ede2')
 draw=ImageDraw.Draw(sheet)
 for i in range(len(doc)):
     with Image.open(TMP/f'focused-{i+1:02}.png') as preview:

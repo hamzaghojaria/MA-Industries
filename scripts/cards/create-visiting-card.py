@@ -37,8 +37,8 @@ TMP = ROOT / 'tmp' / 'pdfs'
 OUT.mkdir(parents=True, exist_ok=True)
 TMP.mkdir(parents=True, exist_ok=True)
 W, H = 96 * mm, 56 * mm
-RED, INK, CREAM = map(HexColor, ['#a70027', '#262922', '#fff5f3'])
-MUTED, BLUSH, SOFT_INK = map(HexColor, ['#934452', '#f6dedd', '#727168'])
+GREEN, INK, CREAM = map(HexColor, ['#245c3a', '#262922', '#f5f2e9'])
+MUTED, SAGE, SOFT_INK = map(HexColor, ['#52624a', '#e5ede2', '#727168'])
 c = canvas.Canvas(str(TMP / 'card-raw.pdf'), pagesize=(W, H))
 c.setTitle('M&A Industries | ' + NAME + ' | Visiting Card')
 c.setAuthor('M&A Industries')
@@ -74,7 +74,7 @@ def paper_layers(x, y):
     c.saveState()
     c.translate(x*mm, y*mm)
     c.rotate(-18)
-    for offset, color in [(0, '#eddcdd'), (3, '#c58d98'), (6, '#a70027')]:
+    for offset, color in [(0, '#e5ede2'), (3, '#8fae88'), (6, '#245c3a')]:
         c.setFillColor(HexColor(color))
         c.roundRect(offset*mm, offset*mm, 31*mm, 17*mm, 1*mm, fill=1, stroke=0)
     c.restoreState()
@@ -91,7 +91,7 @@ c.setFillColor(white)
 c.roundRect(8*mm, 18*mm, 80*mm, 17*mm, 2*mm, fill=1, stroke=0)
 c.drawImage(str(ROOT / 'assets/images/brand-logo.png'), 11*mm, 20*mm,
             width=74*mm, height=13.4*mm, mask='auto')
-centered(48, 12, 'Thoughtful materials. Everyday possibilities.', 9.5, 'Times-Italic', RED)
+centered(48, 12, 'Thoughtful materials. Everyday possibilities.', 9.5, 'Times-Italic', GREEN)
 centered(48, 7.5, 'Paper & Packaging  /  Sugarcane Products  /  Recycled Essentials', 6.3, color=SOFT_INK)
 paper_layers(-18, -13)
 paper_layers(79, -13)
@@ -102,12 +102,12 @@ c.showPage()
 # Back: two equally sized codes with their quiet zones intact.
 c.setFillColor(CREAM)
 c.rect(0, 0, W, H, fill=1, stroke=0)
-# A pale blush website side keeps the two-code layout quietly differentiated.
-c.setFillColor(BLUSH)
+# A soft sage website side keeps the two-code layout quietly differentiated.
+c.setFillColor(SAGE)
 c.rect(48*mm, 0, 48*mm, H, fill=1, stroke=0)
 centered(26, 44, 'WHATSAPP', 8, 'Helvetica-Bold', MUTED)
 centered(70, 44, 'WEBSITE', 8, 'Helvetica-Bold', MUTED)
-c.setStrokeColor(HexColor('#dbaba7'))
+c.setStrokeColor(HexColor('#cdd9c7'))
 c.setLineWidth(.65)
 c.line(48*mm, 10*mm, 48*mm, 46*mm)
 qr_code(13.5, 15, 'https://wa.me/' + PHONE)
