@@ -493,12 +493,6 @@ footer {
   gap: 8px;
 }
 
-.footer-contact-actions .social-coming-soon {
-  font-size: 9px;
-  letter-spacing: .2px;
-  opacity: .75;
-}
-
 .footer-contact-actions :is(.instagram-placeholder, .linkedin-placeholder) > svg {
   flex-shrink: 0;
 }
@@ -514,38 +508,6 @@ footer {
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
   margin: 7px 0 22px;
-}
-
-.site-footer .footer-link-group {
-  min-width: 0;
-}
-
-.site-footer .footer-link-group h4 {
-  margin: 0 0 8px;
-  color: #b7d2aa;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-}
-
-.site-footer .footer-link-group ul {
-  display: grid;
-  gap: 2px;
-}
-
-.site-footer .footer-link-group li {
-  min-width: 0;
-  margin: 0;
-}
-
-.site-footer .footer-link-group li a {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 44px;
-  padding: 8px 0;
-  line-height: 1.5;
 }
 
 @media (max-width: 600px) {

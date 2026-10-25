@@ -1,8 +1,8 @@
 # M&A Industries website
 
-A static catalogue led by sugarcane-based essentials and recycled household goods, supported by traditional paper and packaging. The current catalogue has **67 products in 12 categories**. No database, checkout, backend form submission, or npm dependencies are required.
+A static catalogue led by sugarcane-based essentials and recycled household goods. The current catalogue has **33 products in 4 categories**. No database, checkout, backend form submission, or npm dependencies are required.
 
-The shared merchandising order is sugarcane household goods, sugarcane food packaging, sugarcane paper, recycled household products, then traditional paper categories. `assets/js/catalogue-data.js` defines that order for products, filters, enquiry suggestions and generated pages. Product IDs and original reference numbers remain stable; card display numbers follow the current browsing order. The PDF catalogue covers the sugarcane and recycled collection, with one product per page and specifications drawn from the same data.
+The shared merchandising order is sugarcane household goods, sugarcane food packaging, sugarcane paper, recycled household products. `assets/js/catalogue-data.js` defines that order for products, filters, enquiry suggestions and generated pages. Quoted technical specifications are reconciled in `scripts/references/manufacturer-product-specs.json`. Product IDs and original reference numbers remain stable; card display numbers follow the current browsing order. The PDF catalogue covers the sugarcane and recycled collection, with one product family per page, aligned variant tables and specifications drawn from the same data.
 
 After adding or replacing a JPEG product photo, run `python scripts/images/create-responsive-images.py` before building. It creates the card previews and responsive candidates; use source photos at least 640 pixels wide. The build rejects missing card-preview entries. Commit the generated files and image manifest together.
 
@@ -15,7 +15,7 @@ The homepage Material Studio lets visitors choose an application and updates a m
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Homepage, range introductions, gallery, enquiry form, and two brand cards |
-| `categories.html` | Sugarcane & Recycled categories first, followed by Paper & Packaging; cards open the filtered catalogue |
+| `categories.html` | Sugarcane & Recycled categories; cards open the filtered catalogue |
 | `products.html` | Category filters, search, sorting, six products per page, dialogs, enquiries |
 | `about.html` | Company information and founders |
 
@@ -101,7 +101,7 @@ If a runtime command is not recognized, install/configure it and restart the VS 
 4. Run `npm run sync:catalogue` to refresh category cards, desktop filters, mobile options, and totals. The build also synchronizes deployed HTML in memory from the data.
 5. Run `npm run validate`. Regenerate and review the PDF separately when products change.
 
-The PDF generator reads current website data, writes `output/pdf/MA-Industries-Catalogue.pdf`, and updates `assets/catalogues/MA-Industries-Paper-Catalogue.pdf`. This public filename is retained for existing links. PDF product links select the matching website dialog.
+The PDF generator reads current website data, writes `output/pdf/MA-Industries-Catalogue.pdf`, and updates `assets/catalogues/MA-Industries-Catalogue.pdf`. The public filename matches the current sugarcane and recycled collection. PDF product links select the matching website dialog.
 
 ## Editing layout safely
 
@@ -175,8 +175,10 @@ git add .; if ($LASTEXITCODE -eq 0) { git commit -m "Refactor shared website sty
 
 ## Catalogue and repository maintenance
 
-The downloadable catalogue covers the 31 sugarcane and recycled products only, one product per page. It includes every published specification row from the website, with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF retains the burgundy/cream palette and logo on every page.
+The downloadable catalogue covers 33 sugarcane and recycled product families across four collections, with one product family per page and 40 pages in total. It includes every published specification row from the website, with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF uses the current forest-green and cream palette with the logo on every page.
 
 Run `npm run catalogue` to regenerate the PDF and self-contained browser edition under `output/pdf/`. The public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
 
 Run `npm run audit` for a read-only file/asset inventory. `npm run sync:metadata` synchronizes search and social text from `scripts/site/seo.mjs`. Run `npm run validate` before deployment. See `SEO-PLAN.md` and `PERFORMANCE.md` for current setup and remaining deployment checks.
+
+The PDF and self-contained browser catalogue were refreshed on 25 October 2026 with the current products, images, descriptions, applications and all 85 manufacturer variants.

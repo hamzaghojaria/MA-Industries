@@ -69,118 +69,6 @@
       "width": 960
     }
   ],
-  "assets/images/categories/boards.webp": [
-    {
-      "src": "assets/images/responsive/categories/boards-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/boards-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/boards-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/creative.webp": [
-    {
-      "src": "assets/images/responsive/categories/creative-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/creative-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/creative-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/everyday.webp": [
-    {
-      "src": "assets/images/responsive/categories/everyday-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/everyday-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/everyday-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/labels.webp": [
-    {
-      "src": "assets/images/responsive/categories/labels-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/labels-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/labels-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/office.webp": [
-    {
-      "src": "assets/images/responsive/categories/office-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/office-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/office-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/packaging.webp": [
-    {
-      "src": "assets/images/responsive/categories/packaging-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/packaging-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/packaging-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/specialty.webp": [
-    {
-      "src": "assets/images/responsive/categories/specialty-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/specialty-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/specialty-800.webp",
-      "width": 800
-    }
-  ],
-  "assets/images/categories/wrapping.webp": [
-    {
-      "src": "assets/images/responsive/categories/wrapping-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/categories/wrapping-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/categories/wrapping-800.webp",
-      "width": 800
-    }
-  ],
   "assets/images/founders/aadil-dhukka.jpg": [
     {
       "src": "assets/images/responsive/founders/aadil-dhukka-320.webp",
@@ -237,62 +125,6 @@
       "width": 960
     }
   ],
-  "assets/images/products/sugarcane-paper-cups-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-paper-cups-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-paper-cups-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-paper-cups-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/sugarcane-bath-tissues-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-bath-tissues-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-bath-tissues-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-bath-tissues-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/sugarcane-food-containers-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-food-containers-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-food-containers-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-food-containers-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/sugarcane-packaging-paper-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-packaging-paper-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-packaging-paper-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-packaging-paper-photo-960.webp",
-      "width": 960
-    }
-  ],
   "assets/images/products/cutting-boards-photo.jpg": [
     {
       "src": "assets/images/responsive/products/cutting-boards-photo-320.webp",
@@ -304,20 +136,6 @@
     },
     {
       "src": "assets/images/responsive/products/cutting-boards-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/reusable-cups-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/reusable-cups-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/reusable-cups-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/reusable-cups-photo-960.webp",
       "width": 960
     }
   ],
@@ -363,76 +181,6 @@
       "width": 960
     }
   ],
-  "assets/images/products/double-zipper-bags-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/double-zipper-bags-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/double-zipper-bags-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/double-zipper-bags-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/disposable-gloves-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/disposable-gloves-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/disposable-gloves-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/disposable-gloves-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/easy-cut-cling-wraps-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/easy-cut-cling-wraps-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/easy-cut-cling-wraps-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/easy-cut-cling-wraps-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/food-storage-roll-bags-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/food-storage-roll-bags-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/food-storage-roll-bags-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/food-storage-roll-bags-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/food-storage-pop-up-bags-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/food-storage-pop-up-bags-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/food-storage-pop-up-bags-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/food-storage-pop-up-bags-photo-960.webp",
-      "width": 960
-    }
-  ],
   "assets/images/products/sugarcane-plates-photo.jpg": [
     {
       "src": "assets/images/responsive/products/sugarcane-plates-photo-320.webp",
@@ -447,48 +195,6 @@
       "width": 960
     }
   ],
-  "assets/images/products/sugarcane-soup-bowls-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-soup-bowls-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-soup-bowls-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-soup-bowls-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/sugarcane-serving-trays-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/sugarcane-serving-trays-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-serving-trays-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/sugarcane-serving-trays-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/bio-based-reusable-cutlery-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/bio-based-reusable-cutlery-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/bio-based-reusable-cutlery-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/bio-based-reusable-cutlery-photo-960.webp",
-      "width": 960
-    }
-  ],
   "assets/images/products/reusable-drinking-straws-photo.jpg": [
     {
       "src": "assets/images/responsive/products/reusable-drinking-straws-photo-320.webp",
@@ -500,34 +206,6 @@
     },
     {
       "src": "assets/images/responsive/products/reusable-drinking-straws-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/bio-based-food-storage-containers-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/bio-based-food-storage-containers-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/bio-based-food-storage-containers-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/bio-based-food-storage-containers-photo-960.webp",
-      "width": 960
-    }
-  ],
-  "assets/images/products/bio-pe-carry-bags-photo.jpg": [
-    {
-      "src": "assets/images/responsive/products/bio-pe-carry-bags-photo-320.webp",
-      "width": 320
-    },
-    {
-      "src": "assets/images/responsive/products/bio-pe-carry-bags-photo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/products/bio-pe-carry-bags-photo-960.webp",
       "width": 960
     }
   ],

@@ -10,8 +10,8 @@
     const recommendations = {
       serve: { title: 'Everyday, reimagined.', range: 'Sugarcane household', text: 'Explore reusable cups, bowls, cutting boards and kitchen essentials. Confirm composition and suitability for your application.', link: 'products.html?category=sugarcane-kitchenware#collection', image: 'assets/images/responsive/ranges/sugarcane-kitchenware-photo-640.webp', alt: 'Sugarcane kitchenware collection', label: 'Explore kitchen essentials', number: '01', theme: 'sage' },
       store: { title: 'Keep the good things.', range: 'Sugarcane food packaging', text: 'Discover food-storage bags, cling wraps and liners. Tell us what you need to store, the format and your required quantity.', link: 'products.html?category=sugarcane-bags#collection', image: 'assets/images/responsive/ranges/sugarcane-bags-photo-640.webp', alt: 'Bio-based bags and wraps', label: 'Explore bags & wraps', number: '02', theme: 'rose' },
-      organise: { title: 'Make room for possibility.', range: 'Recycled household', text: 'Find storage boxes, hangers and cleaning tools. Ask about item-specific recycled content, sizes and available options.', link: 'products.html?category=recycled-household#collection', image: 'assets/images/responsive/ranges/recycled-household-photo-640.webp', alt: 'Recycled household products', label: 'Explore household products', number: '03', theme: 'sage' },
-      pack: { title: 'A better first impression.', range: 'Paper & packaging', text: 'Start with kraft paper, carton boards and wrapping grades. Share your dimensions, printing needs and quantity.', link: 'categories.html#paper-packaging', image: 'assets/images/responsive/categories/packaging-640.webp', alt: 'Paper bags and packaging materials', label: 'Explore paper & packaging', number: '04', theme: 'paper' }
+      organise: { title: 'Make room for possibility.', range: 'Recycled household', text: 'Find storage boxes and cleaning tools. Ask about item-specific recycled content, sizes and available options.', link: 'products.html?category=recycled-household#collection', image: 'assets/images/responsive/ranges/recycled-household-photo-640.webp', alt: 'Recycled household products', label: 'Explore household products', number: '03', theme: 'sage' },
+      pack: { title: 'A new chapter for sugarcane.', range: 'Sugarcane paper', text: 'Explore sugarcane paper sheets, rolls and foodservice essentials. Share your format and quantity requirements.', link: 'products.html?category=sugarcane-paper#collection', image: 'assets/images/responsive/ranges/sugarcane-paper-photo-640.webp', alt: 'Sugarcane paper essentials', label: 'Explore sugarcane paper', number: '04', theme: 'sage' }
     };
     const buttons = [...studio.querySelectorAll('[data-material-choice]')];
     const output = studio.querySelector('.studio-result');
@@ -48,7 +48,7 @@
 
   // One frame at most per pointer update. A measured card is reused until exit;
   // scrolling or resizing clears it rather than measuring on every mousemove.
-  const selector = '.range-mosaic figure,.range-gateway,.directory-card,.brand-card,.founder-card,.product,.studio-art';
+  const selector = '.range-mosaic figure,.directory-card,.brand-card,.founder-card,.product,.studio-art';
   let active = null;
   let bounds;
   let pointer;

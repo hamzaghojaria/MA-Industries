@@ -50,19 +50,20 @@ test('every mobile category option can select products and reset to the full cat
   assert.match(page.get('category-description').textContent, /sugarcane-based and recycled/);
 });
 
-test('every product has the same expandable details and enquiry controls', () => {
+test('every product keeps specifications and enquiry controls without an extra details dropdown', () => {
   const page = boot();
   for (const product of page.window.MACatalogueData.papers) {
     page.location.hash = '#paper-' + product.id;
     page.window.listeners.hashchange[0]();
     const html = page.get('detail-body').innerHTML;
     for (const heading of ['Material', 'Uses &amp; applications', 'Specifications']) assert.ok(html.includes(`<h3>${heading}</h3>`), product.id);
-    assert.ok(html.indexOf('<h3>Specifications</h3>') < html.indexOf('<details'), product.id);
+    assert.ok(product.overview && product.overview.length > product.desc.length, product.id);
+    const overview = product.overview.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    assert.ok(html.includes(overview) && html.indexOf(overview) < html.indexOf('<h3>Specifications</h3>'), product.id);
+    assert.doesNotMatch(html, /product-extra-details|<summary>More details|What to share:/, product.id);
     assert.doesNotMatch(html, /View full product page|href="product-[^"]+\.html"/, product.id);
-    assert.match(html, /<details class="product-extra-details"><summary>More details<\/summary>/, product.id);
-    assert.match(html, /<strong>What to share:<\/strong>/, product.id);
     assert.ok(html.includes(`data-choose-paper="${product.id}"`), product.id);
-    if (product.details) assert.ok(html.includes(product.details.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;')), product.id);
+    assert.doesNotMatch(html, /<figcaption>|Illustrative (?:product|shape)|[Ii]mage for reference|Manufacturer product photograph/, product.id);
   }
 });
 
@@ -85,8 +86,8 @@ test('catalogue initializes and delegated paging/filter/reset controls stay func
   assert.match(page.get('products').innerHTML, /alt="Ribbed travel tumbler"/);
   page.get('pagination').dispatch('click', { target: page.get('pagination').children.at(-1) });
   assert.match(page.get('results-count').textContent, /7–12/);
-  page.get('filter-labels').click();
-  assert.match(page.get('results-count').textContent, /1–6 of 6/);
+  page.get('filter-sugarcane-bags').click();
+  assert.match(page.get('results-count').textContent, /1–6 of 7/);
   page.get('search').value = 'zz-no-match';
   page.get('search').dispatch('input');
   assert.match(page.get('products').innerHTML, /No matching products/);
@@ -119,12 +120,12 @@ test('mobile category selection, desktop buttons and reset stay synchronized', (
   assert.equal(page.get('active-category').textContent, page.window.MACatalogueData.categories.find(category => category.id === 'sugarcane-kitchenware').name);
   page.get('category-select').value = 'recycled-household';
   page.get('category-select').dispatch('change');
-  assert.match(page.get('results-count').textContent, /1–3 of 3 products/);
+  assert.match(page.get('results-count').textContent, /1–6 of 10 products/);
   assert.equal(page.get('active-category').textContent, 'Recycled Household Products');
   assert.equal(page.get('active-category').scrolled, true);
-  page.get('filter-labels').click();
-  assert.equal(page.get('category-select').value, 'labels');
-  assert.equal(page.get('active-category').textContent, 'Labels & liners');
+  page.get('filter-sugarcane-bags').click();
+  assert.equal(page.get('category-select').value, 'sugarcane-bags');
+  assert.equal(page.get('active-category').textContent, 'Sugarcane Food Packaging');
   page.get('reset-catalogue').click();
   assert.equal(page.get('category-select').value, 'all');
   assert.equal(page.get('active-category').textContent, 'All products');
@@ -136,48 +137,48 @@ test('expanded sugarcane ranges paginate and preselect a new sourcing item', () 
   assert.match(page.get('results-count').textContent, /1–6 of 7 products/);
   page.get('pagination').dispatch('click', {target: page.get('pagination').children.at(-1)});
   assert.match(page.get('results-count').textContent, /7–7 of 7 products/);
-  assert.match(page.get('products').innerHTML, /Bio-PE bin liners/);
+  assert.match(page.get('products').innerHTML, /Standing pouches/);
   page.location.hash = '#paper-bio-pe-bin-liners';
   page.window.listeners.hashchange[0]();
-  assert.match(page.get('detail-body').innerHTML, /Additional sourcing range — confirm availability/);
+  assert.match(page.get('detail-body').innerHTML, /Specifications and availability confirmed on enquiry/);
   assert.match(page.get('detail-body').innerHTML, /bio-pe-bin-liners-photo\.jpg/);
   const choice = new page.Element(); choice.dataset.choosePaper = 'bio-pe-bin-liners';
   page.get('detail').dispatch('click', {target: choice});
-  assert.equal(page.get('paper').value, 'Bio-PE bin liners');
+  assert.equal(page.get('paper').value, 'Rubbish bags');
 });
 
 test('keyboard product selection opens details and preselects the enquiry', () => {
   const page = boot();
-  const card = new page.Element(); card.dataset.paperId = 'kraft-paper';
+  const card = new page.Element(); card.dataset.paperId = 'sugarcane-copy-paper';
   page.get('products').dispatch('keydown', { target: card, key: 'Enter' });
-  assert.equal(page.location.hash, '#paper-kraft-paper');
+  assert.equal(page.location.hash, '#paper-sugarcane-copy-paper');
   page.window.listeners.hashchange[0]();
   assert.equal(page.get('detail').open, true);
-  assert.match(page.get('detail-body').innerHTML, /Kraft paper/);
+  assert.match(page.get('detail-body').innerHTML, /Sugarcane office paper/);
   const whatsappHref = page.get('detail-body').innerHTML.match(/href="(https:\/\/wa\.me\/[^\"]+)"/)[1];
   const draft = new URL(whatsappHref.replaceAll('&#39;', "'").replaceAll('&amp;', '&'));
   assert.equal(draft.pathname, '/919819157417');
-  assert.match(draft.searchParams.get('text'), /I'm interested in Kraft paper/);
+  assert.match(draft.searchParams.get('text'), /I'm interested in Sugarcane office paper/);
   assert.match(page.get('detail-body').innerHTML, /WhatsApp connect/);
-  assert.ok(page.get('detail-body').innerHTML.includes('assets/images/products/kraft-paper.webp'));
+  assert.ok(page.get('detail-body').innerHTML.includes('assets/images/products/sugarcane-copy-paper-photo.jpg'));
   assert.doesNotMatch(page.get('detail-body').innerHTML, /AI-generated|Actual colour and finish may vary/);
-  const choice = new page.Element(); choice.dataset.choosePaper = 'kraft-paper';
+  const choice = new page.Element(); choice.dataset.choosePaper = 'sugarcane-copy-paper';
   page.get('detail').dispatch('click', { target: choice });
-  assert.equal(page.get('paper').value, 'Kraft paper');
+  assert.equal(page.get('paper').value, 'Sugarcane office paper');
   assert.equal(page.get('detail').open, false);
   assert.equal(page.location.hash, 'enquiry');
 });
 
 test('enquiry prepares email and WhatsApp links without transmitting messages', () => {
   const page = boot();
-  page.get('paper').value = 'Kraft paper';
+  page.get('paper').value = 'Sugarcane office paper';
   page.get('brief').dispatch('submit', { submitter: { value: 'email' } });
   assert.ok(page.location.href.startsWith('mailto:info@maindustries.in?'));
   assert.match(new URL(page.location.href).searchParams.get('body'), /Quantity: 500 kg/);
   page.get('brief').dispatch('submit', { submitter: { value: 'whatsapp' } });
   const url = new URL(page.openedLinks[0]);
   assert.equal(url.pathname, '/919819157417');
-  assert.match(url.searchParams.get('text'), /Product: Kraft paper/);
+  assert.match(url.searchParams.get('text'), /Product: Sugarcane office paper/);
 });
 
 test('mobile navigation expanded state and label reset on Escape', () => {
@@ -194,7 +195,7 @@ test('product dialogs lock the page and restore scroll across close, Escape, bac
   const page = boot();
   page.window.scrollY = 640;
   function open() {
-    page.location.hash = '#paper-kraft-paper';
+    page.location.hash = '#paper-sugarcane-copy-paper';
     page.window.listeners.hashchange[0]();
     assert.equal(page.document.body.style.top, '-640px');
     assert.equal(page.document.body.classList.contains('product-modal-open'), true);
@@ -208,7 +209,7 @@ test('product dialogs lock the page and restore scroll across close, Escape, bac
   open();
   // Changing products while already open must not overwrite the saved position.
   page.window.scrollY = 0;
-  page.location.hash = '#paper-duplex-paper';
+  page.location.hash = '#paper-sugarcane-paper-cups';
   page.window.listeners.hashchange[0]();
   page.get('close').click();
   restored();
@@ -217,7 +218,7 @@ test('product dialogs lock the page and restore scroll across close, Escape, bac
   open(); page.location.hash = '#categories'; page.window.listeners.hashchange[0](); restored();
   open(); page.get('detail').close(); page.get('detail').dispatch('close'); restored();
   open();
-  const choice = new page.Element(); choice.dataset.choosePaper = 'kraft-paper';
+  const choice = new page.Element(); choice.dataset.choosePaper = 'sugarcane-copy-paper';
   page.get('detail').dispatch('click', { target: choice });
   restored();
   assert.equal(page.location.hash, 'enquiry');

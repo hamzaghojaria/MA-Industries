@@ -31,7 +31,7 @@ test('lightweight product card previews exist alongside their full-size original
   }
 });
 
-test('all twelve category cards, desktop filters and mobile options agree with catalogue data', () => {
+test('all four category cards, desktop filters and mobile options agree with catalogue data', () => {
   for (const [name, html] of pages) assert.equal(syncCatalogueMarkup(html, catalogue), html, `${name}: run npm run sync:catalogue`);
   const products = pages.get('products.html');
   const directory = pages.get('categories.html');
@@ -51,11 +51,11 @@ test('all twelve category cards, desktop filters and mobile options agree with c
 });
 
 test('static category fallbacks update when data changes', () => {
-  const board = catalogue.papers.find(product => product.group === 'boards');
+  const board = catalogue.papers.find(product => product.group === 'recycled-household');
   const updated = { ...catalogue, papers: [...catalogue.papers, { ...board, id: 'test-only-extra' }] };
   const html = syncCatalogueMarkup(pages.get('products.html'), updated);
   assert.ok(html.includes('All products (' + updated.papers.length + ')'));
-  assert.match(html, /value="boards">Boards &amp; cartons \(6\)/);
+  assert.match(html, /value="recycled-household">Recycled Household Products \(11\)/);
   assert.equal(syncCatalogueMarkup(html, updated), html, 'sync is idempotent');
 });
 
@@ -65,9 +65,10 @@ test('lead collections stay consistent without separate material-guide links or 
   const products = pages.get('products.html');
   const firstGroups = Array.from(catalogue.categories.slice(0, 4), category => category.id);
   assert.ok(home.includes('<h1>Sugarcane &amp; recycled.'));
+  assert.doesNotMatch(home, /ONE PARTNER\. MORE POSSIBILITIES\.|More ways to choose\.|class="range-intro collection"/);
   assert.match(home, /data-material-choice="serve" aria-pressed="true"/);
-  assert.ok(home.indexOf('href="categories.html#sugarcane-recycled"') < home.indexOf('href="categories.html#paper-packaging"'));
-  assert.ok(directory.indexOf('id="sugarcane-recycled"') < directory.indexOf('id="paper-packaging"'));
+  assert.ok(home.includes('href="categories.html#sugarcane-recycled"'));
+  assert.ok(directory.includes('id="sugarcane-recycled"'));
   const controls = [...products.matchAll(/data-filter="([^"]+)"/g)].map(match => match[1]);
   assert.deepEqual(controls.slice(1, 5), firstGroups);
   assert.doesNotMatch(directory, /category-guide-links|href="category-[^"]+\.html"|Material guides/);

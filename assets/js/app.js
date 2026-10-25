@@ -8,6 +8,7 @@
   const ACTION_ARROW = "<svg class=\"action-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M6 18 18 6M6 6h12v12\" /></svg>";
   const WHATSAPP_ICON = "<svg class=\"whatsapp-icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\">\n        <path d=\"M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.47 0 .12 5.35 .12 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.79 1.48h.01C18.63 23.84 24 18.49 24 11.92a11.85 11.85 0 0 0-3.48-8.44ZM12.06 21.8a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.72.98.99-3.63-.24-.38a9.85 9.85 0 0 1-1.51-5.25c0-5.45 4.44-9.88 9.9-9.88a9.8 9.8 0 0 1 7 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.45-4.44 9.86-9.91 9.86Zm5.42-7.39c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61l.44-.52c.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z\"/>\n      </svg>";
   const PAGE_SIZE = 6;
+  const PRODUCT_ALIASES = Object.freeze({ 'reusable-cups': 'ribbed-travel-tumbler', 'recycled-hangers': 'sugarcane-hangers', 'grippy-cutting-board': 'cutting-boards', 'solid-cutting-boards': 'cutting-boards', 'sugarcane-a3-paper': 'sugarcane-copy-paper' });
   const CONTACT = Object.freeze({ phone: '919819157417', email: 'info@maindustries.in' });
   const byId = id => document.getElementById(id);
   const dom = {
@@ -35,7 +36,7 @@
     if (dom.categoryHeading) dom.categoryHeading.textContent = state.category === 'all' ? 'All products' : categoryById.get(state.category).name;
     // Keep category guidance in the browsing flow rather than a separate page.
     if (dom.categoryDescription) dom.categoryDescription.textContent = state.category === 'all'
-      ? 'Explore sugarcane-based and recycled everyday products, followed by our paper and packaging range.'
+      ? 'Explore sugarcane-based and recycled everyday products.'
       : categoryById.get(state.category).desc;
     for (const button of dom.filters) {
       const active = button.dataset.filter === state.category;
@@ -48,7 +49,7 @@
   }
 
   function setCategory(category) {
-    state.category = category;
+    state.category = categoryById.has(category) ? category : 'all';
     state.page = 1;
     syncFilterButtons();
     renderCatalogue();
@@ -173,8 +174,17 @@
     unlockPageScroll();
   }
 
+  function productSpecificationMarkup(product, fields) {
+    if (!product.variants?.length) return '<dl class="product-specifications">' + fields.map(item => '<div><dt>' + escapeHtml(item.label) + '</dt><dd>' + escapeHtml(item.value) + '</dd></div>').join('') + '</dl>';
+    const dimensions = variant => [variant.thickness && 'Thickness: ' + variant.thickness,
+      variant.dimensions, variant.capacity && 'Capacity: ' + variant.capacity, variant.notes].filter(Boolean).join('; ');
+    return '<div class="variant-table-wrap" tabindex="0" role="region" aria-label="Product variants and specifications"><table class="variant-table"><caption>Available variants</caption><thead><tr><th scope="col">Variant</th><th scope="col">Dimensions / format</th><th scope="col">Pack / unit</th></tr></thead><tbody>' +
+      product.variants.map(variant => '<tr><th scope="row">' + escapeHtml(variant.name) + '</th><td>' + escapeHtml(dimensions(variant) || 'Confirm on enquiry') + '</td><td>' + escapeHtml(variant.pack) + '</td></tr>').join('') + '</tbody></table></div>' +
+      (product.technicalNotes ? '<p class="variant-note">' + escapeHtml(product.technicalNotes) + '</p>' : '');
+  }
+
   function openProduct(id) {
-    const paper = paperById.get(id);
+    const paper = paperById.get(PRODUCT_ALIASES[id] || id);
     if (!paper) return;
     const category = categoryById.get(paper.group);
     const specifications = specificationFields(paper).filter(item =>
@@ -184,17 +194,13 @@
       <div class="product-modal-content">
       <div class="product-modal-heading"><span class="dialog-tag">${escapeHtml(category.name)}</span>
         <h2 id="detail-title">${escapeHtml(paper.name)}</h2></div>
-      <figure class="detail-photo product-modal-visual"><img src="${escapeHtml(paper.image)}" alt="${escapeHtml(paper.name)}" width="800" height="800" decoding="async"></figure>
+      <figure class="detail-photo product-modal-visual"><img src="${escapeHtml(paper.image)}" alt="${escapeHtml(paper.imageAlt || paper.name)}" width="800" height="800" decoding="async"></figure>
       <div class="product-modal-copy">
-        <p class="product-modal-overview">${escapeHtml(paper.desc)}</p>
+        <p class="product-modal-overview">${escapeHtml(paper.overview || paper.desc)}</p>
         <section class="product-modal-section"><h3>Material</h3><p>${escapeHtml(paper.material || 'Paper / board; confirm the selected grade and composition on enquiry.')}</p></section>
         <section class="product-modal-section"><h3>Uses &amp; applications</h3><ul class="detail-uses">${paper.uses.map(use => '<li>' + escapeHtml(use) + '</li>').join('')}</ul></section>
-        <section class="product-modal-section"><h3>Specifications</h3><dl class="product-specifications">${specifications.map(item => '<div><dt>' + escapeHtml(item.label) + '</dt><dd>' + escapeHtml(item.value) + '</dd></div>').join('')}</dl></section>
-        <details class="product-extra-details"><summary>More details</summary>
-          ${paper.details ? '<p>' + escapeHtml(paper.details) + '</p>' : ''}
-          <p><strong>What to share:</strong> ${paper.material ? 'Size, capacity, colour, material, pack quantity and delivery location.' : 'Sheet or reel size, GSM, finish, printing needs, quantity and delivery location.'}</p>
-        </details>
-        <p class="detail-note">${paper.sourcingOnly ? 'Additional sourcing range — confirm availability. Specifications confirmed on enquiry.' : 'Specifications and availability confirmed on enquiry.'}${paper.group === 'wrapping' ? ' Confirm food-contact and temperature suitability.' : ''}</p>
+        <section class="product-modal-section"><h3>Specifications</h3>${productSpecificationMarkup(paper, specifications)}</section>
+        <p class="detail-note">${paper.sourcingOnly ? 'Additional sourcing range — confirm availability. Specifications confirmed on enquiry.' : 'Specifications and availability confirmed on enquiry.'}</p>
       </div></div>
       <div class="product-enquiry-actions product-modal-actions"><button class="button" type="button" data-choose-paper="${paper.id}" aria-label="Enquire about this product"><span class="action-copy enquiry-full-label">Enquire about this product</span><span class="action-copy enquiry-short-label">Enquire</span></button><a class="button whatsapp-button" href="${escapeHtml(productWhatsAppUrl(paper))}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp connect">${WHATSAPP_ICON}<span class="action-copy">WhatsApp<span class="connect-word"> connect</span></span></a></div>`);
     if (!dom.detail.open) {
@@ -205,6 +211,10 @@
   }
 
   function handleProductHash() {
+    if (location.hash === '#paper-recycled-cleaning-tools') {
+      if (dom.grid) setCategory('recycled-household');
+      return;
+    }
     if (location.hash.startsWith('#paper-')) openProduct(location.hash.slice(7));
     else if (dom.detail.open) closeProductDialog();
   }

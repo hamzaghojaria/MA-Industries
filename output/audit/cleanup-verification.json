@@ -1,0 +1,1800 @@
+{
+  "removed-images.json": {
+    "paths": [
+      "assets/images/products/disposable-gloves-photo.jpg",
+      "assets/images/products/double-zipper-bags-photo.jpg",
+      "assets/images/products/easy-cut-cling-wraps-photo.jpg",
+      "assets/images/products/food-storage-pop-up-bags-photo.jpg",
+      "assets/images/products/food-storage-roll-bags-photo.jpg",
+      "assets/images/products/grippy-cutting-board-photo.webp",
+      "assets/images/products/recycled-cleaning-tools-photo.webp",
+      "assets/images/products/recycled-hangers-photo.webp",
+      "assets/images/products/solid-cutting-boards.webp",
+      "assets/images/products/sugarcane-a3-paper-photo.webp",
+      "assets/images/products/sugarcane-bath-tissues-photo.jpg",
+      "assets/images/products/sugarcane-packaging-paper-photo.jpg",
+      "assets/images/products/sugarcane-paper-cups-photo.jpg",
+      "assets/images/products/sugarcane-soup-bowls-photo.jpg",
+      "assets/images/responsive/products/disposable-gloves-photo-320.webp",
+      "assets/images/responsive/products/disposable-gloves-photo-640.webp",
+      "assets/images/responsive/products/disposable-gloves-photo-960.webp",
+      "assets/images/responsive/products/double-zipper-bags-photo-320.webp",
+      "assets/images/responsive/products/double-zipper-bags-photo-640.webp",
+      "assets/images/responsive/products/double-zipper-bags-photo-960.webp",
+      "assets/images/responsive/products/easy-cut-cling-wraps-photo-320.webp",
+      "assets/images/responsive/products/easy-cut-cling-wraps-photo-640.webp",
+      "assets/images/responsive/products/easy-cut-cling-wraps-photo-960.webp",
+      "assets/images/responsive/products/food-storage-pop-up-bags-photo-320.webp",
+      "assets/images/responsive/products/food-storage-pop-up-bags-photo-640.webp",
+      "assets/images/responsive/products/food-storage-pop-up-bags-photo-960.webp",
+      "assets/images/responsive/products/food-storage-roll-bags-photo-320.webp",
+      "assets/images/responsive/products/food-storage-roll-bags-photo-640.webp",
+      "assets/images/responsive/products/food-storage-roll-bags-photo-960.webp",
+      "assets/images/responsive/products/sugarcane-bath-tissues-photo-320.webp",
+      "assets/images/responsive/products/sugarcane-bath-tissues-photo-640.webp",
+      "assets/images/responsive/products/sugarcane-bath-tissues-photo-960.webp",
+      "assets/images/responsive/products/sugarcane-packaging-paper-photo-320.webp",
+      "assets/images/responsive/products/sugarcane-packaging-paper-photo-640.webp",
+      "assets/images/responsive/products/sugarcane-packaging-paper-photo-960.webp",
+      "assets/images/responsive/products/sugarcane-paper-cups-photo-320.webp",
+      "assets/images/responsive/products/sugarcane-paper-cups-photo-640.webp",
+      "assets/images/responsive/products/sugarcane-paper-cups-photo-960.webp",
+      "assets/images/responsive/products/sugarcane-soup-bowls-photo-320.webp",
+      "assets/images/responsive/products/sugarcane-soup-bowls-photo-640.webp",
+      "assets/images/responsive/products/sugarcane-soup-bowls-photo-960.webp"
+    ],
+    "bytes": 1778248
+  },
+  "css-cleanup.json": {
+    "candidateClasses": [
+      "about-hero-image",
+      "about-offerings",
+      "art-caption",
+      "art-grid",
+      "catalogue-note",
+      "category-grid",
+      "category-photo",
+      "category-photo-box",
+      "category-swatch",
+      "circle-label",
+      "collection-scroll-hint",
+      "detail-gsm",
+      "detail-section-title",
+      "directory-note",
+      "feature",
+      "footer-link-group",
+      "footer-links",
+      "home-categories",
+      "image-note",
+      "is-visible",
+      "nav-products",
+      "offering-intro",
+      "paper-object",
+      "product-gsm",
+      "product-image-note",
+      "range-image-caption",
+      "reveal",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "sample-row",
+      "social-coming-soon",
+      "social-icon"
+    ],
+    "retainedBecauseInSource": [],
+    "retainedBecauseSeenAtRuntime": [],
+    "removedClasses": [
+      "about-hero-image",
+      "about-offerings",
+      "art-caption",
+      "art-grid",
+      "catalogue-note",
+      "category-grid",
+      "category-photo",
+      "category-photo-box",
+      "category-swatch",
+      "circle-label",
+      "collection-scroll-hint",
+      "detail-gsm",
+      "detail-section-title",
+      "directory-note",
+      "feature",
+      "footer-link-group",
+      "footer-links",
+      "home-categories",
+      "is-visible",
+      "nav-products",
+      "offering-intro",
+      "paper-object",
+      "product-gsm",
+      "product-image-note",
+      "range-image-caption",
+      "reveal",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "sample-row",
+      "social-coming-soon",
+      "social-icon"
+    ],
+    "removedSelectors": [
+      {
+        "file": "assets\\css\\catalogue.css",
+        "selector": ".catalogue-note",
+        "classes": [
+          "catalogue-note"
+        ]
+      },
+      {
+        "file": "assets\\css\\catalogue.css",
+        "selector": ".catalogue-note",
+        "classes": [
+          "catalogue-note"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".footer-contact-actions .social-coming-soon",
+        "classes": [
+          "social-coming-soon"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".site-footer .footer-link-group",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".site-footer .footer-link-group h4",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".site-footer .footer-link-group ul",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".site-footer .footer-link-group li",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "selector": ".site-footer .footer-link-group li a",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\motion.css",
+        "selector": ".directory-hero > .collection-scroll-hint",
+        "classes": [
+          "collection-scroll-hint"
+        ]
+      },
+      {
+        "file": "assets\\css\\motion.css",
+        "selector": ".directory-hero > .collection-scroll-hint",
+        "classes": [
+          "collection-scroll-hint"
+        ]
+      },
+      {
+        "file": "assets\\css\\motion.css",
+        "selector": ".reveal",
+        "classes": [
+          "reveal"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".range-image-caption",
+        "classes": [
+          "range-image-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".hero-range-art .range-image-caption",
+        "classes": [
+          "range-image-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".offering-intro",
+        "classes": [
+          "offering-intro"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".products-page .products .product-gsm",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".about-offerings .section-heading",
+        "classes": [
+          "about-offerings"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".about-offerings .section-heading > a",
+        "classes": [
+          "about-offerings"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".product-image-note",
+        "classes": [
+          "product-image-note"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".directory-note",
+        "classes": [
+          "directory-note"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".detail-gsm strong",
+        "classes": [
+          "detail-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "selector": ".feature",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".art-grid",
+        "classes": [
+          "art-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s1",
+        "classes": [
+          "s1"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s2",
+        "classes": [
+          "s2"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s3",
+        "classes": [
+          "s3"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s4",
+        "classes": [
+          "s4"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s5",
+        "classes": [
+          "s5"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".art-caption",
+        "classes": [
+          "art-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".circle-label",
+        "classes": [
+          "circle-label"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".paper-object",
+        "classes": [
+          "paper-object"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product:hover .paper-object",
+        "classes": [
+          "paper-object"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".paper-object:before",
+        "classes": [
+          "paper-object"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature h2",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature>p:last-child",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div:nth-child(even)",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".circle-label",
+        "classes": [
+          "circle-label"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s1",
+        "classes": [
+          "s1"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s2",
+        "classes": [
+          "s2"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s3",
+        "classes": [
+          "s3"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s4",
+        "classes": [
+          "s4"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".s5",
+        "classes": [
+          "s5"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".art-caption",
+        "classes": [
+          "art-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".detail-section-title",
+        "classes": [
+          "detail-section-title"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".circle-label",
+        "classes": [
+          "circle-label"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch::before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch::after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div::after",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".reveal",
+        "classes": [
+          "reveal"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".reveal.is-visible",
+        "classes": [
+          "reveal",
+          "is-visible"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art:hover .s1",
+        "classes": [
+          "s1"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art:hover .s2",
+        "classes": [
+          "s2"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art:hover .s4",
+        "classes": [
+          "s4"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art:hover .s5",
+        "classes": [
+          "s5"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-card:hover .category-swatch::before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-card:hover .category-swatch::after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div:hover",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row div",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature h2",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".circle-label",
+        "classes": [
+          "circle-label"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".art-caption",
+        "classes": [
+          "art-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".reveal",
+        "classes": [
+          "reveal"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".art-caption",
+        "classes": [
+          "art-caption"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".home-categories",
+        "classes": [
+          "home-categories"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".home-categories",
+        "classes": [
+          "home-categories"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".home-categories",
+        "classes": [
+          "home-categories"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:before",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-swatch:after",
+        "classes": [
+          "category-swatch"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".sample-row",
+        "classes": [
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid:focus-visible",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid::-webkit-scrollbar",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid::-webkit-scrollbar-track",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid::-webkit-scrollbar-thumb",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-grid",
+        "classes": [
+          "category-grid"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature .sample-row",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature .sample-row div",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view .sample-row div",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view .sample-row div:nth-child(2)",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view .sample-row div:nth-child(3)",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view .sample-row div:nth-child(4)",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view .sample-row div:nth-child(5)",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature h2::after",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature h2::after",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature.motion-in-view h2::after",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature .sample-row div",
+        "classes": [
+          "feature",
+          "sample-row"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art .s1",
+        "classes": [
+          "s1"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art .s2",
+        "classes": [
+          "s2"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art .s3",
+        "classes": [
+          "s3"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art .s4",
+        "classes": [
+          "s4"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".hero-art .s5",
+        "classes": [
+          "s5"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".footer-links .action-arrow",
+        "classes": [
+          "footer-links"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-photo-box",
+        "classes": [
+          "category-photo-box"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-photo",
+        "classes": [
+          "category-photo"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".category-card:hover .category-photo",
+        "classes": [
+          "category-photo"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".about-hero-image",
+        "classes": [
+          "about-hero-image"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".about-hero-image img",
+        "classes": [
+          "about-hero-image"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".about-hero-image figcaption",
+        "classes": [
+          "about-hero-image"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".about-hero-image",
+        "classes": [
+          "about-hero-image"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product .product-gsm",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product-gsm span",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".detail-gsm > span",
+        "classes": [
+          "detail-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product-gsm strong",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".detail-gsm",
+        "classes": [
+          "detail-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".detail-gsm > strong",
+        "classes": [
+          "detail-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".detail-gsm > small",
+        "classes": [
+          "detail-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".feature",
+        "classes": [
+          "feature"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product > .product-gsm",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".product > .product-gsm",
+        "classes": [
+          "product-gsm"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".social-icon",
+        "classes": [
+          "social-icon"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": ".site-footer .footer-link-group a:hover",
+        "classes": [
+          "footer-link-group"
+        ]
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "selector": "header nav .nav-products",
+        "classes": [
+          "nav-products"
+        ]
+      }
+    ],
+    "files": [
+      {
+        "file": "assets\\css\\catalogue.css",
+        "before": 14727,
+        "after": 14549
+      },
+      {
+        "file": "assets\\css\\footer.css",
+        "before": 12591,
+        "after": 11953
+      },
+      {
+        "file": "assets\\css\\motion.css",
+        "before": 8692,
+        "after": 8400
+      },
+      {
+        "file": "assets\\css\\ranges.css",
+        "before": 19825,
+        "after": 19022
+      },
+      {
+        "file": "assets\\css\\shared.css",
+        "before": 60611,
+        "after": 51096
+      }
+    ],
+    "savedBytes": 11426
+  },
+  "package-cache-cleanup.json": {
+    "path": ".uv-cache",
+    "files": 2647,
+    "bytes": 330364560,
+    "removed": true
+  },
+  "temporary-files-cleanup.json": [
+    {
+      "path": "tmp/gallery-browser",
+      "bytes": 6735517,
+      "files": 191,
+      "removed": true
+    },
+    {
+      "path": "tmp/gallery-browser-mobile",
+      "bytes": 6744329,
+      "files": 191,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer-catalogue-preview",
+      "bytes": 5670014,
+      "files": 170,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer-cdp",
+      "bytes": 6596365,
+      "files": 294,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer-cdp-v2",
+      "bytes": 5797542,
+      "files": 165,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer-web-preview",
+      "bytes": 6741622,
+      "files": 191,
+      "removed": true
+    },
+    {
+      "path": "tmp/category-images",
+      "bytes": 0,
+      "files": 0,
+      "removed": true
+    },
+    {
+      "path": "tmp/product-images",
+      "bytes": 0,
+      "files": 0,
+      "removed": true
+    },
+    {
+      "path": "tmp/performance-deps",
+      "bytes": 0,
+      "files": 0,
+      "removed": false,
+      "error": "Access to the path 'C:\\Users\\Hamza\\Downloads\\MA-Industries-Single-Page\\tmp\\performance-deps\\PIL' is denied."
+    },
+    {
+      "path": "tmp/card-deps",
+      "bytes": 0,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/uv-cache",
+      "bytes": 2028,
+      "files": 7,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/card-1.png",
+      "bytes": 92437,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/card-2.png",
+      "bytes": 28928,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/card-raw.pdf",
+      "bytes": 137433,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/cards-green-review.png",
+      "bytes": 137467,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/cards-review.png",
+      "bytes": 78072,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/catalogue-data.json",
+      "bytes": 42359,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/catalogue-page-01.png",
+      "bytes": 182973,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/catalogue-page-02.png",
+      "bytes": 44684,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/catalogue-page-map.json",
+      "bytes": 1049,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/catalogue-review.png",
+      "bytes": 236996,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-01.png",
+      "bytes": 155339,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-02.png",
+      "bytes": 108689,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-03.png",
+      "bytes": 136925,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-04.png",
+      "bytes": 138905,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-05.png",
+      "bytes": 124204,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-06.png",
+      "bytes": 124490,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-07.png",
+      "bytes": 121098,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-08.png",
+      "bytes": 157578,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-09.png",
+      "bytes": 134260,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-10.png",
+      "bytes": 127019,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-11.png",
+      "bytes": 134254,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-12.png",
+      "bytes": 166719,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-13.png",
+      "bytes": 130309,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-14.png",
+      "bytes": 135127,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-15.png",
+      "bytes": 148450,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-16.png",
+      "bytes": 162971,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-17.png",
+      "bytes": 110950,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-18.png",
+      "bytes": 117856,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-19.png",
+      "bytes": 116960,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-20.png",
+      "bytes": 116498,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-21.png",
+      "bytes": 126397,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-22.png",
+      "bytes": 150231,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-23.png",
+      "bytes": 129040,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-24.png",
+      "bytes": 136868,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-25.png",
+      "bytes": 132827,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-26.png",
+      "bytes": 135523,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-27.png",
+      "bytes": 138941,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-28.png",
+      "bytes": 129470,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-29.png",
+      "bytes": 140314,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-30.png",
+      "bytes": 123071,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-31.png",
+      "bytes": 104843,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-32.png",
+      "bytes": 141707,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-33.png",
+      "bytes": 131969,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-34.png",
+      "bytes": 142105,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-35.png",
+      "bytes": 127810,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-36.png",
+      "bytes": 122195,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-37.png",
+      "bytes": 180658,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-38.png",
+      "bytes": 188582,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-39.png",
+      "bytes": 210329,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-40.png",
+      "bytes": 137754,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-41.png",
+      "bytes": 49974,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/focused-42.png",
+      "bytes": 50018,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/pdfs/quotation-01.png",
+      "bytes": 182876,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/browser-catalogue.png",
+      "bytes": 247917,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/browser-cleaning.png",
+      "bytes": 448843,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/browser-pouch-mobile.png",
+      "bytes": 82641,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/cleaning-cards-review.jpg",
+      "bytes": 88116,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/images-overview.jpg",
+      "bytes": 278145,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/page-01.png",
+      "bytes": 364642,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/page-02.png",
+      "bytes": 308634,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/page-03.png",
+      "bytes": 184600,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/website-baby-mobile.png",
+      "bytes": 106743,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/manufacturer/website-standing-pouch.png",
+      "bytes": 324622,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/cleaning-image-review.png",
+      "bytes": 886417,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/DWA4t1zRIrs9TbJiJ2vu63q4QA8-contact-sheet.jpg",
+      "bytes": 396538,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/gallery-desktop.png",
+      "bytes": 971432,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/gallery-mobile.png",
+      "bytes": 308750,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/gallery-preview.html",
+      "bytes": 9036,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/p5PYY1ARsGJPK7xXgK4kYIGQ-contact-sheet.jpg",
+      "bytes": 324256,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/sugarcane-additions-review.jpg",
+      "bytes": 110982,
+      "files": 1,
+      "removed": true
+    },
+    {
+      "path": "tmp/sugarcane-product-review.jpg",
+      "bytes": 204531,
+      "files": 1,
+      "removed": true
+    }
+  ],
+  "verified-ui.json": {
+    "scenarios": 168,
+    "layoutStyleDifferences": 0,
+    "horizontalOverflowCases": 0,
+    "screenshots": 23,
+    "pixelIdenticalScreenshots": 20,
+    "screenshotComparisons": [
+      {
+        "scene": "about-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "about-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "about-768",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "categories-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "categories-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "categories-768",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "contact-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "contact-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "contact-768",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "dialog-baby-tableware-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "dialog-baby-tableware-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "dialog-ribbed-travel-tumbler-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "dialog-ribbed-travel-tumbler-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "gallery-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "gallery-390",
+        "identical": false,
+        "differenceBounds": [
+          386,
+          448,
+          390,
+          573
+        ]
+      },
+      {
+        "scene": "index-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "index-390",
+        "identical": false,
+        "differenceBounds": [
+          386,
+          0,
+          390,
+          125
+        ]
+      },
+      {
+        "scene": "index-768",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "products-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "products-390",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "products-768",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "studio-1440",
+        "identical": true,
+        "differenceBounds": null
+      },
+      {
+        "scene": "studio-390",
+        "identical": false,
+        "differenceBounds": [
+          386,
+          255,
+          390,
+          380
+        ]
+      }
+    ],
+    "preservedKeyframeDefinitions": 10,
+    "protectedFilesUnchanged": 96
+  },
+  "finalChecks": {
+    "testsPassed": 46,
+    "browserScenarios": 102,
+    "horizontalOverflowCases": 0,
+    "protectedFilesUnchanged": 84,
+    "cataloguesUpdated": false
+  }
+}

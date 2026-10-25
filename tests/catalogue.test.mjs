@@ -29,26 +29,27 @@ test('catalogue validates groups and rejects duplicate IDs', () => {
   assert.throws(() => utils.validateCatalogue([{ ...papers[0], group: 'missing' }], categories), /Unknown/);
 });
 
-test('sugarcane and recycled products lead the collection without losing paper references', () => {
+test('catalogue contains only the four active sugarcane and recycled ranges', () => {
   const featured = ['sugarcane-kitchenware', 'sugarcane-bags', 'sugarcane-paper', 'recycled-household'];
   assert.deepEqual(Array.from(categories.slice(0, 4), category => category.id), featured);
   const leadingCount = papers.filter(product => featured.includes(product.group)).length;
   assert.ok(papers.slice(0, leadingCount).every(product => featured.includes(product.group)));
   assert.ok(papers.slice(leadingCount).every(product => !featured.includes(product.group)));
-  assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-kitchenware').slice(0, 6), product => product.id), ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'reusable-cups', 'rice-paddles']);
+  assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-kitchenware').slice(0, 6), product => product.id), ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles', 'cutting-boards']);
   assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-paper').slice(0, 2), product => product.id), ['sugarcane-paper-cups', 'sugarcane-bath-tissues']);
-  assert.equal(papers.find(product => product.id === 'duplex-paper').index, 1, 'original reference remains stable');
+  assert.equal(papers.length, 33);
+  assert.equal(categories.length, 4);
   assert.equal(new Set(papers.map(product => product.id)).size, papers.length);
-  assert.equal(utils.filterPapers(papers, {category: 'boards'})[0].id, 'duplex-paper');
+  assert.ok(papers.every(product => featured.includes(product.group)));
 });
 
 test('product WhatsApp drafts identify the item and ask for relevant specifications', () => {
-  const paper = papers.find(item => item.id === 'kraft-paper');
+  const paper = papers.find(item => item.id === 'sugarcane-copy-paper');
   const kitchenware = papers.find(item => item.id === 'cutting-boards');
-  const paperText = utils.productWhatsAppText(paper, 'Packaging & bags');
-  assert.match(paperText, /I'm interested in Kraft paper/);
-  assert.match(paperText, /Category: Packaging & bags/);
-  assert.match(paperText, /Size \/ GSM \/ finish/);
+  const paperText = utils.productWhatsAppText(paper, 'Sugarcane Paper');
+  assert.match(paperText, /Sugarcane office paper/);
+  assert.match(paperText, /Category: Sugarcane Paper/);
+  assert.match(paperText, /Size \/ capacity \/ colour/);
   const kitchenText = utils.productWhatsAppText(kitchenware, 'Sugarcane Kitchenware');
   assert.ok(kitchenText.includes(kitchenware.name));
   assert.match(kitchenText, /Size \/ capacity \/ colour/);
@@ -57,10 +58,10 @@ test('product WhatsApp drafts identify the item and ask for relevant specificati
 
 test('category and application search combine without mutating collection order', () => {
   const original = papers.map(paper => paper.id).join(',');
-  const results = utils.filterPapers(papers, { category: 'labels', query: ' THERMAL ' });
-  assert.equal(results.length, 2);
-  assert.ok(results.every(paper => paper.group === 'labels'));
-  assert.equal(utils.filterPapers(papers, { category: 'office', query: 'thermal' }).length, 0);
+  const results = utils.filterPapers(papers, { category: 'sugarcane-paper', query: ' A4 ' });
+  assert.equal(results.length, 1);
+  assert.ok(results.every(paper => paper.group === 'sugarcane-paper'));
+  assert.equal(utils.filterPapers(papers, { category: 'recycled-household', query: 'sheets' }).length, 0);
   assert.equal(utils.filterPapers(papers, { query: 'zz-no-match' }).length, 0);
   utils.filterPapers(papers, { sort: 'az' });
   assert.equal(papers.map(paper => paper.id).join(','), original);
@@ -79,10 +80,11 @@ test('pagination clamps pages after filtering and supports empty results', () =>
 });
 
 test('new collections are searchable by material and category', () => {
-  const films = utils.filterPapers(papers, {category: 'sugarcane-bags', query: 'Bio-PE'});
-  assert.equal(films.length, 7);
+  const films = utils.filterPapers(papers, {category: 'sugarcane-bags', query: 'Thickness: 60'});
+  assert.equal(films.length, 2);
   const household = utils.filterPapers(papers, {category: 'sugarcane-kitchenware', query: 'sugarcane'});
-  assert.equal(household.length, papers.filter(product => product.group === 'sugarcane-kitchenware').length);
+  assert.ok(household.length > 0);
+  assert.ok(household.every(product => product.group === 'sugarcane-kitchenware'));
   assert.ok(utils.filterPapers(papers, {query: 'PCR PP'}).every(product => product.group === 'recycled-household'));
 });
 
@@ -116,8 +118,7 @@ test('GSM guides cover the catalogue and reject invalid ranges', () => {
     assert.ok(Object.hasOwn(paper, 'gsm'));
     assert.match(utils.gsmLabel(paper), paper.gsm ? /^\d+–\d+ GSM$/ : /^Varies by grade$/);
   }
-  assert.equal(papers.filter(paper => paper.gsm === null && !paper.material).length, 1);
-  assert.equal(papers.find(paper => paper.gsm === null && !paper.material).id, 'scrap-paper');
+  assert.equal(papers.filter(paper => paper.gsm === null && !paper.material).length, 0);
   for (const gsm of [{min: 0, max: 100}, {min: 100, max: 50}, {min: 50, max: Infinity}]) {
     assert.throws(() => utils.validateCatalogue([{...papers[0], gsm}], categories), /Invalid GSM/);
   }
@@ -134,5 +135,5 @@ test('every catalogue product has useful, non-fabricated specification fields', 
   const exactValues = utils.specificationFields(clingWrap).map(field => field.value).join(' ');
   assert.match(exactValues, /12 μm/);
   const exactFields = utils.specificationFields(clingWrap).map(field => `${field.label}: ${field.value}`).join(' ');
-  assert.match(exactFields, /20 cm roll: 12 μm; 100 m/);
+  assert.match(exactFields, /20 cm roll: Thickness: 12 μm; 20 cm x 100 m; Pack: 1 pc/);
 });

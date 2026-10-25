@@ -11,7 +11,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[2]
 manifest = {}
 sources = [ROOT / 'assets/images/brand-logo.png']
-for folder in ('ranges', 'categories', 'founders'):
+for folder in ('ranges', 'founders'):
     sources.extend(sorted((ROOT / 'assets/images' / folder).iterdir()))
 # Only the active recycling gallery belongs in the published manifest.
 sources.extend(sorted((ROOT / 'assets/images/gallery').glob('recycling-*.jpg')))

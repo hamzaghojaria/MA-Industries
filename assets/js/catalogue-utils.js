@@ -37,10 +37,7 @@
       add('Paper weight', gsmLabel(paper) + ' indicative range');
       add('Supply format', 'Sheets or reels; confirm the required format');
       add('Dimensions', 'Confirm sheet size or reel width on enquiry');
-      if (paper.group === 'boards' || paper.group === 'packaging') add('Strength / grade', 'Confirm burst factor, compression or construction requirements');
-      else if (paper.group === 'labels') add('Converting details', 'Confirm face stock, adhesive, liner and print process');
-      else if (paper.group === 'wrapping') add('Food-contact use', 'Confirm coating, temperature range and required certification');
-      else add('Finish / colour', 'Confirm grade, shade and surface finish');
+      add('Finish / colour', 'Confirm grade, shade and surface finish');
       add('Order quantity', 'Confirm pack, reel or minimum order quantity');
     } else {
       add('Material', paper.material || 'Confirm item-specific composition');

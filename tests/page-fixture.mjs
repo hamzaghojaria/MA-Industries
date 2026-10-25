@@ -42,7 +42,7 @@ export function createPageFixture() {
     click() { if (this.href) openedLinks.push(this.href); else this.dispatch('click'); }
   }
   function get(id) { if (!elements.has(id)) elements.set(id, new Element(id)); return elements.get(id); }
-  const filters = ['all', 'packaging', 'boards', 'creative', 'wrapping', 'everyday', 'office', 'labels', 'specialty', 'sugarcane-paper', 'sugarcane-kitchenware', 'sugarcane-bags', 'recycled-household'].map(category => {
+  const filters = ['all', 'sugarcane-paper', 'sugarcane-kitchenware', 'sugarcane-bags', 'recycled-household'].map(category => {
     const button = get('filter-' + category); button.dataset.filter = category; button.badge = new Element(); return button;
   });
   const categoryCards = filters.slice(1).map(button => {
@@ -52,7 +52,7 @@ export function createPageFixture() {
   navigation.links = ['categories', 'collection', 'approach', 'enquiry'].map(id => {
     const link = new Element(); link.setAttribute('href', '#' + id); return link;
   });
-  const values = new Map([['name', 'Test visitor'], ['email', 'visitor@example.com'], ['paper', 'Kraft paper'], ['quantity', '500 kg'], ['details', 'Carry bags']]);
+  const values = new Map([['name', 'Test visitor'], ['email', 'visitor@example.com'], ['paper', 'Sugarcane office paper'], ['quantity', '500 kg'], ['details', 'Carry bags']]);
   get('sort').value = 'collection';
   const document = {
     body: get('body'), documentElement: get('html'),

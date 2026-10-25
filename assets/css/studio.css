@@ -99,8 +99,16 @@
 .hero-studio-seal .seal-arrow { stroke: currentColor; stroke-width: 1.3; fill: none; }
 /* A real pointer stays visible. This light follows the pointer, not the content. */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .range-mosaic figure, .range-gateway, .directory-card, .brand-card, .founder-card, .product { position: relative; isolation: isolate; }
-  .range-mosaic figure::after, .range-gateway::after, .directory-card::after, .brand-card::after, .founder-card::after, .product::after {
+  .range-mosaic figure,
+.directory-card,
+.brand-card,
+.founder-card,
+.product { position: relative; isolation: isolate; }
+  .range-mosaic figure::after,
+.directory-card::after,
+.brand-card::after,
+.founder-card::after,
+.product::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -110,15 +118,18 @@
     opacity: 0;
     transition: opacity .3s;
   }
-  .range-mosaic figure.is-pointer-active::after, .range-gateway.is-pointer-active::after,
-  .directory-card.is-pointer-active::after, .brand-card.is-pointer-active::after,
-  .founder-card.is-pointer-active::after, .product.is-pointer-active::after { opacity: 1; }
-  .range-mosaic figure.is-pointer-active, .range-gateway.is-pointer-active, .directory-card.is-pointer-active,
-  .brand-card.is-pointer-active, .founder-card.is-pointer-active {
+  .range-mosaic figure.is-pointer-active::after,
+.directory-card.is-pointer-active::after,
+.brand-card.is-pointer-active::after,
+.founder-card.is-pointer-active::after,
+.product.is-pointer-active::after { opacity: 1; }
+  .range-mosaic figure.is-pointer-active,
+.directory-card.is-pointer-active,
+.brand-card.is-pointer-active,
+.founder-card.is-pointer-active {
     transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-4px);
   }
   .studio-art.is-pointer-active .studio-photo { transform: translateY(-4px); }
-  .range-gateway.is-pointer-active { transform: translateY(-4px); }
   /* Keep product text and watermarks level while the pointer light follows. */
   .product.is-pointer-active { transform: translateY(-4px); }
 }

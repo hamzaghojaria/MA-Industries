@@ -2,7 +2,7 @@
 
 Updated: 21 October 2026.
 
-The website has five canonical pages: Home, About, Categories, Products and Contact. All 67 products remain in the existing catalogue with stable popup links. No standalone product or category-guide pages are generated.
+The website has five canonical pages: Home, About, Categories, Products and Contact. All 34 products remain in the existing catalogue with stable popup links. No standalone product or category-guide pages are generated.
 
 ## Implemented
 

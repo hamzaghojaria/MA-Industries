@@ -27,16 +27,6 @@
 .directory-image > .watermarked-image,
 .founder-portrait > .watermarked-image { width: 100%; height: 100%; }
 .product-visual > .watermarked-image { position: absolute; inset: 0; width: 100%; height: 100%; }
-/* Gateway photography is positioned decoratively; its wrapper owns that geometry. */
-.range-gateway > .watermarked-image > img {
-  position: static;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-  transform: none;
-}
-.range-gateway > .watermarked-image::after { right: 10px; bottom: 10px; }
 
 @media (max-width: 600px) {
   .watermarked-image::after {

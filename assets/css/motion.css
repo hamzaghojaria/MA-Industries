@@ -35,7 +35,10 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-.range-gateway, .directory-card, .category-card, .offering-grid>a, .founder-card {
+.directory-card,
+.category-card,
+.offering-grid>a,
+.founder-card {
   transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .25s;
 }
 
@@ -52,10 +55,6 @@
   overflow: hidden;
   border-radius: 6px;
   transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
-}
-
-.range-gateway > .watermarked-image {
-  transition: transform .65s var(--ease-out);
 }
 
 .hero-range-art {
@@ -82,7 +81,7 @@
 /* Collection gateways beneath the category-page title. */
 .directory-jumps {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   max-width: 1120px;
 }
@@ -162,10 +161,6 @@
   outline-offset: 3px;
 }
 
-.directory-hero > .collection-scroll-hint {
-  display: none;
-}
-
 @media (max-width: 700px) {
   .directory-jumps {
     display: flex;
@@ -180,7 +175,7 @@
   }
 
   .directory-jumps .collection-jump {
-    flex: 0 0 88%;
+    flex: 1 1 100%;
     box-sizing: border-box;
     scroll-snap-align: start;
     gap: 14px;
@@ -203,14 +198,6 @@
   .directory-jumps .collection-jump-count {
     padding-right: 22px;
   }
-
-  .directory-hero > .collection-scroll-hint {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    font-size: 11px;
-    letter-spacing: .4px;
-  }
 }
 
 .faq details {
@@ -230,8 +217,10 @@
   color: var(--accent);
 }
 
-.button:focus-visible, .card-whatsapp:focus-visible, .directory-card:focus-visible,
-.range-gateway:focus-visible, .offering-grid>a:focus-visible {
+.button:focus-visible,
+.card-whatsapp:focus-visible,
+.directory-card:focus-visible,
+.offering-grid>a:focus-visible {
   outline: 3px solid #245c3a;
   outline-offset: 5px;
 }
@@ -250,7 +239,9 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .range-gateway:hover, .directory-card:hover, .category-card:hover, .offering-grid>a:hover {
+  .directory-card:hover,
+.category-card:hover,
+.offering-grid>a:hover {
     transform: translateY(-5px);
     box-shadow: 0 14px 32px #27342114;
     border-color: #a6b59b;
@@ -258,10 +249,6 @@
 
   .directory-card:hover .directory-image img, .gallery-image:hover img {
     transform: scale(1.045);
-  }
-
-  .range-gateway:hover > .watermarked-image {
-    transform: scale(1.025);
   }
 
   .range-mosaic figure:hover {
@@ -333,11 +320,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @media (max-width: 600px) {
@@ -350,7 +332,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  a:not(.directory-card):not(.range-gateway):not(.button):not(.text-button):not(.nav-cta):not(.footer-enquiry-link):not(.card-whatsapp):not(.floating-whatsapp):not(.brand-link):not(.brand-card):not(.footer-contact-actions a):not(.category-explore-button):not(.gallery-image):hover {
+  a:not(.directory-card):not(.button):not(.text-button):not(.nav-cta):not(.footer-enquiry-link):not(.card-whatsapp):not(.floating-whatsapp):not(.brand-link):not(.brand-card):not(.footer-contact-actions a):not(.gallery-image):hover {
     color: var(--accent);
     text-decoration-color: currentColor;
   }

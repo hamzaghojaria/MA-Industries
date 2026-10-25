@@ -75,7 +75,7 @@
       }
     }
   }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-  const selectors = '.range-gateway,.directory-card,.offering-grid>a,.founder-card,.steps article,' +
+  const selectors = '.directory-card,.offering-grid>a,.founder-card,.steps article,' +
     '.material-story>*,.about-story-grid>*,.about-value-grid article,.enquiry>div,' +
     '.about-cta>*,.paper-guide-grid article,.product,.brand-card,.studio-copy,.home-product,#home-products-title';
   function observeWithin(root) {

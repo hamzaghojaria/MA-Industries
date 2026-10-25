@@ -11,19 +11,19 @@ export const PAGE_META = {
   },
   'about.html': {
     title: 'About M&A Industries | Sugarcane & Recycled Products, Mumbai',
-    description: 'Meet the team behind M&A Industries in Mumbai. Discover our approach to sourcing sugarcane essentials, recycled household products, paper and packaging.'
+    description: 'Meet the team behind M&A Industries in Mumbai. Discover our approach to sourcing sugarcane essentials and recycled household products.'
   },
   'categories.html': {
-    title: 'Sugarcane, Recycled & Paper Categories | M&A Industries',
-    description: 'Explore 12 product categories: sugarcane household goods, food packaging, sugarcane paper, recycled household products and traditional paper and packaging.'
+    title: 'Sugarcane & Recycled Categories | M&A Industries',
+    description: 'Explore four product categories: sugarcane household goods, food packaging, sugarcane paper and recycled household products.'
   },
   'products.html': {
-    title: 'Sugarcane, Recycled & Paper Product Catalogue | M&A Industries',
-    description: 'Browse product photos, materials, dimensions and pack options for sugarcane, recycled, paper and packaging products. Enquire with M&A Industries in Mumbai.'
+    title: 'Sugarcane & Recycled Product Catalogue | M&A Industries',
+    description: 'Browse product photos, materials, dimensions and pack options for sugarcane and recycled products. Enquire with M&A Industries in Mumbai.'
   },
   'contact.html': {
     title: 'Contact M&A Industries, Mumbai | Product & Bulk Enquiries',
-    description: 'Contact M&A Industries in Mumbai on +91 98191 57417. Discuss product dimensions, pack quantities, sugarcane and recycled products, paper and bulk sourcing.'
+    description: 'Contact M&A Industries in Mumbai on +91 98191 57417. Discuss product dimensions, pack quantities, sugarcane and recycled products and bulk sourcing.'
   }
 };
 
@@ -41,7 +41,7 @@ export function buildStructuredData(file, catalogue, origin) {
   const organizationId = new URL('#organization', base).href;
   const websiteId = new URL('#website', base).href;
   const contactId = new URL('#sales-contact', base).href;
-  const documentUrl = new URL('assets/catalogues/MA-Industries-Paper-Catalogue.pdf', base).href;
+  const documentUrl = new URL('assets/catalogues/MA-Industries-Catalogue.pdf', base).href;
   const page = {
     '@type': file === 'contact.html' ? 'ContactPage' : file === 'about.html' ? 'AboutPage' :
       ['products.html', 'categories.html'].includes(file) ? 'CollectionPage' : 'WebPage',
@@ -54,7 +54,7 @@ export function buildStructuredData(file, catalogue, origin) {
     logo: new URL('assets/images/brand-logo.png', base).href,
     email: 'info@maindustries.in', telephone: '+91 98191 57417',
     address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
-    description: 'Sugarcane-based essentials and recycled household products, alongside an established paper and packaging range.',
+    description: 'Sugarcane-based essentials and recycled household products.',
     knowsAbout: catalogue.categories.map(category => category.name),
     contactPoint: { '@id': contactId }
   }, page, {

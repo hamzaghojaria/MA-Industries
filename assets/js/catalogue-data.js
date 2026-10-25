@@ -1,833 +1,116 @@
 /* Shared catalogue. Existing product IDs remain stable. */
 (()=>{const papers=[
   {
-    "name": "Duplex paper",
-    "group": "boards",
-    "tag": "STRUCTURE & SURFACE",
-    "desc": "A versatile starting point for cartons, printed packaging and presentation.",
-    "uses": [
-      "Carton concepts",
-      "Printed packaging",
-      "Display and presentation"
-    ],
-    "color": "#e8e3d6",
-    "bg": "#dedcd2",
-    "image": "assets/images/products/duplex-paper.webp",
-    "id": "duplex-paper",
-    "index": 1,
-    "gsm": {
-      "min": 230,
-      "max": 400
-    }
-  },
-  {
-    "name": "White bag paper",
-    "group": "packaging",
-    "tag": "A CLEAN CANVAS",
-    "desc": "A crisp white foundation for carry bags and branded packaging ideas.",
-    "uses": [
-      "Carry bags",
-      "Retail packaging",
-      "Branding and print"
-    ],
-    "color": "#fffdf3",
-    "bg": "#e4e6de",
-    "image": "assets/images/products/white-bag-paper.webp",
-    "id": "white-bag-paper",
-    "index": 2,
-    "gsm": {
-      "min": 50,
-      "max": 130
-    }
-  },
-  {
-    "name": "Kraft paper",
-    "group": "packaging",
-    "tag": "EARTHY & EXPRESSIVE",
-    "desc": "Brown kraft paper for bags, wrapping and packaging. Discuss machine-glazed (MG) or machine-finished (MF) grades for your application.",
-    "uses": [
-      "Grocery and shopping bags",
-      "Wrapping and envelopes",
-      "Packaging applications"
-    ],
-    "color": "#bb905e",
-    "bg": "#e5d7bf",
-    "image": "assets/images/products/kraft-paper.webp",
-    "id": "kraft-paper",
-    "index": 3,
-    "gsm": {
-      "min": 45,
-      "max": 200
-    },
-    "details": "MG kraft is a useful starting point for bags and wrapping (reference: 45–100 GSM). MF kraft is commonly discussed for corrugated packaging (reference: 120–200 GSM). Confirm finish, strength and suitability for the intended use."
-  },
-  {
-    "name": "Golden paper",
-    "group": "creative",
-    "tag": "A TOUCH OF OCCASION",
-    "desc": "A golden visual accent for decorative work and special presentations.",
-    "uses": [
-      "Decorative projects",
-      "Gift presentation",
-      "Creative finishing"
-    ],
-    "color": "#b99a49",
-    "bg": "#e5dec9",
-    "image": "assets/images/products/golden-paper.webp",
-    "id": "golden-paper",
-    "index": 4,
-    "gsm": {
-      "min": 110,
-      "max": 350
-    }
-  },
-  {
-    "name": "Scrap paper",
-    "group": "everyday",
-    "tag": "ANOTHER CHAPTER",
-    "desc": "Paper recovery material. Discuss the grade, composition and intended use.",
-    "uses": [
-      "Paper recovery",
-      "Reprocessing enquiries",
-      "Grade-based sourcing"
-    ],
-    "color": "#aaa08a",
-    "bg": "#dcded4",
-    "image": "assets/images/products/scrap-paper.webp",
-    "id": "scrap-paper",
-    "index": 5,
-    "gsm": null
-  },
-  {
-    "name": "Butter paper",
-    "group": "wrapping",
-    "tag": "LIGHT & SUBTLE",
-    "desc": "A delicate-looking paper family for wrapping and interleaving enquiries.",
-    "uses": [
-      "Wrapping enquiries",
-      "Interleaving",
-      "Application-specific sourcing"
-    ],
-    "color": "#f5ecd7",
-    "bg": "#e9e5dc",
-    "image": "assets/images/products/butter-paper.webp",
-    "id": "butter-paper",
-    "index": 6,
-    "gsm": {
-      "min": 18,
-      "max": 39
-    }
-  },
-  {
-    "name": "Natural paper",
-    "group": "creative",
-    "tag": "QUIETLY DISTINCTIVE",
-    "desc": "Natural tones and an understated character for thoughtful paper projects.",
-    "uses": [
-      "Creative projects",
-      "Presentation",
-      "Natural-look packaging"
-    ],
-    "color": "#c9ba99",
-    "bg": "#e1ded1",
-    "image": "assets/images/products/natural-paper.webp",
-    "id": "natural-paper",
-    "index": 7,
-    "gsm": {
-      "min": 90,
-      "max": 350
-    }
-  },
-  {
-    "name": "Sack kraft paper",
-    "group": "packaging",
-    "tag": "MADE FOR SACK CONCEPTS",
-    "desc": "Kraft paper grades used in industrial paper sacks. Discuss strength, porosity and sack construction.",
-    "uses": [
-      "Industrial sack enquiries",
-      "Multiwall bag concepts",
-      "Dry goods packaging"
-    ],
-    "color": "#ae8052",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/sack-kraft-paper.webp",
-    "id": "sack-kraft-paper",
-    "index": 8,
-    "gsm": {
-      "min": 70,
-      "max": 120
-    }
-  },
-  {
-    "name": "Kraft liner paper",
-    "group": "boards",
-    "tag": "THE OUTER LAYER",
-    "desc": "A kraft liner family for the outer faces of corrugated board. Discuss kraftliner, test liner or semi-kraft liner to match your packaging needs.",
-    "uses": [
-      "Corrugated outer liners",
-      "Printed shipping cartons",
-      "Industrial packaging"
-    ],
-    "color": "#a48563",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/kraft-liner-paper.webp",
-    "id": "kraft-liner-paper",
-    "index": 9,
-    "gsm": {
-      "min": 125,
-      "max": 200
-    },
-    "details": "Kraftliner, recycled test liner and semi-kraft liner are distinct grades. Discuss fibre composition, natural or golden shade, GSM, BF, compression performance and print finish; specifications vary by grade."
-  },
-  {
-    "name": "Fluting paper",
-    "group": "boards",
-    "tag": "THE CORE OF CORRUGATION",
-    "desc": "The corrugated middle layer that gives a board its fluted structure. Select the grade around box design, strength and converting requirements.",
-    "uses": [
-      "Corrugated board manufacture",
-      "Shipping cartons",
-      "Protective packaging"
-    ],
-    "color": "#bba17c",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/fluting-paper.webp",
-    "id": "fluting-paper",
-    "index": 10,
-    "gsm": {
-      "min": 80,
-      "max": 300
-    },
-    "details": "Reference mill grades span 80–300 GSM. Discuss bursting factor (BF), compression requirements, moisture, reel width and the intended box construction. Not every GSM, BF and shade combination is available."
-  },
-  {
-    "name": "Folding boxboard",
-    "group": "boards",
-    "tag": "FORM MEETS PRESENTATION",
-    "desc": "A paperboard family for folding cartons and printed packaging projects.",
-    "uses": [
-      "Folding cartons",
-      "Retail packaging",
-      "Presentation packaging"
-    ],
-    "color": "#eee6d3",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/folding-boxboard.webp",
-    "id": "folding-boxboard",
-    "index": 11,
-    "gsm": {
-      "min": 200,
-      "max": 400
-    }
-  },
-  {
-    "name": "SBS board",
-    "group": "boards",
-    "tag": "A WHITE BOARD CANVAS",
-    "desc": "Solid bleached sulphate board for graphical and premium packaging enquiries.",
-    "uses": [
-      "Graphical applications",
-      "Premium packaging",
-      "Presentation projects"
-    ],
-    "color": "#fffaf0",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/sbs-board.webp",
-    "id": "sbs-board",
-    "index": 12,
-    "gsm": {
-      "min": 200,
-      "max": 400
-    }
-  },
-  {
-    "name": "Uncoated printing paper",
-    "group": "creative",
-    "tag": "LET THE STORY LEAD",
-    "desc": "An uncoated paper family for printed communications and stationery.",
-    "uses": [
-      "Printed communications",
-      "Stationery",
-      "Book and document projects"
-    ],
-    "color": "#eeebe3",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/uncoated-printing-paper.webp",
-    "id": "uncoated-printing-paper",
-    "index": 13,
-    "gsm": {
-      "min": 58,
-      "max": 120
-    }
-  },
-  {
-    "name": "Coated art paper",
-    "group": "creative",
-    "tag": "IMAGE-LED EXPRESSION",
-    "desc": "Coated paper for image-rich print projects. Discuss finish and printing compatibility.",
-    "uses": [
-      "Brochures",
-      "Catalogues",
-      "Promotional print"
-    ],
-    "color": "#fffdf6",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/coated-art-paper.webp",
-    "id": "coated-art-paper",
-    "index": 14,
-    "gsm": {
-      "min": 90,
-      "max": 350
-    }
-  },
-  {
-    "name": "Tissue wrapping paper",
-    "group": "everyday",
-    "tag": "A SOFTER LAYER",
-    "desc": "A lightweight paper family for decorative wrapping and interleaving.",
-    "uses": [
-      "Gift wrapping",
-      "Retail presentation",
-      "Interleaving enquiries"
-    ],
-    "color": "#e9d8cf",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/tissue-wrapping-paper.webp",
-    "id": "tissue-wrapping-paper",
-    "index": 15,
-    "gsm": {
-      "min": 18,
-      "max": 40
-    }
-  },
-  {
-    "name": "Greaseproof paper",
-    "group": "wrapping",
-    "tag": "A PURPOSEFUL BARRIER",
-    "desc": "Specialty paper grades designed for grease resistance in suitable applications.",
-    "uses": [
-      "Wrapping applications",
-      "Grease-resistant packaging",
-      "Lining enquiries"
-    ],
-    "color": "#eee4c8",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/greaseproof-paper.webp",
-    "id": "greaseproof-paper",
-    "index": 16,
-    "gsm": {
-      "min": 40,
-      "max": 80
-    }
-  },
-  {
-    "name": "Cupstock board",
-    "group": "wrapping",
-    "tag": "BUILT AROUND THE CUP",
-    "desc": "A board family for cup-converting enquiries, with barrier and sealing requirements to discuss.",
-    "uses": [
-      "Paper cup converting",
-      "Beverage packaging",
-      "Foodservice enquiries"
-    ],
-    "color": "#f6f1e5",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/cupstock-board.webp",
-    "id": "cupstock-board",
-    "index": 17,
-    "gsm": {
-      "min": 185,
-      "max": 345
-    }
-  },
-  {
-    "name": "Recycled wrapping paper",
-    "group": "everyday",
-    "tag": "A PRACTICAL NEXT CHAPTER",
-    "desc": "Recycled-fibre paper families for general wrapping and cushioning enquiries.",
-    "uses": [
-      "General wrapping",
-      "Void filling concepts",
-      "Protective interleaving"
-    ],
-    "color": "#aca18c",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/recycled-wrapping-paper.webp",
-    "id": "recycled-wrapping-paper",
-    "index": 18,
-    "gsm": {
-      "min": 60,
-      "max": 120
-    }
-  },
-  {
-    "name": "Copier paper",
-    "group": "office",
-    "tag": "READY FOR THE WORKDAY",
-    "desc": "Paper grades for everyday copying and office printing.",
-    "uses": [
-      "Office documents",
-      "Photocopying",
-      "Reports"
-    ],
-    "color": "#f8f8ef",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/copier-paper.webp",
-    "id": "copier-paper",
-    "index": 19,
-    "gsm": {
-      "min": 70,
-      "max": 100
-    }
-  },
-  {
-    "name": "Bond writing paper",
-    "group": "office",
-    "tag": "WORDS WITH SUBSTANCE",
-    "desc": "Uncoated writing-paper families for correspondence and business stationery.",
-    "uses": [
-      "Letterheads",
-      "Forms",
-      "Writing stationery"
-    ],
-    "color": "#eee8d7",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/bond-writing-paper.webp",
-    "id": "bond-writing-paper",
-    "index": 20,
-    "gsm": {
-      "min": 70,
-      "max": 100
-    }
-  },
-  {
-    "name": "Coloured copier paper",
-    "group": "office",
-    "tag": "ORGANISE IN COLOUR",
-    "desc": "Coloured office-paper grades for organising documents and making notices stand out.",
-    "uses": [
-      "Notices",
-      "Document dividers",
-      "Office printing"
-    ],
-    "color": "#c0d8dd",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/coloured-copier-paper.webp",
-    "id": "coloured-copier-paper",
-    "index": 21,
-    "gsm": {
-      "min": 75,
-      "max": 80
-    }
-  },
-  {
-    "name": "Envelope paper",
-    "group": "office",
-    "tag": "MADE FOR CORRESPONDENCE",
-    "desc": "Paper families for envelope converting, with opacity and folding requirements to discuss.",
-    "uses": [
-      "Business envelopes",
-      "Mailers",
-      "Stationery sets"
-    ],
-    "color": "#dac9a9",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/envelope-paper.webp",
-    "id": "envelope-paper",
-    "index": 22,
-    "gsm": {
-      "min": 68,
-      "max": 175
-    }
-  },
-  {
-    "name": "Ledger paper",
-    "group": "office",
-    "tag": "A PLACE FOR EVERY RECORD",
-    "desc": "Writing-paper grades for account books and record keeping.",
-    "uses": [
-      "Ledgers",
-      "Registers",
-      "Record books"
-    ],
-    "color": "#dce8cf",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/ledger-paper.webp",
-    "id": "ledger-paper",
-    "index": 23,
-    "gsm": {
-      "min": 70,
-      "max": 95
-    }
-  },
-  {
-    "name": "Drawing paper",
-    "group": "office",
-    "tag": "SPACE FOR THE FIRST IDEA",
-    "desc": "Paper families for pencil work and drawing; choose surface and weight for your medium.",
-    "uses": [
-      "Sketching",
-      "Technical drawing",
-      "Art stationery"
-    ],
-    "color": "#f3e9db",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/drawing-paper.webp",
-    "id": "drawing-paper",
-    "index": 24,
-    "gsm": {
-      "min": 80,
-      "max": 170
-    }
-  },
-  {
-    "name": "Thermal receipt paper",
-    "group": "labels",
-    "tag": "A CLEAR TRANSACTION",
-    "desc": "Coated paper for direct thermal receipt printing; printer compatibility and image life depend on the grade.",
-    "uses": [
-      "POS receipts",
-      "Transaction records",
-      "Ticket printing"
-    ],
-    "color": "#f1f2e9",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/thermal-receipt-paper.webp",
-    "id": "thermal-receipt-paper",
-    "index": 25,
-    "gsm": {
-      "min": 44,
-      "max": 90
-    }
-  },
-  {
-    "name": "Direct thermal label paper",
-    "group": "labels",
-    "tag": "PRINT WITHOUT A RIBBON",
-    "desc": "Heat-sensitive label facestock for compatible direct thermal printers. Adhesive and service conditions need separate selection.",
-    "uses": [
-      "Shipping labels",
-      "Barcode labels",
-      "Retail labels"
-    ],
-    "color": "#eeeedd",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/direct-thermal-label-paper.webp",
-    "id": "direct-thermal-label-paper",
-    "index": 26,
-    "gsm": {
-      "min": 65,
-      "max": 70
-    }
-  },
-  {
-    "name": "Semi-gloss label paper",
-    "group": "labels",
-    "tag": "A POLISHED LABEL SURFACE",
-    "desc": "Coated paper facestock for printed labels, subject to ink and converting compatibility.",
-    "uses": [
-      "Product labels",
-      "Retail packaging",
-      "Promotional labels"
-    ],
-    "color": "#ede1ca",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/semi-gloss-label-paper.webp",
-    "id": "semi-gloss-label-paper",
-    "index": 27,
-    "gsm": {
-      "min": 70,
-      "max": 80
-    }
-  },
-  {
-    "name": "Uncoated label paper",
-    "group": "labels",
-    "tag": "A NATURAL LABEL FINISH",
-    "desc": "Uncoated paper facestock for labels with a matte appearance. Printing method and adhesive must be matched to the application.",
-    "uses": [
-      "Address labels",
-      "Product labels",
-      "Stationery labels"
-    ],
-    "color": "#d9ceb6",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/uncoated-label-paper.webp",
-    "id": "uncoated-label-paper",
-    "index": 28,
-    "gsm": {
-      "min": 70,
-      "max": 100
-    }
-  },
-  {
-    "name": "Glassine release liner",
-    "group": "labels",
-    "tag": "THE LAYER BEHIND THE LABEL",
-    "desc": "Dense, smooth paper used as a base for release liners in pressure-sensitive label constructions. Release coating and converting performance vary by grade.",
-    "uses": [
-      "Label backing",
-      "Die-cut label converting",
-      "Release-liner enquiries"
-    ],
-    "color": "#e3d8b4",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/glassine-release-liner.webp",
-    "id": "glassine-release-liner",
-    "index": 29,
-    "gsm": {
-      "min": 60,
-      "max": 80
-    }
-  },
-  {
-    "name": "Clay-coated kraft liner",
-    "group": "labels",
-    "tag": "SUPPORT FOR CONVERTING",
-    "desc": "Coated kraft paper used as a release-liner base for adhesive-material converting. Confirm coating and release requirements.",
-    "uses": [
-      "Release-liner converting",
-      "Adhesive materials",
-      "Label construction enquiries"
-    ],
-    "color": "#c6b694",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/clay-coated-kraft-liner.webp",
-    "id": "clay-coated-kraft-liner",
-    "index": 30,
-    "gsm": {
-      "min": 41,
-      "max": 155
-    }
-  },
-  {
-    "name": "Translucent paper",
-    "group": "specialty",
-    "tag": "LET THE LIGHT THROUGH",
-    "desc": "Translucent paper families for layered graphic and stationery projects.",
-    "uses": [
-      "Invitation overlays",
-      "Presentation layers",
-      "Creative stationery"
-    ],
-    "color": "#e1e4dc",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/translucent-paper.webp",
-    "id": "translucent-paper",
-    "index": 31,
-    "gsm": {
-      "min": 80,
-      "max": 375
-    }
-  },
-  {
-    "name": "Textured paper",
-    "group": "specialty",
-    "tag": "CHARACTER IN THE SURFACE",
-    "desc": "Embossed or textured papers for tactile stationery and presentation. Confirm print and fold suitability.",
-    "uses": [
-      "Invitations",
-      "Presentation covers",
-      "Premium stationery"
-    ],
-    "color": "#cbb99e",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/textured-paper.webp",
-    "id": "textured-paper",
-    "index": 32,
-    "gsm": {
-      "min": 100,
-      "max": 320
-    }
-  },
-  {
-    "name": "Dyed-through coloured paper",
-    "group": "specialty",
-    "tag": "COLOUR THROUGH EVERY LAYER",
-    "desc": "Coloured paper families with colour through the sheet for creative print and converting projects.",
-    "uses": [
-      "Creative packaging",
-      "Cardmaking",
-      "Coloured stationery"
-    ],
-    "color": "#a8b9a0",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/dyed-through-coloured-paper.webp",
-    "id": "dyed-through-coloured-paper",
-    "index": 33,
-    "gsm": {
-      "min": 80,
-      "max": 350
-    }
-  },
-  {
-    "name": "Metallic finish paper",
-    "group": "specialty",
-    "tag": "A LITTLE MORE BRILLIANCE",
-    "desc": "Decorative paper families with a metallic appearance for distinctive presentation.",
-    "uses": [
-      "Gift presentation",
-      "Decorative print",
-      "Creative packaging"
-    ],
-    "color": "#bfa566",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/metallic-finish-paper.webp",
-    "id": "metallic-finish-paper",
-    "index": 34,
-    "gsm": {
-      "min": 110,
-      "max": 350
-    }
-  },
-  {
-    "name": "Pearlescent paper",
-    "group": "specialty",
-    "tag": "A SOFT SHIMMER",
-    "desc": "Decorative papers with a pearlescent finish; choose the grade for your printing and converting process.",
-    "uses": [
-      "Occasion stationery",
-      "Invitations",
-      "Presentation projects"
-    ],
-    "color": "#dcd2e4",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/pearlescent-paper.webp",
-    "id": "pearlescent-paper",
-    "index": 35,
-    "gsm": {
-      "min": 110,
-      "max": 350
-    }
-  },
-  {
-    "name": "Cotton-content paper",
-    "group": "specialty",
-    "tag": "A DISTINCTIVE HAND FEEL",
-    "desc": "Specialty papers containing cotton fibres for tactile print and stationery projects. Fibre composition varies by grade.",
-    "uses": [
-      "Letterpress enquiries",
-      "Fine stationery",
-      "Invitations"
-    ],
-    "color": "#e5dfce",
-    "bg": "#e5e0d4",
-    "suggested": true,
-    "image": "assets/images/products/cotton-content-paper.webp",
-    "id": "cotton-content-paper",
-    "index": 36,
-    "gsm": {
-      "min": 120,
-      "max": 320
-    }
-  },
-  {
     "id": "sugarcane-copy-paper",
-    "name": "A4 sugarcane paper",
+    "name": "Sugarcane office paper",
     "group": "sugarcane-paper",
     "tag": "SUGARCANE PAPER",
-    "desc": "A4 sheets made from sugarcane paper for documents and everyday printing.",
+    "desc": "75 GSM sugarcane office paper in A4 and A3 formats, supplied in 2,500-sheet and 1,250-sheet packs.",
     "uses": [
-      "Office printing",
-      "Documents"
+      "Office documents and reports",
+      "General printing requirements",
+      "A4 and A3 stationery procurement"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-copy-paper-photo.jpg",
     "index": 37,
     "gsm": null,
-    "material": "Sugarcane paper / bagasse pulp; composition varies by product",
+    "material": "Sugarcane paper; exact fibre composition confirmed on enquiry",
     "illustration": false,
-    "details": "Available as A4 sheets. Pack quantity and paper weight are confirmed on enquiry.",
-    "specifications": [
-      "Format: A4 sheets",
-      "Material: Sugarcane paper"
-    ]
+    "details": "A4 original packs contain 2,500 sheets. A3 film-wrapped packs contain 1,250 sheets. Both formats are listed as 75g in the manufacturer quotation, interpreted as 75 GSM. Confirm suitability for your printer when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "A4 sheets",
+        "dimensions": "A4 format",
+        "notes": "75 GSM (supplier notation: 75g); original pack",
+        "pack": "2,500 pcs",
+        "sourcePage": 3,
+        "sourceRow": 14
+      },
+      {
+        "name": "A3 sheets",
+        "dimensions": "A3 format",
+        "notes": "75 GSM (supplier notation: 75g); film wrap",
+        "pack": "1,250 pcs",
+        "sourcePage": 3,
+        "sourceRow": 15
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Office paper in A4 and A3 formats for documents, reports and general printing requirements. Both options are 75 GSM; choose the sheet size and pack quantity to match your workplace needs."
   },
   {
     "id": "sugarcane-paper-cups",
     "name": "Paper cups",
     "group": "sugarcane-paper",
     "tag": "SUGARCANE PAPER",
-    "desc": "Paper cups for beverage service.",
+    "desc": "Sugarcane paper cups in 13 oz and 6.5 oz sizes, supplied in 1,000-piece packs.",
     "uses": [
-      "Beverage service",
-      "Hospitality"
+      "Workplace beverage service",
+      "Hospitality drink service",
+      "Event refreshment counters"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-paper-cups-sizes-pack.webp",
     "index": 38,
     "gsm": null,
-    "material": "Sugarcane paper / bagasse pulp; composition varies by product",
+    "material": "Sugarcane paper; exact fibre composition confirmed on enquiry",
     "illustration": true,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "13 oz",
+        "capacity": "13 oz",
+        "pack": "1,000 pcs",
+        "sourcePage": 3,
+        "sourceRow": 16
+      },
+      {
+        "name": "6.5 oz",
+        "capacity": "6.5 oz",
+        "pack": "1,000 pcs",
+        "sourcePage": 3,
+        "sourceRow": 17
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Paper cups for beverage service at workplaces, hospitality venues and events. Choose between the quoted 6.5 oz and 13 oz options to suit your serving size."
   },
   {
     "id": "sugarcane-bath-tissues",
     "name": "Bath tissues",
     "group": "sugarcane-paper",
     "tag": "SUGARCANE PAPER",
-    "desc": "Tissue products for washrooms and daily use.",
+    "desc": "Four-layer tissue paper supplied in packs of 30 rolls.",
     "uses": [
-      "Washrooms",
-      "Household use"
+      "Household washrooms",
+      "Workplace washroom supplies",
+      "Hospitality housekeeping"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-bath-tissues-pack.webp",
     "index": 39,
     "gsm": null,
-    "material": "Sugarcane paper / bagasse pulp; composition varies by product",
+    "material": "Tissue paper; exact fibre composition confirmed on enquiry",
     "illustration": true,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
-  },
-  {
-    "id": "sugarcane-food-containers",
-    "name": "Food containers",
-    "group": "sugarcane-paper",
-    "tag": "SUGARCANE PAPER",
-    "desc": "Pulp containers for takeaway and food service.",
-    "uses": [
-      "Takeaway packaging",
-      "Food service"
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "Four-layer tissue",
+        "notes": "4 layers",
+        "pack": "30 rolls",
+        "sourcePage": 3,
+        "sourceRow": 18
+      }
     ],
-    "color": "#d4c8a8",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/sugarcane-food-containers-photo.jpg",
-    "index": 40,
-    "gsm": null,
-    "material": "Sugarcane paper / bagasse pulp; composition varies by product",
-    "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Four-layer bath tissue for routine washroom stocking and household use. Supplied in 30-roll packs for planned replenishment."
   },
   {
     "id": "sugarcane-packaging-paper",
@@ -836,8 +119,9 @@
     "tag": "SUGARCANE PAPER",
     "desc": "Sugarcane paper supplied in roll format for converting and packaging applications.",
     "uses": [
-      "Wrapping",
-      "Packaging"
+      "General wrapping",
+      "Packaging conversion",
+      "Custom roll-format sourcing"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
@@ -850,56 +134,76 @@
     "specifications": [
       "Format: Roll",
       "Material: Sugarcane paper"
-    ]
+    ],
+    "overview": "Sugarcane paper in roll format for wrapping, packaging and converting enquiries. Share the required roll width, paper weight and quantity so the appropriate supply option can be confirmed."
   },
   {
     "id": "cutting-boards",
-    "name": "Sugarcane cutting boards",
+    "name": "Cutting boards",
     "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Boards for everyday kitchen preparation.",
+    "tag": "CUTTING BOARDS",
+    "desc": "Standard, grippy and solid cutting boards in large and medium formats for everyday food preparation.",
     "uses": [
-      "Food preparation",
-      "Kitchen use"
+      "Ingredient preparation",
+      "Kitchen workstations",
+      "Household kitchen supplies"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/cutting-boards-photo.jpg",
     "index": 42,
     "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
-    "illustration": false,
-    "details": "Available in mint and pink.",
-    "specifications": [
-      "Large: 1 × 27.5 × 37.5 cm; 1 pc; 810 g",
-      "Medium: 1 × 20.7 × 33.5 cm; 1 pc; 564 g"
-    ]
-  },
-  {
-    "id": "reusable-cups",
-    "name": "Reusable cups",
-    "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Reusable drinkware for everyday routines.",
-    "uses": [
-      "Reusable drinkware",
-      "Home and office"
+    "material": "Standard and grippy: sugarcane-based material. Solid: composition confirmed on enquiry. Confirm the selected variant’s exact composition.",
+    "illustration": true,
+    "details": "Choose from standard large, standard medium, grippy large, solid large and solid medium designs. Each board is supplied individually. Dimensions follow the manufacturer specification.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Standard - large",
+        "dimensions": "1 cm x 27.5 cm x 37.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 29
+      },
+      {
+        "name": "Standard - medium",
+        "dimensions": "0.9 cm x 20.7 cm x 33.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 30
+      },
+      {
+        "name": "Grippy - large",
+        "dimensions": "1 cm x 27.5 cm x 37.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 31
+      },
+      {
+        "name": "Solid - large",
+        "dimensions": "1.2 cm x 25.5 cm x 43.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 32
+      },
+      {
+        "name": "Solid - medium",
+        "dimensions": "1 cm x 23.5 cm x 35.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 33
+      }
     ],
-    "color": "#a7b9a1",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/reusable-cups-photo.jpg",
-    "index": 43,
-    "gsm": null,
-    "material": "Bio-PE / Bio-PP range; confirm composition for the selected item",
-    "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Standard, grippy and solid cutting boards in mustard, sage and terracotta",
+    "overview": "A choice of standard, grippy and solid cutting boards for everyday ingredient preparation. Compare the five large and medium options below to choose a design and working size for your kitchen."
   },
   {
     "id": "ribbed-travel-tumbler",
     "name": "Ribbed travel tumbler",
     "group": "sugarcane-kitchenware",
     "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "A reusable lidded tumbler for daily drinkware, office desks and corporate gifting enquiries, with a distinctive ribbed lower body.",
+    "desc": "A reusable ribbed tumbler for everyday drinkware, supplied individually.",
     "uses": [
       "Everyday drinkware at home",
       "Office desks and workday breaks",
@@ -913,15 +217,22 @@
     "image": "assets/images/products/ribbed-travel-tumbler-photo.jpg",
     "index": 67,
     "gsm": null,
-    "material": "Confirm the selected item's composition and bio-based content on enquiry",
+    "material": "Composition confirmed on enquiry",
     "illustration": true,
-    "details": "Enquire about bulk quantities, gift packaging and logo personalisation for corporate orders; options are subject to supplier confirmation. Confirm beverage temperature suitability, lid performance and care instructions before use.",
-    "specifications": [
-      "Design: tall tumbler with matching lid and a ribbed lower body",
-      "Reference colours: brown and cream; confirm availability",
-      "Capacity and dimensions: confirmed on enquiry",
-      "Corporate gifting: enquire about quantities, personalisation and gift packaging"
-    ]
+    "details": "Manufacturer dimensions: 9 x 9 x 18.5 cm. Supplied as 1 pc. Confirm composition, suitability and available colours when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Ribbed travel tumbler",
+        "dimensions": "9 cm x 9 cm x 18.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 7
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Brown and cream ribbed reusable tumblers alongside their retail packaging",
+    "overview": "A reusable ribbed tumbler for everyday drinks at home, at work and during travel breaks. Supplied individually, with quoted dimensions of 9 x 9 x 18.5 cm; available colours and composition can be confirmed when ordering."
   },
   {
     "id": "salad-bowls",
@@ -931,64 +242,172 @@
     "desc": "A bio-based mixing bowl for everyday food preparation.",
     "uses": [
       "Salad preparation",
-      "Serving"
+      "Mixing ingredients",
+      "Table serving"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/salad-bowls-photo.jpg",
     "index": 44,
     "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
+    "material": "Sugarcane-based material; exact composition confirmed on enquiry",
     "illustration": false,
-    "details": "Available in peach, mustard and blue.",
-    "specifications": [
-      "Size: 5 × 24.7 × 12 cm",
-      "Pack: 1 pc; 646 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Mixing bowl",
+        "dimensions": "5 cm x 24.7 cm x 12 cm",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 34
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "A sugarcane-based mixing bowl for preparing salads, combining ingredients and serving at the table. Supplied individually; check the quoted dimensions against your preparation and serving requirements."
   },
   {
     "id": "rice-paddles",
-    "name": "Sugarcane rice paddles",
+    "name": "Sugarcane rice spatula",
     "group": "sugarcane-kitchenware",
     "tag": "SUGARCANE HOUSEHOLD GOODS",
     "desc": "Practical utensils for serving rice.",
     "uses": [
-      "Serving rice",
-      "Kitchen utensils"
+      "Serving cooked rice",
+      "Home dining",
+      "Kitchen utensil assortments"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/rice-paddles-photo.jpg",
     "index": 45,
     "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
-    "illustration": false,
-    "details": "Available in white, lime green, pink, papaya and mint.",
-    "specifications": [
-      "Fish: 8 × 20 × 2 cm; 1 pc; 75 g",
-      "Squirrel: 7 × 21 × 2 cm; 1 pc; 70 g",
-      "Hippo: 10.2 × 18.5 × 2 cm; 1 pc; 78 g",
-      "Lion: 9 × 19 × 2 cm; 1 pc; 66 g"
-    ]
+    "material": "Sugarcane-based material; exact composition confirmed on enquiry",
+    "illustration": true,
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Fish",
+        "dimensions": "8 cm x 20 cm x 3.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 2
+      },
+      {
+        "name": "Squirrel",
+        "dimensions": "7 cm x 21 cm x 3 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 3
+      },
+      {
+        "name": "Hippo",
+        "dimensions": "9 cm x 18.7 cm x 3.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 4
+      },
+      {
+        "name": "Lion",
+        "dimensions": "10 cm x 18.5 cm x 3.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 5
+      },
+      {
+        "name": "Standard",
+        "dimensions": "7 cm x 20.5 cm x 1.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 6
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Sugarcane rice spatulas showing Standard, Fish, Squirrel, Hippo and Lion designs",
+    "overview": "Rice-serving spatulas in fish, squirrel, hippo, lion and standard designs. Each option is supplied individually, allowing you to select a shape and size for everyday meal service."
   },
   {
     "id": "glass-airtight-containers",
     "name": "Glass airtight containers",
     "group": "sugarcane-kitchenware",
     "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Glass storage containers with lids; confirm lid material and seal specifications.",
+    "desc": "Glass food-storage containers in four square and four round capacities, supplied individually.",
     "uses": [
-      "Food storage",
-      "Kitchen organisation"
+      "Portion organisation",
+      "Meal preparation storage",
+      "Kitchen cupboard organisation"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/glass-airtight-containers-photo.jpg",
     "index": 46,
     "gsm": null,
-    "material": "Glass body; confirm lid material, seal and care specifications",
-    "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "material": "Glass body; lid and seal composition confirmed on enquiry",
+    "illustration": true,
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "Square 1,500 ml",
+        "dimensions": "7.6 cm x 23 cm x 17.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 25
+      },
+      {
+        "name": "Square 1,040 ml",
+        "dimensions": "7 cm x 20.7 cm x 15.4 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 26
+      },
+      {
+        "name": "Square 630 ml",
+        "dimensions": "6.4 cm x 17.6 cm x 13.2 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 27
+      },
+      {
+        "name": "Square 370 ml",
+        "dimensions": "5.8 cm x 15.3 cm x 11.2 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 28
+      },
+      {
+        "name": "Round 1,300 ml",
+        "dimensions": "8.3 cm x 21.8 cm x 21.8 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 29
+      },
+      {
+        "name": "Round 970 ml",
+        "dimensions": "7.5 cm x 18.5 cm x 18.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 30
+      },
+      {
+        "name": "Round 640 ml",
+        "dimensions": "7 cm x 16.3 cm x 16.3 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 31
+      },
+      {
+        "name": "Round 390 ml",
+        "dimensions": "6.5 cm x 14.3 cm x 14.3 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 32
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Square and round glass food-storage containers with pale blue clip-lock lids",
+    "overview": "Glass food-storage containers with four square and four round capacity options. Choose a shape and size for portion organisation, meal preparation or general kitchen storage."
   },
   {
     "id": "double-zipper-bags",
@@ -997,21 +416,48 @@
     "tag": "SUGARCANE FOOD PACKAGING",
     "desc": "Resealable bags for organised food storage.",
     "uses": [
-      "Food storage",
-      "Resealable packaging"
+      "Portioning ingredients and snacks",
+      "Separating items during meal preparation",
+      "Organising kitchen food storage",
+      "Resealable food packaging"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-zipper-bags-pack.webp",
     "index": 47,
     "gsm": null,
-    "material": "BIO-PE + PE; 25% biomass content",
+    "material": "Sugarcane-based film with a double-zipper closure. The quoted film thickness is 60 micrometres; exact composition is confirmed on enquiry.",
     "illustration": true,
-    "details": "Resealable bags supplied in large and medium sizes. Confirm available colours and finish on enquiry.",
-    "specifications": [
-      "Large: 55 μm; 25 × 30 cm; 20 pcs; 240 g",
-      "Medium: 55 μm; 18 × 20 cm; 20 pcs; 126 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Large",
+        "thickness": "60 μm",
+        "dimensions": "30 cm x 25 cm",
+        "pack": "20 pcs",
+        "sourcePage": 1,
+        "sourceRow": 2
+      },
+      {
+        "name": "Medium",
+        "thickness": "60 μm",
+        "dimensions": "22 cm x 25 cm",
+        "pack": "20 pcs",
+        "sourcePage": 1,
+        "sourceRow": 3
+      },
+      {
+        "name": "Small",
+        "thickness": "60 μm",
+        "dimensions": "20 cm x 18 cm",
+        "pack": "20 pcs",
+        "sourcePage": 1,
+        "sourceRow": 4
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Double-zipper bags with a resealable closure for separating portions and keeping food-storage items organised. Choose small, medium or large bags; all three options use 60 micrometre film and are supplied in packs of 20."
   },
   {
     "id": "disposable-gloves",
@@ -1020,45 +466,112 @@
     "tag": "SUGARCANE FOOD PACKAGING",
     "desc": "Single-use gloves for everyday handling tasks.",
     "uses": [
-      "Food handling",
-      "Kitchen preparation"
+      "Kitchen preparation",
+      "Food-handling supply enquiries",
+      "Household handling tasks"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-sanitary-gloves-pack.webp",
     "index": 48,
     "gsm": null,
-    "material": "BIO-PE + PE; 25% biomass content",
+    "material": "Sugarcane-based film; exact composition confirmed on enquiry",
     "illustration": true,
-    "details": "Available in standard adult and kids formats.",
-    "specifications": [
-      "Standard 100 pcs: 22 μm; 23 × 27 cm; 234 g",
-      "Standard 50 pcs: 22 μm; 23 × 27 cm; 112 g",
-      "Kids 30 pcs: 22 μm; 21 × 24 cm; 64 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Adult - 200 count",
+        "thickness": "26 μm",
+        "dimensions": "23 cm x 27 cm",
+        "pack": "200 pcs",
+        "sourcePage": 1,
+        "sourceRow": 17
+      },
+      {
+        "name": "Adult - 100 count",
+        "thickness": "26 μm",
+        "dimensions": "23 cm x 27 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 18
+      },
+      {
+        "name": "Adult - 50 count",
+        "thickness": "26 μm",
+        "dimensions": "23 cm x 27 cm",
+        "pack": "50 pcs",
+        "sourcePage": 1,
+        "sourceRow": 19
+      },
+      {
+        "name": "Kids - 30 count",
+        "thickness": "26 μm",
+        "dimensions": "23.8 cm x 19.5 cm",
+        "pack": "30 pcs",
+        "sourcePage": 1,
+        "sourceRow": 20
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Single-use gloves for kitchen preparation and everyday handling requirements. Adult options come in 50-, 100- and 200-piece packs, with a separate 30-piece kids option; compare the dimensions before selecting a fit."
   },
   {
     "id": "easy-cut-cling-wraps",
     "name": "Sugarcane cling wrap",
     "group": "sugarcane-bags",
     "tag": "SUGARCANE FOOD PACKAGING",
-    "desc": "Cling film rolls for covering and wrapping.",
+    "desc": "Sugarcane cling wrap in 20 cm and 30 cm widths, with roll and refill options.",
     "uses": [
-      "Food covering",
-      "Kitchen wrapping"
+      "Covering food containers",
+      "Wrapping kitchen portions",
+      "Kitchen roll replenishment"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-cling-wrap-slider.webp",
     "index": 49,
     "gsm": null,
-    "material": "BIO-PE + PE; 25% biomass content",
+    "material": "Sugarcane-based film; exact composition confirmed on enquiry",
     "illustration": true,
-    "details": "Cling film supplied in 100-metre rolls.",
-    "specifications": [
-      "20 cm roll: 12 μm; 100 m; 1 pc; 360 g",
-      "30 cm roll: 12 μm; 100 m; 1 pc; 556 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "30 cm roll",
+        "thickness": "12 μm",
+        "dimensions": "30 cm x 100 m",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 21
+      },
+      {
+        "name": "20 cm roll",
+        "thickness": "12 μm",
+        "dimensions": "20 cm x 100 m",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 22
+      },
+      {
+        "name": "30 cm refill",
+        "thickness": "12 μm",
+        "dimensions": "30 cm x 100 m",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 23
+      },
+      {
+        "name": "20 cm refill",
+        "thickness": "12 μm",
+        "dimensions": "20 cm x 100 m",
+        "pack": "1 pc",
+        "sourcePage": 1,
+        "sourceRow": 24
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Cling wrap for covering food and wrapping kitchen portions. The range includes 20 cm and 30 cm widths, each quoted as a 100 m roll, with separate roll and refill options."
   },
   {
     "id": "food-storage-roll-bags",
@@ -1067,23 +580,55 @@
     "tag": "SUGARCANE FOOD PACKAGING",
     "desc": "Bags on a roll for convenient storage.",
     "uses": [
-      "Food storage",
-      "Kitchen organisation"
+      "Separating ingredients",
+      "Portion preparation",
+      "Organising kitchen food storage"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-roll-bags-dispenser.webp",
     "index": 50,
     "gsm": null,
-    "material": "BIO-PE + PE; 25% biomass content",
+    "material": "Sugarcane-based film; exact composition confirmed on enquiry",
     "illustration": true,
-    "details": "All variants have an 11 μm thickness and contain 200 bags.",
-    "specifications": [
-      "Extra large: 35 × 45 cm; 655 g",
-      "Large: 30 × 40 cm; 482 g",
-      "Medium: 25 × 35 cm; 388 g",
-      "Small: 17 × 25 cm; 218 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Extra large",
+        "thickness": "11 μm",
+        "dimensions": "35 cm x 45 cm",
+        "pack": "200 pcs",
+        "sourcePage": 1,
+        "sourceRow": 13
+      },
+      {
+        "name": "Large",
+        "thickness": "11 μm",
+        "dimensions": "30 cm x 40 cm",
+        "pack": "200 pcs",
+        "sourcePage": 1,
+        "sourceRow": 14
+      },
+      {
+        "name": "Medium",
+        "thickness": "11 μm",
+        "dimensions": "27 cm x 37 cm",
+        "pack": "200 pcs",
+        "sourcePage": 1,
+        "sourceRow": 15
+      },
+      {
+        "name": "Small",
+        "thickness": "11 μm",
+        "dimensions": "17 cm x 25 cm",
+        "pack": "200 pcs",
+        "sourcePage": 1,
+        "sourceRow": 16
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Food-storage bags supplied on a roll for dispensing as needed during kitchen preparation. Four sizes from small to extra large are available, each in a 200-piece pack."
   },
   {
     "id": "food-storage-pop-up-bags",
@@ -1092,82 +637,138 @@
     "tag": "SUGARCANE FOOD PACKAGING",
     "desc": "Pull-and-use bags available in standard and premium material options.",
     "uses": [
-      "Food storage",
-      "Convenient dispensing"
+      "Kitchen preparation stations",
+      "Ingredient portioning",
+      "Food-storage organisation"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-sanitary-bags-dispenser.webp",
     "index": 51,
     "gsm": null,
-    "material": "BIO-PE + PE or BIO-PE; 25% or 100% biomass content",
+    "material": "Sugarcane-based film; exact composition confirmed on enquiry",
     "illustration": true,
-    "details": "All variants have an 11 μm thickness and contain 100 bags.",
-    "specifications": [
-      "Standard large: 30 × 40 cm; 292 g",
-      "Standard medium: 25 × 35 cm; 226 g",
-      "Standard small: 17 × 25 cm; 106 g",
-      "Premium large: 30 × 40 cm; 302 g",
-      "Premium medium: 25 × 35 cm; 232 g",
-      "Premium small: 17 × 25 cm; 110 g"
-    ]
-  },
-  {
-    "id": "recycled-hangers",
-    "name": "Recycled hangers",
-    "group": "recycled-household",
-    "tag": "RECYCLED HOUSEHOLD PRODUCTS",
-    "desc": "Hangers for everyday wardrobe organisation.",
-    "uses": [
-      "Clothing storage",
-      "Wardrobe organisation"
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Premium large",
+        "thickness": "12 μm",
+        "dimensions": "30 cm x 40 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 5
+      },
+      {
+        "name": "Premium medium",
+        "thickness": "11 μm",
+        "dimensions": "25 cm x 35 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 6
+      },
+      {
+        "name": "Premium small",
+        "thickness": "11 μm",
+        "dimensions": "17 cm x 25 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 7
+      },
+      {
+        "name": "Standard large",
+        "thickness": "12 μm",
+        "dimensions": "30 cm x 40 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 8
+      },
+      {
+        "name": "Standard medium",
+        "thickness": "11 μm",
+        "dimensions": "25 cm x 35 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 9
+      },
+      {
+        "name": "Standard small",
+        "thickness": "11 μm",
+        "dimensions": "17 cm x 25 cm",
+        "pack": "100 pcs",
+        "sourcePage": 1,
+        "sourceRow": 10
+      }
     ],
-    "color": "#afb9c3",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/recycled-hangers-photo.webp",
-    "index": 52,
-    "gsm": null,
-    "material": "Post-consumer recycled polypropylene (PCR PP); confirm content by item",
-    "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "specificationSource": "manufacturer-261019",
+    "overview": "Pull-and-use food-storage bags for dispensing during everyday kitchen tasks. Choose standard or premium options in small, medium and large sizes, each supplied in a 100-piece pack."
   },
   {
     "id": "recycled-storage-boxes",
-    "name": "Recycled storage boxes",
+    "name": "Living storage boxes",
     "group": "recycled-household",
     "tag": "RECYCLED HOUSEHOLD PRODUCTS",
-    "desc": "Boxes for organising home and workplace essentials.",
+    "desc": "Household storage boxes in six sizes, from mini to XXL.",
     "uses": [
-      "Household storage",
-      "Workplace organisation"
+      "Household item organisation",
+      "Workplace supplies",
+      "Room-by-room storage"
     ],
     "color": "#afb9c3",
     "bg": "#e9ede3",
     "image": "assets/images/products/recycled-storage-boxes-photo.webp",
     "index": 53,
     "gsm": null,
-    "material": "Post-consumer recycled polypropylene (PCR PP); confirm content by item",
+    "material": "Composition and recycled content confirmed on enquiry",
     "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
-  },
-  {
-    "id": "recycled-cleaning-tools",
-    "name": "Recycled cleaning tools",
-    "group": "recycled-household",
-    "tag": "RECYCLED HOUSEHOLD PRODUCTS",
-    "desc": "Practical tools for everyday cleaning.",
-    "uses": [
-      "Household cleaning",
-      "Workplace cleaning"
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "XXL",
+        "dimensions": "56 cm x 35.1 cm x 37.3 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 33
+      },
+      {
+        "name": "XL",
+        "dimensions": "36 cm x 24 cm x 25 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 34
+      },
+      {
+        "name": "Large",
+        "dimensions": "36 cm x 24 cm x 20 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 35
+      },
+      {
+        "name": "Medium",
+        "dimensions": "36 cm x 24 cm x 14.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 2
+      },
+      {
+        "name": "Small",
+        "dimensions": "26 cm x 16.5 cm x 19.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 3
+      },
+      {
+        "name": "Mini",
+        "dimensions": "26 cm x 16.5 cm x 11.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 4
+      }
     ],
-    "color": "#afb9c3",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/recycled-cleaning-tools-photo.webp",
-    "index": 54,
-    "gsm": null,
-    "material": "Post-consumer recycled polypropylene (PCR PP); confirm content by item",
-    "illustration": false,
-    "details": "Confirm sizes, pack quantities, material composition and application suitability on enquiry. Request product-specific documentation for any food-contact or certification requirement."
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Household storage boxes in six sizes, from mini to XXL, for grouping everyday items by room or task. Compare the external dimensions below to select a box for your available storage space."
   },
   {
     "id": "sugarcane-plates",
@@ -1176,8 +777,9 @@
     "tag": "SUGARCANE PAPER",
     "desc": "Enquire about bagasse plates for serving meals and catered events.",
     "uses": [
-      "Meal service",
-      "Catering enquiries"
+      "Meal service enquiries",
+      "Catering supplies",
+      "Event tableware sourcing"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
@@ -1187,7 +789,8 @@
     "material": "Sugarcane bagasse pulp options; confirm composition, coatings and intended-use suitability",
     "illustration": false,
     "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
+    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant.",
+    "overview": "Bagasse plate options for meal service, catering and event-supply enquiries. Share your preferred plate shape, size, serving requirements and order quantity so the available range can be confirmed."
   },
   {
     "id": "sugarcane-soup-bowls",
@@ -1196,8 +799,9 @@
     "tag": "SUGARCANE PAPER",
     "desc": "Deep, round sugarcane bowls with tapered sides and a rolled rim for foodservice enquiries.",
     "uses": [
-      "Soup service",
-      "Foodservice enquiries"
+      "Soup-serving enquiries",
+      "Catering bowl sourcing",
+      "Foodservice tableware"
     ],
     "color": "#d4c8a8",
     "bg": "#e9ede3",
@@ -1207,173 +811,91 @@
     "material": "Sugarcane bagasse pulp options; confirm composition, coatings and intended-use suitability",
     "illustration": true,
     "sourcingOnly": true,
-    "details": "Illustrative shape reference. Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
-  },
-  {
-    "id": "sugarcane-serving-trays",
-    "name": "Serving trays",
-    "group": "sugarcane-paper",
-    "tag": "SUGARCANE PAPER",
-    "desc": "Enquire about bagasse trays for presenting and serving food.",
-    "uses": [
-      "Food presentation",
-      "Catering and service"
-    ],
-    "color": "#d4c8a8",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/sugarcane-serving-trays-photo.jpg",
-    "index": 57,
-    "gsm": null,
-    "material": "Sugarcane bagasse pulp options; confirm composition, coatings and intended-use suitability",
-    "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
-  },
-  {
-    "id": "bio-based-reusable-cutlery",
-    "name": "Bio-based reusable cutlery",
-    "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Explore reusable fork, spoon and knife sets made with bio-based material options.",
-    "uses": [
-      "Reusable dining utensils",
-      "Home and hospitality"
-    ],
-    "color": "#a7b9a1",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/bio-based-reusable-cutlery-photo.jpg",
-    "index": 58,
-    "gsm": null,
-    "material": "Sugarcane-based polymer options; confirm composition and bio-based content",
-    "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
+    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant.",
+    "overview": "Deep, round sugarcane bowls with tapered sides and a rolled rim for foodservice sourcing. Share your required serving capacity, dimensions and order quantity to confirm an appropriate option."
   },
   {
     "id": "reusable-drinking-straws",
-    "name": "Reusable drinking straws",
+    "name": "Sugarcane drinking straws",
     "group": "sugarcane-kitchenware",
     "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Enquire about reusable drinking straws and the available bio-based formulations.",
+    "desc": "Sugarcane drinking straws in two quoted lengths, supplied in packs of 50.",
     "uses": [
       "Beverage service",
-      "Reusable drinkware accessories"
+      "Drinkware accessory supplies",
+      "Hospitality refreshment stations"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/reusable-drinking-straws-photo.jpg",
     "index": 59,
     "gsm": null,
-    "material": "Sugarcane-based polymer options; confirm composition and bio-based content",
+    "material": "Sugarcane-based material; composition confirmed on enquiry",
     "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
-  },
-  {
-    "id": "bio-based-food-storage-containers",
-    "name": "Bio-based food-storage containers",
-    "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Explore reusable storage containers with bio-based plastic bodies and fitted lids.",
-    "uses": [
-      "Kitchen organisation",
-      "Food storage enquiries"
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "Large (supplier label)",
+        "dimensions": "21 cm long",
+        "notes": "Diameter: 6ø",
+        "pack": "50 pcs",
+        "sourcePage": 2,
+        "sourceRow": 18
+      },
+      {
+        "name": "Medium (supplier label)",
+        "dimensions": "25 cm long",
+        "notes": "Diameter: 6ø",
+        "pack": "50 pcs",
+        "sourcePage": 2,
+        "sourceRow": 19
+      }
     ],
-    "color": "#a7b9a1",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/bio-based-food-storage-containers-photo.jpg",
-    "index": 60,
-    "gsm": null,
-    "material": "Sugarcane-based polymer options; confirm composition and bio-based content",
-    "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
-  },
-  {
-    "id": "bio-pe-carry-bags",
-    "name": "Bio-PE carry bags",
-    "group": "sugarcane-bags",
-    "tag": "SUGARCANE FOOD PACKAGING",
-    "desc": "Enquire about sugarcane-based polyethylene carry bags for retail and everyday use.",
-    "uses": [
-      "Retail carry bags",
-      "Everyday carrying"
-    ],
-    "color": "#b7c9ba",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/bio-pe-carry-bags-photo.jpg",
-    "index": 61,
-    "gsm": null,
-    "material": "Bio-PE (bio-polyethylene) options; confirm formulation and bio-based content",
-    "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "technicalNotes": "Large and Medium labels follow the quotation. Confirm the selected variant before ordering.",
+    "overview": "Sugarcane drinking straws offered in two quoted lengths and supplied in 50-piece packs. Compare the listed dimensions to choose an option for your drinkware and beverage-service requirements."
   },
   {
     "id": "bio-pe-bin-liners",
-    "name": "Bio-PE bin liners",
+    "name": "Rubbish bags",
     "group": "sugarcane-bags",
     "tag": "SUGARCANE FOOD PACKAGING",
-    "desc": "Explore bin-liner options using sugarcane-based polyethylene formulations.",
+    "desc": "Rubbish bags in large and small sizes, supplied in 20- and 25-piece packs.",
     "uses": [
-      "Household waste collection",
-      "Workplace cleaning"
+      "Household bin lining",
+      "Workplace waste collection",
+      "Routine housekeeping supplies"
     ],
     "color": "#b7c9ba",
     "bg": "#e9ede3",
     "image": "assets/images/products/bio-pe-bin-liners-photo.jpg",
     "index": 62,
     "gsm": null,
-    "material": "Bio-PE (bio-polyethylene) options; confirm formulation and bio-based content",
+    "material": "Plastic film; composition confirmed on enquiry",
     "illustration": false,
-    "sourcingOnly": true,
-    "details": "Additional sourcing range. Product availability, material composition, sizes and pack quantities are confirmed on enquiry. Request item-specific documentation for food-contact, temperature or care requirements where relevant."
-  },
-  {
-    "id": "sugarcane-a3-paper",
-    "name": "A3 sugarcane paper",
-    "group": "sugarcane-paper",
-    "tag": "SUGARCANE PAPER",
-    "desc": "A3 sheets made from sugarcane paper for documents and larger-format printing.",
-    "uses": [
-      "Office printing",
-      "Large-format documents"
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "variants": [
+      {
+        "name": "Large",
+        "thickness": "16 μm",
+        "dimensions": "58 cm x 71 cm",
+        "pack": "20 pcs",
+        "sourcePage": 1,
+        "sourceRow": 11
+      },
+      {
+        "name": "Small",
+        "thickness": "14 μm",
+        "dimensions": "51 cm x 66 cm",
+        "pack": "25 pcs",
+        "sourcePage": 1,
+        "sourceRow": 12
+      }
     ],
-    "color": "#d4c8a8",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/sugarcane-a3-paper-photo.webp",
-    "index": 63,
-    "gsm": null,
-    "material": "Sugarcane paper",
-    "illustration": false,
-    "details": "Available as A3 sheets. Pack quantity and paper weight are confirmed on enquiry.",
-    "specifications": [
-      "Format: A3 sheets",
-      "Material: Sugarcane paper"
-    ]
-  },
-  {
-    "id": "grippy-cutting-board",
-    "name": "Sugarcane grippy cutting board",
-    "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "A cutting board with non-slip feet for everyday food preparation.",
-    "uses": [
-      "Food preparation",
-      "Kitchen use"
-    ],
-    "color": "#a7b9a1",
-    "bg": "#e9ede3",
-    "image": "assets/images/products/grippy-cutting-board-photo.webp",
-    "index": 64,
-    "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
-    "illustration": false,
-    "details": "Available in mint, mustard, orange and deep blue.",
-    "specifications": [
-      "Large: 1 × 27.5 × 37.5 cm",
-      "Pack: 1 pc; 814 g"
-    ]
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Rubbish bags for lining household and workplace bins during routine waste collection. Choose the large 20-piece or small 25-piece option, checking bag dimensions against your bin before ordering."
   },
   {
     "id": "sugarcane-toothbrushes",
@@ -1383,104 +905,569 @@
     "desc": "Compact-head toothbrushes offered in single and multipack formats.",
     "uses": [
       "Daily oral care",
-      "Household essentials"
+      "Household replenishment",
+      "Personal-care multipacks"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-toothbrushes-photo.webp",
     "index": 65,
     "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
+    "material": "Sugarcane-based material; exact composition confirmed on enquiry",
     "illustration": false,
-    "details": "Available in pink, orange, mint and blue.",
-    "specifications": [
-      "Single: 2 × 1.3 × 19 cm; 1 pc; 17 g",
-      "Four-pack: 2 × 1.3 × 19 cm; 4 pcs; 61 g",
-      "Eight-pack: 2 × 1.3 × 19 cm; 8 pcs; 122 g"
-    ]
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Single",
+        "dimensions": "19 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 14
+      },
+      {
+        "name": "Four-pack",
+        "dimensions": "19 cm",
+        "pack": "4 pcs",
+        "sourcePage": 2,
+        "sourceRow": 15
+      },
+      {
+        "name": "Eight-pack",
+        "dimensions": "19 cm",
+        "pack": "8 pcs",
+        "sourcePage": 2,
+        "sourceRow": 16
+      },
+      {
+        "name": "Twenty-pack",
+        "dimensions": "19 cm",
+        "pack": "20 pcs",
+        "sourcePage": 2,
+        "sourceRow": 17
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Compact-head toothbrushes for daily oral-care supply requirements. The quoted 19 cm design is offered individually and in packs of four, eight or twenty."
   },
   {
     "id": "sugarcane-hangers",
-    "name": "Sugarcane hangers",
+    "name": "Clothes hangers",
     "group": "sugarcane-kitchenware",
-    "tag": "SUGARCANE HOUSEHOLD GOODS",
-    "desc": "Bio-based hangers in standard, round and recycled-content variants.",
+    "tag": "SUGARCANE & RECYCLED HANGERS",
+    "desc": "Clothes hangers in sugarcane-based and recycled options, including round, standard and non-slip designs. Each variant is supplied as a five-pack.",
     "uses": [
-      "Clothing storage",
-      "Wardrobe organisation"
+      "Wardrobe organisation",
+      "Household garment storage",
+      "Workplace clothing storage"
     ],
     "color": "#a7b9a1",
     "bg": "#e9ede3",
     "image": "assets/images/products/sugarcane-hangers-photo.webp",
     "index": 66,
     "gsm": null,
-    "material": "BIO-PE + PP; 25% biomass content",
+    "material": "Sugarcane-based and biomass recycled options; composition and recycled content vary by variant and are confirmed on enquiry.",
     "illustration": false,
-    "details": "Available in white and black. Each variant is supplied as a five-pack.",
-    "specifications": [
-      "Recycled: 0.5 × 40 × 20 cm; 5 pcs; 323 g",
-      "Standard: 1.2 × 40 × 22 cm; 5 pcs; 300 g",
-      "Round: 2.2 × 40 × 23 cm; 5 pcs; 350 g"
-    ]
+    "details": "Choose the material, design and colour from the five variants below. All variants are supplied as five-packs. Dimensions follow the manufacturer specification.",
+    "specifications": [],
+    "variants": [
+      {
+        "name": "Sugarcane round - black / white",
+        "dimensions": "2 cm x 40 cm x 23 cm",
+        "pack": "5 pcs",
+        "sourcePage": 2,
+        "sourceRow": 20
+      },
+      {
+        "name": "Sugarcane standard - black / white",
+        "dimensions": "1.2 cm x 40 cm x 22 cm",
+        "pack": "5 pcs",
+        "sourcePage": 2,
+        "sourceRow": 21
+      },
+      {
+        "name": "Recycled non-slip - beige / blue",
+        "dimensions": "1.2 cm x 40 cm x 22 cm",
+        "pack": "5 pcs",
+        "sourcePage": 2,
+        "sourceRow": 22
+      },
+      {
+        "name": "Recycled standard - black",
+        "dimensions": "0.5 cm x 40 cm x 20 cm",
+        "pack": "5 pcs",
+        "sourcePage": 2,
+        "sourceRow": 23
+      },
+      {
+        "name": "Recycled standard - white",
+        "dimensions": "0.5 cm x 40 cm x 20 cm",
+        "pack": "5 pcs",
+        "sourcePage": 2,
+        "sourceRow": 24
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "overview": "Clothes hangers in sugarcane-based and recycled options for organising garments. Compare round, standard and non-slip designs, including the listed black, white, beige and blue colour combinations; each variant comes as a five-pack."
+  },
+  {
+    "id": "standing-pouches",
+    "name": "Standing pouches",
+    "group": "sugarcane-bags",
+    "tag": "FOOD PACKAGING",
+    "desc": "Stand-up pouches in four sizes, supplied as two-piece packs.",
+    "uses": [
+      "Portion organisation",
+      "Upright kitchen storage",
+      "Resealable food packaging"
+    ],
+    "color": "#a7b9a1",
+    "bg": "#e9ede3",
+    "index": 68,
+    "gsm": null,
+    "material": "Film; exact composition confirmed on enquiry",
+    "specifications": [],
+    "image": "assets/images/products/standing-pouches.webp",
+    "illustration": true,
+    "variants": [
+      {
+        "name": "Large",
+        "thickness": "60 μm",
+        "dimensions": "32.5 cm x 21 cm",
+        "pack": "2 pcs",
+        "sourcePage": 1,
+        "sourceRow": 25
+      },
+      {
+        "name": "Medium",
+        "thickness": "60 μm",
+        "dimensions": "24.5 cm x 17.5 cm",
+        "pack": "2 pcs",
+        "sourcePage": 1,
+        "sourceRow": 26
+      },
+      {
+        "name": "Small",
+        "thickness": "60 μm",
+        "dimensions": "19.5 cm x 14.5 cm",
+        "pack": "2 pcs",
+        "sourcePage": 1,
+        "sourceRow": 27
+      },
+      {
+        "name": "Mini",
+        "thickness": "60 μm",
+        "dimensions": "14.5 cm x 11 cm",
+        "pack": "2 pcs",
+        "sourcePage": 1,
+        "sourceRow": 28
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "imageAlt": "Four sizes of transparent resealable standing pouches with sage zipper closures",
+    "overview": "Resealable stand-up pouches for organising food-storage portions in an upright format. Four sizes from mini to large are available, each made with quoted 60 micrometre film and supplied as a two-piece pack."
+  },
+  {
+    "id": "baby-tableware",
+    "name": "Baby tableware",
+    "group": "sugarcane-kitchenware",
+    "tag": "HOUSEHOLD GOODS",
+    "desc": "Baby cups, bowls, divided plates and utensils, with a seven-piece set option.",
+    "uses": [
+      "Family mealtimes",
+      "Baby-feeding tableware enquiries",
+      "Coordinated tableware sets"
+    ],
+    "color": "#a7b9a1",
+    "bg": "#e9ede3",
+    "index": 70,
+    "gsm": null,
+    "material": "Composition and age suitability confirmed on enquiry",
+    "specifications": [],
+    "image": "assets/images/products/baby-tableware.webp",
+    "illustration": true,
+    "variants": [
+      {
+        "name": "Baby cup",
+        "dimensions": "8.5 cm x 8.2 cm x 7.2 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 8
+      },
+      {
+        "name": "Spoon, fork & weaning spoon set",
+        "dimensions": "4.5 cm x 16.2 cm x 4.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 9
+      },
+      {
+        "name": "Twin bowl",
+        "dimensions": "3.7 cm x 20.7 cm x 10.7 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 10
+      },
+      {
+        "name": "Divided plate",
+        "dimensions": "4 cm x 26 cm x 21.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 11
+      },
+      {
+        "name": "Soup bowl with suction pad",
+        "dimensions": "5.2 cm x 11.1 cm x 14 cm",
+        "pack": "1 pc",
+        "sourcePage": 2,
+        "sourceRow": 12
+      },
+      {
+        "name": "Seven-piece set",
+        "notes": "Set dimensions not specified",
+        "pack": "7 pcs",
+        "sourcePage": 2,
+        "sourceRow": 13
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "imageAlt": "Pastel baby tableware with a divided bear plate, twin bowl, cup, bowl and utensils",
+    "overview": "Baby tableware options include a cup, utensils, twin bowl, divided plate and a soup bowl with suction pad. Select individual options or enquire about the seven-piece set for a coordinated feeding collection."
+  },
+  {
+    "id": "jumbo-tissue-rolls",
+    "name": "Jumbo tissue parent rolls",
+    "group": "sugarcane-paper",
+    "tag": "PAPER ESSENTIALS",
+    "desc": "Four-layer tissue parent rolls for further converting and processing.",
+    "uses": [
+      "Tissue converting",
+      "Further processing",
+      "Bulk tissue material sourcing"
+    ],
+    "color": "#a7b9a1",
+    "bg": "#e9ede3",
+    "index": 71,
+    "gsm": null,
+    "material": "Tissue paper; fibre composition confirmed on enquiry",
+    "specifications": [],
+    "image": "assets/images/products/jumbo-tissue-rolls.webp",
+    "illustration": true,
+    "variants": [
+      {
+        "name": "Parent roll",
+        "dimensions": "2,740 mm web width",
+        "pack": "Per kg",
+        "notes": "4 layers; reel weight not specified",
+        "sourcePage": 3,
+        "sourceRow": 19
+      }
+    ],
+    "specificationSource": "manufacturer-261019",
+    "details": "Dimensions and pack options follow the supplied manufacturer specification. Confirm the selected variant, composition and suitability when ordering.",
+    "overview": "Four-layer tissue parent rolls for businesses carrying out further converting and processing. The quoted web width is 2,740 mm and supply is listed per kilogram; confirm the required reel weight and converting requirements on enquiry."
+  },
+  {
+    "id": "household-squeegee",
+    "name": "Squeegee",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A handheld squeegee for wiping water from smooth household surfaces.",
+    "uses": [
+      "Smooth-surface cleaning",
+      "Water removal",
+      "Household cleaning supplies"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/household-squeegee.webp",
+    "index": 72,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 22.2 cm x 3 cm x 24.5 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Squeegee",
+        "dimensions": "22.2 cm x 3 cm x 24.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 5
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Squeegee",
+    "overview": "A handheld squeegee for moving water from smooth household surfaces during routine cleaning. Supplied individually in the dimensions below for comparison with your cleaning area."
+  },
+  {
+    "id": "shoe-brush",
+    "name": "Shoe brush",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A compact shoe brush for everyday footwear cleaning.",
+    "uses": [
+      "Routine footwear cleaning",
+      "Household shoe care",
+      "Shoe-care supply kits"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/shoe-brush.webp",
+    "index": 73,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 5 cm x 4.3 cm x 21 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Shoe brush",
+        "dimensions": "5 cm x 4.3 cm x 21 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 6
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Shoe brush",
+    "overview": "A compact brush for routine footwear cleaning and household shoe-care supplies. Supplied individually; match the brush to your footwear material and care instructions."
+  },
+  {
+    "id": "desk-brush-dustpan-set",
+    "name": "Desk brush & dustpan set",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A brush and dustpan set for collecting dust and small debris from desks and household surfaces.",
+    "uses": [
+      "Desk clean-up",
+      "Small debris collection",
+      "Household work-surface care"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/desk-brush-dustpan-set.webp",
+    "index": 74,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 16.7 cm x 8 cm x 30 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Desk brush & dustpan set",
+        "dimensions": "16.7 cm x 8 cm x 30 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 7
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Desk brush & dustpan set",
+    "overview": "A brush and dustpan set for gathering dust and small debris from desks and household surfaces. The paired tools support localised clean-up around work areas and small spaces."
+  },
+  {
+    "id": "brush-squeegee-set",
+    "name": "Brush squeegee set",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A compact brush squeegee set for everyday household cleaning.",
+    "uses": [
+      "Household surface cleaning",
+      "Localised clean-up",
+      "Cleaning-supply assortments"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/brush-squeegee-set.webp",
+    "index": 75,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 16.8 cm x 2.8 cm x 22 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Brush squeegee set",
+        "dimensions": "16.8 cm x 2.8 cm x 22 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 8
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Brush squeegee set",
+    "overview": "A compact brush squeegee set for everyday household surface-cleaning tasks. Supplied as one quoted unit; check the listed dimensions for your intended cleaning area."
+  },
+  {
+    "id": "iron-handle-scrub-brush",
+    "name": "Iron-handle scrub brush",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A handled scrub brush for everyday scrubbing tasks.",
+    "uses": [
+      "Household scrubbing",
+      "Routine surface care",
+      "Cleaning-supply replenishment"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/iron-handle-scrub-brush.webp",
+    "index": 76,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 8.5 cm x 5.5 cm x 14.5 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Iron-handle scrub brush",
+        "dimensions": "8.5 cm x 5.5 cm x 14.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 9
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Iron-handle scrub brush",
+    "overview": "A handled scrub brush for routine scrubbing around the home. The quoted iron-handle design is supplied individually; select cleaning surfaces and detergents according to their care requirements."
+  },
+  {
+    "id": "bathroom-floor-brush",
+    "name": "Bathroom floor brush",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A compact bathroom floor brush for routine floor-cleaning tasks.",
+    "uses": [
+      "Bathroom floor care",
+      "Localised scrubbing",
+      "Housekeeping supplies"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/bathroom-floor-brush.webp",
+    "index": 77,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 8 cm x 8 cm x 13.5 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Bathroom floor brush",
+        "dimensions": "8 cm x 8 cm x 13.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 10
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Bathroom floor brush",
+    "overview": "A compact bathroom floor brush for localised scrubbing during routine cleaning. Supplied individually for household or housekeeping supply requirements."
+  },
+  {
+    "id": "toilet-tpr-brush-set",
+    "name": "Toilet TPR brush set",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A toilet brush set with a TPR brush head and matching holder.",
+    "uses": [
+      "Toilet cleaning",
+      "Bathroom housekeeping",
+      "Washroom supply replenishment"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/toilet-tpr-brush-set.webp",
+    "index": 78,
+    "gsm": null,
+    "material": "TPR brush head; handle and holder composition confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 11 cm x 11.8 cm x 49.5 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Toilet TPR brush set",
+        "dimensions": "11 cm x 11.8 cm x 49.5 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 11
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Toilet TPR brush set",
+    "overview": "A toilet-cleaning brush with a TPR head and matching holder for keeping the tool together between uses. Supplied as one quoted set for bathroom-cleaning supply requirements."
+  },
+  {
+    "id": "toilet-plunger",
+    "name": "Toilet plunger",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A long-handled toilet plunger for bathroom maintenance.",
+    "uses": [
+      "Toilet maintenance",
+      "Bathroom supply kits",
+      "Housekeeping equipment"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/toilet-plunger.webp",
+    "index": 79,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 15.5 cm x 15.5 cm x 47.7 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Toilet plunger",
+        "dimensions": "15.5 cm x 15.5 cm x 47.7 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 12
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Toilet plunger",
+    "overview": "A long-handled toilet plunger for routine bathroom-maintenance supplies. Check the quoted dimensions against your available storage space and intended toilet fitting."
+  },
+  {
+    "id": "rotating-head-broom-dustpan-set",
+    "name": "Rotating-head broom & dustpan set",
+    "group": "recycled-household",
+    "tag": "CLEANING WARE",
+    "desc": "A rotating-head broom and dustpan set for everyday floor sweeping.",
+    "uses": [
+      "Everyday floor sweeping",
+      "Dust and debris collection",
+      "Household cleaning equipment"
+    ],
+    "color": "#afb9c3",
+    "bg": "#e9ede3",
+    "image": "assets/images/products/rotating-head-broom-dustpan-set.webp",
+    "index": 80,
+    "gsm": null,
+    "material": "Composition and recycled content confirmed on enquiry",
+    "illustration": true,
+    "details": "Manufacturer dimensions: 27 cm x 24.7 cm x 79 cm. Supplied as 1 pc. Confirm composition and suitability for the intended use when ordering.",
+    "variants": [
+      {
+        "name": "Rotating-head broom & dustpan set",
+        "dimensions": "27 cm x 24.7 cm x 79 cm",
+        "pack": "1 pc",
+        "sourcePage": 3,
+        "sourceRow": 13
+      }
+    ],
+    "specifications": [],
+    "specificationSource": "manufacturer-261019",
+    "imageAlt": "Rotating-head broom & dustpan set",
+    "overview": "A broom with a rotating head and a matching dustpan for everyday floor sweeping. The paired set brings sweeping and debris collection together for household cleaning routines."
   }
 ];
 const categories=[
-  {
-    "id": "packaging",
-    "name": "Packaging & bags",
-    "line": "Give your next package its foundation.",
-    "desc": "Explore paper families for carry bags, wrapping and industrial sacks.",
-    "color": "#c39b6b"
-  },
-  {
-    "id": "boards",
-    "name": "Boards & cartons",
-    "line": "Structure for ideas that take shape.",
-    "desc": "Discover board families for folding cartons, corrugated packaging and presentation.",
-    "color": "#dad3bf"
-  },
-  {
-    "id": "creative",
-    "name": "Print & creative",
-    "line": "A surface for every story.",
-    "desc": "From natural character to golden accents and print-focused papers.",
-    "color": "#b89a53"
-  },
-  {
-    "id": "wrapping",
-    "name": "Wrapping & foodservice",
-    "line": "Consider every layer.",
-    "desc": "Explore wrapping and foodservice material families. Suitability depends on the specific grade and application.",
-    "color": "#f4ead5"
-  },
-  {
-    "id": "everyday",
-    "name": "Everyday & recovery",
-    "line": "Make the most of every sheet.",
-    "desc": "Paper families for daily use, cushioning and material recovery.",
-    "color": "#a9aa95"
-  },
-  {
-    "id": "office",
-    "name": "Office & stationery",
-    "line": "Paper for the working day.",
-    "desc": "Explore papers for documents, correspondence, records and drawing.",
-    "color": "#dce7e9"
-  },
-  {
-    "id": "labels",
-    "name": "Labels & liners",
-    "line": "Give every item its identity.",
-    "desc": "Explore label facestocks, thermal papers and release liners for converting enquiries.",
-    "color": "#c6d0b1"
-  },
-  {
-    "id": "specialty",
-    "name": "Specialty & finishes",
-    "line": "A finish that makes an impression.",
-    "desc": "Discover translucent, textured, coloured and decorative papers for distinctive projects.",
-    "color": "#b7acc8"
-  },
   {
     "id": "sugarcane-paper",
     "name": "Sugarcane Paper",
@@ -1509,7 +1496,7 @@ const categories=[
     "id": "recycled-household",
     "name": "Recycled Household Products",
     "line": "Resources, given another purpose.",
-    "desc": "Recycled plastic hangers, storage boxes and cleaning tools.",
+    "desc": "Household storage boxes and cleaning tools; confirm item-specific recycled content.",
     "color": "#afb9c3",
     "collection": "sugarcane-recycled"
   }
@@ -1521,7 +1508,7 @@ const categoryOrder = [...featuredOrder, ...categories.filter(category => !featu
 const rank = new Map(categoryOrder.map((id, index) => [id, index]));
 categories.sort((a, b) => rank.get(a.id) - rank.get(b.id));
 const priorityProducts = {
-  'sugarcane-kitchenware': ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'reusable-cups', 'rice-paddles'],
+  'sugarcane-kitchenware': ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles'],
   'sugarcane-bags': ['double-zipper-bags', 'easy-cut-cling-wraps', 'food-storage-roll-bags', 'food-storage-pop-up-bags'],
   'sugarcane-paper': ['sugarcane-paper-cups', 'sugarcane-bath-tissues', 'sugarcane-soup-bowls', 'sugarcane-packaging-paper']
 };
@@ -1534,6 +1521,12 @@ papers.sort((a, b) => rank.get(a.group) - rank.get(b.group) || productRank(a) - 
 // Card-only WebP previews follow the image generator's naming convention.
 // Full-size originals remain in `image` for dialogs, documents and product pages.
 for (const product of papers) {
+  if (product.variants) product.specifications = product.variants.map(variant => ({
+    label: variant.name,
+    value: [variant.thickness && 'Thickness: ' + variant.thickness, variant.dimensions,
+      variant.capacity && 'Capacity: ' + variant.capacity, 'Pack: ' + variant.pack,
+      variant.notes].filter(Boolean).join('; ')
+  }));
   if (product.image.endsWith('.jpg')) product.cardImage = product.image
     .replace('assets/images/products/', 'assets/images/responsive/products/').replace('.jpg', '-640.webp');
 }

@@ -14,7 +14,6 @@ const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const normalizeHomeLinks = html => html.replace(/href="index\.html(#[^"]*)?"/g, (_, fragment = '') => `href="/${fragment}"`);
 const OUTPUT = resolve(ROOT, 'dist');
 const PRODUCT_IMAGES = JSON.parse(await readFile(resolve(ROOT, 'scripts/site/manifests/product-images.json'), 'utf8'));
-const CATEGORY_IMAGES = JSON.parse(await readFile(resolve(ROOT, 'scripts/site/manifests/category-images.json'), 'utf8'));
 const RESPONSIVE_IMAGES = JSON.parse(await readFile(resolve(ROOT, 'scripts/site/manifests/responsive-images.json'), 'utf8'));
 const FONT_FILES = JSON.parse(await readFile(resolve(ROOT, 'scripts/site/manifests/fonts.json'), 'utf8'));
 // An allowlist keeps docs, local caches and credentials out of the hosted site.
@@ -26,13 +25,12 @@ const PUBLIC_FILES = [
   'assets/images/favicon-192.png', 'assets/images/apple-touch-icon.png',
   'assets/images/share-preview-sugarcane.jpg',
   ...['sugarcane-paper', 'sugarcane-kitchenware', 'sugarcane-bags', 'recycled-household'].map(id => 'assets/images/ranges/' + id + '-photo.jpg'),
-  'assets/catalogues/MA-Industries-Paper-Catalogue.pdf',
+  'assets/catalogues/MA-Industries-Catalogue.pdf',
   'assets/images/founders/aadil-dhukka.jpg',
   'assets/images/founders/maaz-dawa.jpg',
   'assets/images/founders/mohammed-dhukka.jpg',
   ...['sorting', 'washing', 'pellets', 'moulding'].map(stage => 'assets/images/gallery/recycling-' + stage + '.jpg'),
-  ...PRODUCT_IMAGES.map(file => 'assets/images/products/' + file),
-  ...CATEGORY_IMAGES.map(file => 'assets/images/categories/' + file)
+  ...PRODUCT_IMAGES.map(file => 'assets/images/products/' + file)
 ];
 
 for (const file of JAVASCRIPT_FILES) {

@@ -33,7 +33,7 @@ test('application choices update one recommendation, its destination and the ima
   for (const [key, destination, imagePart] of [
     ['store', 'sugarcane-bags', 'sugarcane-bags'],
     ['organise', 'recycled-household', 'recycled-household'],
-    ['pack', 'categories.html#paper-packaging', 'packaging'],
+    ['pack', 'sugarcane-paper', 'sugarcane-paper'],
     ['serve', 'sugarcane-kitchenware', 'sugarcane-kitchenware']
   ]) {
     image.setAttribute('srcset', 'previous-image.webp 640w');

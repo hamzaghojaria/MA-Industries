@@ -1,47 +1,33 @@
-# Code, folders, catalogue and SEO audit
+> Historical audit: cleanup recommendations below were completed. See [current maintenance status](maintenance-status.md) and [cleanup completion](cleanup-completion.md). Old counts and folder sizes describe the earlier snapshot.
 
-21 October 2026. This records changes completed in the local workspace.
+# Directory and catalogue audit
 
-## Catalogue
+25 October 2026. Changes completed in the local workspace.
 
-The 34-page PDF has 31 product pages plus cover, directory and contact pages. All 43 published specification rows from 15 products are copied from assets/js/catalogue-data.js. They include dimensions, thickness, pack counts, weight and formats where the website supplies them. Products without published measurements retain an enquiry note. The PDF checks each row against text extracted from its own product page and checks product enquiry URLs, page count, logo presence and text bounds. All pages were rendered and reviewed, including the six-variant sanitary bags and micrometre symbols.
+## Collection cleanup
 
-The browser edition uses the same data and specification rows. Its 31 embedded images, specification coverage, script syntax and next/previous/selector boundary behavior were checked. This was a scripted navigation check, not a full browser rendering audit.
+The website now contains 34 product families in four categories. Removed the discontinued collection's 36 products and eight subcategories, product photos, category images and responsive variants, reference records, image prompts, category image generator, obsolete product redirects and category-specific specification branches. Removed unused material-guide styles and adjusted collection gateways for one collection.
 
-Embedded-image optimization reduced the specification-bearing PDF from 17,755,257 bytes to 3,937,032 bytes (about 78% smaller). Source images are preserved. The published PDF path is unchanged and the refreshed file is included in dist/.
+Updated all five pages, category controls, enquiry suggestions, recommendation tool, static product fallback, search/social metadata and generated structured data. Remaining product IDs and reference numbers are preserved. The separate Sugarcane Paper category remains available.
 
-## Cleanup and maintenance
+## Printed and downloadable assets
 
-| Completed change | Reason |
-| --- | --- |
-| Removed 25 unused legacy gallery assets, the old share graphic and 3 disposable card renders | No active manifest/site references; 1,820,852 bytes removed |
-| Removed create-range-catalogue.py | Superseded multi-product-per-page generator; the catalogue command now uses the focused generator |
-| Archived four superseded logo/product originals under scripts/references/legacy-images/ | Keeps inactive source artwork out of the website asset folders without losing it |
-| Extracted browser_catalogue.py and interactive.html | Browser markup and CSS no longer sit inside the PDF layout generator |
-| Added catalogue_images.py | One cached conversion shared by PDF and browser output |
-| Reused loadCatalogue and escapeHtml helpers | Removed duplicate data-loading and escaping implementations |
-| Removed studio.js from Contact | That page has no material studio or pointer-effect targets |
-| Limited responsive gallery generation to recycling photos | Prevents obsolete derivatives from returning |
-| Added npm run audit and dependency documentation | Repeatable read-only inventory and authoring setup |
-| Replaced contradictory SEO/performance notes | Documentation now matches the five-page build |
+Regenerated all five two-sided visiting cards with the current range line. Reviewed their front/back previews. Regenerated the 41-page catalogue and portable browser catalogue from the retained products; reviewed cover, directory, sample product pages across the four categories and the contact page. The generator validates specification text and links. The public PDF is assets/catalogues/MA-Industries-Catalogue.pdf and website/download/build references use that filename.
 
-Reference artwork, original product photos, final visiting cards and other user deliverables are retained. The ignored .uv-cache/, .uv-python/ and tmp/pdf-venv/ provide the local authoring runtime; they are not deployed. Reference images still tracked under tmp/pdfs/ were retained as source artwork rather than deleted as disposable output. No unrelated user PDFs were modified.
+Both supplied product specification PDFs were inspected: neither contains the discontinued collection. They remain unchanged.
 
-The deployed website remains a small static site with no frontend package dependencies. Existing CSS modules, responsive images, local fonts, progressive motion, popup navigation and enquiry behavior are retained. A framework migration or broad speculative rewrite would not improve this task.
+## Validation
 
-## SEO
+- 46 regression tests passed, including category filtering, paging, dialogs, keyboard interaction, enquiries, navigation, SEO and asset paths.
+- Seven browser scripts passed syntax checks.
+- Catalogue markup and metadata are synchronized across all five source pages.
+- Production build: five indexable pages and 184 public assets.
+- Build verifier: 252 local links/assets plus structured data verified.
+- Asset inventory: no unreferenced candidates or exact duplicates.
+- Source and generated deployment text searched for discontinued product IDs, category references and outdated product/category totals.
 
-All five source pages now have synchronized, page-specific titles and descriptions across search and social metadata. scripts/site/seo.mjs owns metadata and structured data. The generated graph contains Organization, WebSite, page-specific schema, sales ContactPoint, BreadcrumbList and relevant ItemList/DigitalDocument entries. IDs use the configured origin. The current phone is consistent across the graph. No prices, reviews, stock levels or certifications were fabricated.
+The updated site is prepared in dist/. Publishing to the live host has not been performed.
 
-Canonicals, the five-page sitemap, robots.txt, responsive image URLs and font assets are verified in the production build. Existing product popup destinations and retired-product redirects are preserved. Added /index.html to / redirect configuration. Product information and supplied specifications remain available in the no-JavaScript fallback.
+## Manufacturer specification update
 
-See SEO-PLAN.md for official guidance and deployment steps. Changes are local: production deployment, Render route synchronization, Search Console submission, live indexing and real-user performance measurements remain outstanding.
-
-## Final validation
-
-- 41 regression tests passed.
-- All 7 browser scripts passed syntax checks.
-- Catalogue counts/labels and all five source metadata sets are synchronized.
-- Production build: 5 HTML pages, 252 allowlisted public assets.
-- Deployment verifier: 305 local links/assets checked, with canonical/sitemap consistency, structured-data identities, current contact, breadcrumbs, responsive candidates and local fonts verified.
-- PDF: 34 pages, 31 products, all 43 specification rows verified against source data and rendered for inspection.
+Reconciled 85 quotation variants across 22 existing and four new product families. Product details now use accessible variant tables. The PDF and browser catalogues use the same technical data, with the redesigned PDF using collection dividers, larger product photos, aligned tables and linked directory entries. See manufacturer-reconciliation.md for the full mapping, source ambiguities and image provenance. Supplier costs and unverified barcodes are excluded from public outputs.

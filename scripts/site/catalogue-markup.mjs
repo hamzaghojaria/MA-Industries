@@ -23,8 +23,7 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
   const names = new Map(categories.map(category => [category.id, category.name]));
   const positions = new Map(categories.map((category, index) => [category.id, index + 1]));
   const groups = [
-    { id: 'sugarcane-recycled', name: 'Sugarcane & Recycled', categories: categories.filter(category => category.collection === 'sugarcane-recycled') },
-    { id: 'paper-packaging', name: 'Paper & Packaging', categories: categories.filter(category => category.collection !== 'sugarcane-recycled') }
+    { id: 'sugarcane-recycled', name: 'Sugarcane & Recycled', categories: categories.filter(category => category.collection === 'sugarcane-recycled') }
   ];
   // Keep product information available on the catalogue itself without JavaScript.
   html = html.replace(/<!-- catalogue-fallback:start -->[\s\S]*?<!-- catalogue-fallback:end -->/,
@@ -69,13 +68,9 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
   }
   html = html.replace(/\b\d+ PRODUCTS \/ \d+ CATEGORIES/g, `${papers.length} PRODUCTS / ${categories.length} CATEGORIES`)
     .replace(/Browse all \d+ paper, packaging/g, `Browse all ${papers.length} paper, packaging`);
-  const paperCategories = categories.filter(category => category.collection !== 'sugarcane-recycled');
-  const otherCategories = categories.filter(category => category.collection === 'sugarcane-recycled');
-  for (const [ids, anchor] of [[paperCategories, 'paper-packaging'], [otherCategories, 'sugarcane-recycled']]) {
-    const total = ids.reduce((sum, category) => sum + count(category.id), 0);
-    const pattern = new RegExp(`(href="categories.html#${anchor}"[\\s\\S]*?<span class="range-link">)\\d+ categories · \\d+ products`);
-    html = html.replace(pattern, `$1${ids.length} categories · ${total} products`);
-  }
+  html = html.replace(/(class="range-link">)\d+ categories · \d+ products/g,
+    `$1${categories.length} categories · ${papers.length} products`)
+    .replace(/Browse all \d+ sugarcane and recycled/g, `Browse all ${papers.length} sugarcane and recycled`);
   return html;
 }
 
