@@ -10,3 +10,6 @@ tmp/
 .uv-python/
 
 __pycache__/
+
+# Temporary embedded chart workbook data.
+.chart-data-*/
