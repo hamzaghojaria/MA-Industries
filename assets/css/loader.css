@@ -1,0 +1,40 @@
+/* Branded welcome, kept independent of page layout and interactions. */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px;
+  background: #f6f5ef;
+  pointer-events: none;
+  transition: opacity 320ms ease, visibility 320ms ease;
+  animation: loader-safety 2.8s step-end forwards;
+}
+.page-loader[hidden] { display: none !important; }
+.page-loader img { width: min(280px, 70vw); height: auto; }
+.page-loader__mark {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #245c3a20;
+  border-top-color: #245c3a;
+  border-right-color: #a00029;
+  border-radius: 50%;
+  animation: loader-orbit 1.2s cubic-bezier(.45,.1,.55,.9) infinite;
+}
+.page-loader__caption {
+  color: #647269;
+  font: 400 12px/1.6 'DM Sans', sans-serif;
+  letter-spacing: .08em;
+  text-align: center;
+}
+.page-loader--finished { opacity: 0; visibility: hidden; }
+@keyframes loader-orbit { to { transform: rotate(360deg); } }
+@keyframes loader-safety { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+  .page-loader { transition: none; }
+  .page-loader__mark { animation: none; }
+}

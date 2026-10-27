@@ -2,6 +2,7 @@
 export const ROOT = new URL('../../', import.meta.url);
 export const PAGES = ['index.html', 'about.html', 'categories.html', 'products.html', 'contact.html'];
 export const JAVASCRIPT_FILES = [
+  'assets/js/loader.js',
   'assets/js/catalogue-data.js',
   'assets/js/catalogue-utils.js',
   'assets/js/app.js',
