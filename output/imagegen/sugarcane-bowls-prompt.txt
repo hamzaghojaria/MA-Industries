@@ -1,3 +1,0 @@
-Tool: built-in image_gen
-Final asset: assets/images/products/sugarcane-bowls-pack.png
-Prompt: Add a fitted printed paper wrap around the foreground sugarcane bowl and visible outermost stacked bowl. Match the carton with a warm cream base, muted lavender band, lavender sugarcane botanical illustrations and uppercase serif text "SUGARCANE BOWLS". Follow the tapered bowl shape, leaving the rim and interior plain. Preserve carton, composition, lighting, beige background and square framing. No extra logos, claims or props.

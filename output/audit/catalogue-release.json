@@ -1,9 +1,0 @@
-{
-  "products": 33,
-  "categories": 4,
-  "variants": 85,
-  "pdfPages": 40,
-  "testsPassed": 46,
-  "browserScenarios": 66,
-  "pdfSha256": "7a1060a8cf95e266d802f3aa0569321ff59f3310f0e2519639753a51110d800c"
-}

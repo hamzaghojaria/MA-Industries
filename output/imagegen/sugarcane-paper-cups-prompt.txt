@@ -1,3 +1,0 @@
-Tool: built-in image_gen
-Final asset: assets/images/products/sugarcane-paper-cups-wrapped.png
-Prompt: Add custom printed paper wraps to all four foreground cups and the outermost stacked cup. Match the existing carton: warm cream base, muted lavender horizontal band, lavender sugarcane botanical illustrations, uppercase serif text "SUGARCANE PAPER CUPS". Conform to tapered cup walls; preserve plain rims and interiors, cup sizes, arrangement, carton, beige background, lighting, shadows and square framing. No extra logos, claims, props or lids.
