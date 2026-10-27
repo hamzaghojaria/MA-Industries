@@ -36,4 +36,5 @@
 
   initializeGallery();
   initializeGallery('home-products', '.home-product');
+  initializeGallery('team', '.founder-card');
 })();

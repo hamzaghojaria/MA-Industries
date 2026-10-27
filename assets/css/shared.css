@@ -2674,7 +2674,7 @@ body.product-modal-open {
 }
 
 .founder-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-top: 28px;
 }
@@ -2698,6 +2698,15 @@ body.product-modal-open {
   overflow: hidden;
   border-radius: 6px;
   background: #f4f2ee;
+}
+
+.founder-portrait-initials {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: #f4f2ee;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 8vw, 7rem);
 }
 
 .about-hero-copy .founder-name {
@@ -2894,11 +2903,6 @@ body.product-modal-open {
   color: #686a61;
 }
 
-.founder-swipe-hint {
-  display: none;
-}
-
-@media (max-width: 600px) {
   .founder-swipe-hint {
     display: flex;
     justify-content: space-between;
@@ -2912,14 +2916,13 @@ body.product-modal-open {
     display: grid;
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 88%;
+    grid-auto-columns: clamp(280px, 32%, 420px);
     gap: 14px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 2px;
     overscroll-behavior-x: contain;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) #ded8cb;
+    scrollbar-width: none;
     margin-top: 0;
     padding: 4px 2px 14px;
     max-width: 100%;
@@ -2939,17 +2942,12 @@ body.product-modal-open {
   }
 
   .founder-grid::-webkit-scrollbar {
-    height: 6px;
+    display: none;
   }
 
-  .founder-grid::-webkit-scrollbar-track {
-    background: #ded8cb;
-    border-radius: 10px;
-  }
-
-  .founder-grid::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 10px;
+@media (max-width: 600px) {
+  .about-founders .founder-grid {
+    grid-auto-columns: 88%;
   }
 }
 

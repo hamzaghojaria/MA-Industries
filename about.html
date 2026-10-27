@@ -84,8 +84,12 @@
     <section id="founders" class="about-section about-founders">
       <p class="eyebrow">FOUNDERS &amp; LEADERSHIP</p>
       <h2>A shared vision.<br>A <em>personal commitment.</em></h2>
-      <p class="founder-swipe-hint">Swipe to meet our team <span aria-hidden="true">↔</span></p>
-      <div class="founder-grid" tabindex="0" role="region" aria-label="Founders and leadership profiles">
+      <p class="founder-swipe-hint">Scroll or swipe to meet our team <span aria-hidden="true">↔</span></p>
+      <div class="home-products-controls" role="group" aria-label="Team navigation">
+        <button type="button" id="team-previous" aria-label="Previous team member" aria-controls="team-track" disabled><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M19 12H5m7-7-7 7 7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+        <button type="button" id="team-next" aria-label="Next team member" aria-controls="team-track"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+      </div>
+      <div id="team-track" class="founder-grid" tabindex="0" role="region" aria-label="Founders and leadership profiles">
         <article class="founder-card">
           <div class="founder-portrait founder-portrait-aadil"><span class="watermarked-image"><img src="assets/images/founders/aadil-dhukka.jpg" alt="Aadil Dhukka" width="700" height="900" loading="lazy" decoding="async"></span></div>
           <p class="eyebrow">CO-FOUNDER &amp; DIRECTOR</p>
@@ -110,6 +114,14 @@
           <p class="founder-membership">Lifetime Member, Aeronautical Society of India</p>
           <p class="founder-bio">Leading with attentive service and lasting customer relationships.</p>
           <a class="text-button" href="mailto:info@maindustries.in?subject=Enquiry%20for%20Mohammed%20%7C%20M%26A%20Industries&amp;body=Hello%20Mohammed%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20about%20a%20product%20requirement%20at%20M%26A%20Industries.%20Please%20help%20me%20with%20suitable%20options%2C%20specifications%2C%20pricing%20and%20availability.%0A%0AName%3A%0APhone%3A%0AProduct%20%2F%20application%3A%0AQuantity%3A%0ASize%20%2F%20material%20%2F%20specifications%3A%0A%0AThank%20you.">Connect with Mohammed <svg class="action-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+        </article>
+        <article class="founder-card">
+          <div class="founder-portrait founder-portrait-initials" aria-hidden="true">HG</div>
+          <p class="eyebrow">BUSINESS DEVELOPMENT HEAD</p>
+          <h3>Hamza Ghojaria</h3>
+          <p class="founder-qualification">Master's in Computer Engineering</p>
+          <p class="founder-bio">Building business connections and developing lasting customer relationships.</p>
+          <a class="text-button" href="mailto:info@maindustries.in?subject=Enquiry%20for%20Hamza%20%7C%20M%26A%20Industries&amp;body=Hello%20Hamza%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20about%20a%20business%20opportunity%20at%20M%26A%20Industries.%0A%0AName%3A%0APhone%3A%0AEnquiry%3A%0A%0AThank%20you.">Connect with Hamza <svg class="action-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
         </article>
       </div>
     </section>
@@ -165,5 +177,6 @@
   <script src="assets/js/experience.js" defer></script>
     <script src="assets/js/navigation.js" defer></script>
   <script src="assets/js/studio.js" defer></script>
+  <script src="assets/js/gallery.js" defer></script>
 </body>
 </html>
