@@ -61,6 +61,7 @@ The homepage brand cards have separate website/profile actions. M&A Engineerings
 |   `-- references/            Prompts and research notes; not deployed
 |-- tests/                     Data, interaction, motion, page-integrity checks
 |-- output/pdf/                Generated catalogue/visiting-card artifacts
+|-- output/presentations/      Current customer presentation
 |-- tmp/                       Local source images, migration scripts, caches; ignored
 |-- dist/                      Generated deployment; ignored
 |-- render.yaml                Render static-site configuration
@@ -68,6 +69,8 @@ The homepage brand cards have separate website/profile actions. M&A Engineerings
 ```
 
 ## Requirements and commands
+
+The current presentation is `output/presentations/MA-Industries-Analytical-Fixed.pptx`. It includes the simplified explanation of plastic waste and product benefits. Superseded presentation decks and temporary chart/render files are not retained as deliverables.
 
 Use **Node.js 20 or newer**, with npm on your PATH. No `npm install` is needed. Python is needed for preview serving, image tools, and PDF/card generation. PDF tools use Pillow, ReportLab, and PyMuPDF.
 
