@@ -93,7 +93,8 @@ test('local CSS modules compile into one stylesheet with no unresolved local imp
 
 test('the catalogue fallback retains product content without separate product-page links', () => {
   const fallback = pages.get('products.html').match(/<!-- catalogue-fallback:start -->([\s\S]*?)<!-- catalogue-fallback:end -->/)[1];
-  assert.match(fallback, /<noscript>/);
+  assert.match(fallback, /<details class="catalogue-fallback">/);
+  assert.doesNotMatch(fallback, /<noscript>/);
   assert.doesNotMatch(fallback, /href="product-[^"]+\.html"/);
   for (const product of catalogue.papers) {
     assert.ok(fallback.includes(`id="fallback-${product.id}"`));

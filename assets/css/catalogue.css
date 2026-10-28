@@ -579,6 +579,14 @@
   }
 }
 
+/* Full specifications remain accessible without scripts or product dialogs. */
+.catalogue-fallback { margin: 24px 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; }
+.catalogue-fallback summary { cursor: pointer; font-weight: 600; line-height: 1.6; }
+.catalogue-fallback h2, .catalogue-fallback h3 { margin: 24px 0 12px; }
+.catalogue-fallback article { padding: 20px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.catalogue-fallback p, .catalogue-fallback ul { margin-top: 12px; line-height: 1.7; }
+.catalogue-fallback ul { padding-left: 20px; }
+
 /* Variant tables share the manufacturer dimensions across product details. */
 .variant-table-wrap { width: 100%; overflow-x: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; }
 .variant-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.6; text-align: left; }

@@ -6,8 +6,8 @@ import { ROOT } from './config.mjs';
 
 export const PAGE_META = {
   'index.html': {
-    title: 'Sugarcane & Recycled Products | M&A Industries, Mumbai',
-    description: 'Explore sugarcane household goods, food packaging, paper essentials and recycled products from M&A Industries, Mumbai. Discuss specifications and bulk sourcing.'
+    title: 'Sugarcane & Recycled Supplier, Mumbai | M&A Industries',
+    description: 'Source sugarcane household goods, food packaging, paper essentials and recycled products from M&A Industries in Mumbai. Enquire about specifications and bulk orders.'
   },
   'about.html': {
     title: 'About M&A Industries | Sugarcane & Recycled Products, Mumbai',
