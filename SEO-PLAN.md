@@ -9,7 +9,7 @@ The website has five canonical pages: Home, About, Categories, Products and Cont
 - Unique page titles and descriptions, with matching Open Graph and Twitter text, live in scripts/site/seo.mjs. Run npm run sync:metadata after editing them; npm run check detects stale source metadata.
 - The production build emits absolute canonical and sharing URLs using SITE_URL (default https://maindustries.in), a five-page sitemap and robots.txt.
 - Organization, WebSite, page-specific types, sales ContactPoint, BreadcrumbList and category/product ItemList schema use the current content and Maaz's +91 98191 57417 number. Home and Products also describe the downloadable sugarcane/recycled PDF as a DigitalDocument.
-- Source HTML exposes all 33 product descriptions, applications and available specifications in a visitor-accessible expandable section, with or without JavaScript. The homepage title and description identify Mumbai supplier and bulk-order intent. Photos have existing alternative text and responsive candidates; decorative images remain decorative.
+- The homepage title and description identify Mumbai supplier and bulk-order intent. Photos have existing alternative text and responsive candidates; decorative images remain decorative.
 - Render redirects /index.html to /. Existing exact redirects preserve retired product URLs and open the matching catalogue popup.
 - Product prices, stock guarantees, ratings, reviews and certifications are not invented. This enquiry catalogue does not claim Google shopping rich-result eligibility.
 

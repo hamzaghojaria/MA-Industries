@@ -91,19 +91,6 @@ test('local CSS modules compile into one stylesheet with no unresolved local imp
   assert.match(css, /font-display: optional/);
 });
 
-test('the catalogue fallback retains product content without separate product-page links', () => {
-  const fallback = pages.get('products.html').match(/<!-- catalogue-fallback:start -->([\s\S]*?)<!-- catalogue-fallback:end -->/)[1];
-  assert.match(fallback, /<details class="catalogue-fallback">/);
-  assert.doesNotMatch(fallback, /<noscript>/);
-  assert.doesNotMatch(fallback, /href="product-[^"]+\.html"/);
-  for (const product of catalogue.papers) {
-    assert.ok(fallback.includes(`id="fallback-${product.id}"`));
-    assert.ok(fallback.includes(encodeForTest(product.name)));
-    for (const use of product.uses) assert.ok(fallback.includes(encodeForTest(use)));
-  }
-});
-const encodeForTest = text => String(text).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
-
 test('legacy product URLs redirect to matching catalogue popups on Render', async () => {
   const routes = await readFile(new URL('render.yaml', ROOT), 'utf8');
   for (const product of catalogue.papers) {

@@ -1,4 +1,4 @@
-/** Keep static fallbacks and deployed category labels/counts tied to catalogue data. */
+/** Keep deployed category labels/counts tied to catalogue data. */
 import { readFile, writeFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { pathToFileURL } from 'node:url';
@@ -25,18 +25,6 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
   const groups = [
     { id: 'sugarcane-recycled', name: 'Sugarcane & Recycled', categories: categories.filter(category => category.collection === 'sugarcane-recycled') }
   ];
-  // Keep product information available on the catalogue itself without JavaScript.
-  html = html.replace(/<!-- catalogue-fallback:start -->[\s\S]*?<!-- catalogue-fallback:end -->/,
-    '<!-- catalogue-fallback:start --><details class="catalogue-fallback"><summary>All product materials, uses &amp; specifications</summary><h2>Product specifications for bulk enquiries</h2><p>Explore sugarcane household goods, food packaging, paper essentials and recycled household products supplied from Mumbai. Review materials, applications and available pack sizes below; confirm specifications and availability with our team.</p>' +
-    categories.map(category => `<h3>${escapeHtml(category.name)}</h3>` +
-      papers.filter(product => product.group === category.id).map(product =>
-        `<article id="fallback-${product.id}"><h4>${escapeHtml(product.name)}</h4><p>${escapeHtml(product.desc)}</p>` +
-        `<p><strong>Material:</strong> ${escapeHtml(product.material || 'Paper / board; confirm grade and composition.')}</p>` +
-        `<p><strong>Uses:</strong> ${product.uses.map(escapeHtml).join('; ')}</p>` +
-        (product.gsm ? `<p><strong>Paper weight:</strong> ${product.gsm.min}-${product.gsm.max} GSM (indicative)</p>` : '') +
-        (product.specifications?.length ? '<ul>' + product.specifications.map(spec => `<li>${escapeHtml(typeof spec === 'object' ? spec.label + ': ' + spec.value : spec)}</li>`).join('') + '</ul>' : '') +
-        `<p><a href="index.html#enquiry">Enquire about ${escapeHtml(product.name)}</a></p></article>`).join('')).join('') +
-    '</details><!-- catalogue-fallback:end -->');
   // Own the entire grouped control so desktop order cannot drift from mobile/data.
   html = html.replace(/(<aside class="catalogue-sidebar"[^>]*>)[\s\S]*?(<\/aside>)/,
     (_, start, end) => start + '<div class="category-desktop"><h2>Browse categories</h2>' +
