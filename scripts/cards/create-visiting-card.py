@@ -69,32 +69,34 @@ def qr_code(x, y, address, size=25):
     renderPDF.draw(drawing, c, x*mm, y*mm)
     c.linkURL(address, (x*mm, y*mm, (x+size)*mm, (y+size)*mm))
 
-def paper_layers(x, y):
-    """Overlapping paper shapes echo the website's stacked-sheet artwork."""
-    c.saveState()
-    c.translate(x*mm, y*mm)
-    c.rotate(-18)
-    for offset, color in [(0, '#e5ede2'), (3, '#8fae88'), (6, '#245c3a')]:
-        c.setFillColor(HexColor(color))
-        c.roundRect(offset*mm, offset*mm, 31*mm, 17*mm, 1*mm, fill=1, stroke=0)
-    c.restoreState()
-
-# Front: clean white background with a centered brand lockup.
-c.setFillColor(white)
+# Front: align the brand, contact details and product ranges with the website.
+c.setFillColor(CREAM)
 c.rect(0, 0, W, H, fill=1, stroke=0)
-text(8, 46, DISPLAY_PHONE, 8, 'Helvetica-Bold')
-text(8, 41.5, EMAIL, 7.3, color=SOFT_INK)
-right(88, 46, NAME, 8.5 if args.person == 'yahya' else 10, 'Helvetica-Bold')
-right(88, 41.5, TITLE, 7.0 if args.person == 'yahya' else 7.5, color=MUTED)
+text(8, 47, DISPLAY_PHONE, 8, 'Helvetica-Bold')
+text(8, 42.5, EMAIL, 7.3, color=SOFT_INK)
+right(88, 47, NAME, 8.5 if args.person == 'yahya' else 10, 'Helvetica-Bold')
+right(88, 42.5, TITLE, 7.0 if args.person == 'yahya' else 7.5, color=MUTED)
 # A white panel preserves the supplied logo's original background.
 c.setFillColor(white)
-c.roundRect(8*mm, 18*mm, 80*mm, 17*mm, 2*mm, fill=1, stroke=0)
-c.drawImage(str(ROOT / 'assets/images/brand-logo.png'), 11*mm, 20*mm,
-            width=74*mm, height=13.4*mm, mask='auto')
-centered(48, 12, 'Thoughtful materials. Everyday possibilities.', 9.5, 'Times-Italic', GREEN)
-centered(48, 7.5, 'Sugarcane Products  /  Recycled Essentials', 6.3, color=SOFT_INK)
-paper_layers(-18, -13)
-paper_layers(79, -13)
+c.roundRect(8*mm, 24*mm, 80*mm, 15*mm, 2*mm, fill=1, stroke=0)
+c.drawImage(str(ROOT / 'assets/images/brand-logo.png'), 12*mm, 25.5*mm,
+            width=72*mm, height=13.05*mm, mask='auto')
+centered(48, 20.5, 'Thoughtful materials. Everyday possibilities.', 8.2, 'Times-Italic', GREEN)
+
+# Small, consistent product photographs introduce all three current ranges.
+samples = [
+    ('assets/images/products/sugarcane-bowls-pack.png', 'SUGARCANE'),
+    ('assets/images/products/recycled-storage-boxes-photo.webp', 'RECYCLED'),
+    ('assets/images/products/clean-republic-pine-floor-cleaner.png', 'CLEANING & HYGIENE')
+]
+sample_x = [15, 41.5, 68]
+for (image, label), x in zip(samples, sample_x):
+    c.setFillColor(white)
+    c.roundRect((x-1)*mm, 5.2*mm, 16*mm, 11.4*mm, 1*mm, fill=1, stroke=0)
+    c.drawImage(str(ROOT / image), x*mm, 6*mm, width=14*mm, height=9.8*mm,
+                preserveAspectRatio=True, anchor='c', mask='auto')
+    centered(x+7, 3.8, label, 4.7 if label != 'CLEANING & HYGIENE' else 4.1,
+             'Helvetica-Bold', SOFT_INK)
 c.linkURL('https://wa.me/' + PHONE, (8*mm,44*mm,42*mm,49*mm))
 c.linkURL('mailto:' + EMAIL, (8*mm,40*mm,43*mm,44*mm))
 c.showPage()
