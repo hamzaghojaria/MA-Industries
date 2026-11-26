@@ -77,8 +77,8 @@ test('lead collections stay consistent without separate material-guide links or 
   assert.ok(directory.includes('id="clean-republic"'));
   assert.ok(directory.includes('href="#clean-republic"'));
   for (const [name, html] of pages) {
-    assert.match(html, /property="og:image" content="assets\/images\/share-preview-sugarcane.jpg"/, name);
-    assert.match(html, /name="twitter:image" content="assets\/images\/share-preview-sugarcane.jpg"/, name);
+    assert.match(html, /property="og:image" content="assets\/images\/share-preview.jpg"/, name);
+    assert.match(html, /name="twitter:image" content="assets\/images\/share-preview.jpg"/, name);
     assert.match(html, /property="og:image:width" content="1200"/, name);
     assert.match(html, /property="og:image:height" content="630"/, name);
     assert.match(html, /class="footer-summary">From Mumbai, we supply sugarcane and recycled essentials and M&A cleaning products/, name);
@@ -96,7 +96,7 @@ test('local CSS modules compile into one stylesheet with no unresolved local imp
 
 test('legacy product URLs redirect to matching catalogue popups on Render', async () => {
   const routes = await readFile(new URL('render.yaml', ROOT), 'utf8');
-  for (const product of catalogue.papers.slice(0, 33)) {
+  for (const product of catalogue.papers) {
     assert.ok(routes.includes(`source: /product-${product.id}.html`));
     assert.ok(routes.includes(`destination: "/products.html?category=${product.group}#paper-${product.id}"`));
   }

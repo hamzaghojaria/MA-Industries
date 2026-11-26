@@ -8,7 +8,7 @@ import { bundleStyles } from './styles.mjs';
 import { responsiveImages } from './images.mjs';
 import { loadCatalogue, syncCatalogueMarkup, escapeHtml } from './catalogue-markup.mjs';
 import { PAGES, JAVASCRIPT_FILES } from './config.mjs';
-import { syncPageMetadata, buildStructuredData } from './seo.mjs';
+import { syncPageMetadata, buildStructuredData, SHARE_PREVIEW_IMAGE } from './seo.mjs';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const normalizeHomeLinks = html => html.replace(/href="index\.html(#[^"]*)?"/g, (_, fragment = '') => `href="/${fragment}"`);
@@ -23,7 +23,7 @@ const PUBLIC_FILES = [
   ...Object.values(RESPONSIVE_IMAGES).flat().map(variant => variant.src),
   'assets/images/brand-logo.png', 'assets/images/engineering-logo.svg', 'assets/images/favicon-32.png',
   'assets/images/favicon-192.png', 'assets/images/apple-touch-icon.png',
-  'assets/images/share-preview-sugarcane.jpg',
+  SHARE_PREVIEW_IMAGE,
   ...['sugarcane-paper', 'sugarcane-kitchenware', 'sugarcane-bags', 'recycled-household'].map(id => 'assets/images/ranges/' + id + '-photo.jpg'),
   'assets/catalogues/MA-Industries-Catalogue.pdf',
   'assets/images/founders/aadil-dhukka.jpg',

@@ -6,32 +6,58 @@ import { ROOT } from './config.mjs';
 
 export const PAGE_META = {
   'index.html': {
-    title: 'Sugarcane, Recycled & Cleaning Products | M&A Industries',
-    description: 'Find sugarcane tableware, food packaging, paper, recycled household essentials and M&A cleaning products from M&A Industries in Mumbai.'
+    title: 'Sugarcane, Recycled & Cleaning Essentials | M&A Industries',
+    description: 'Explore sugarcane tableware, food packaging, recycled household goods and M&A Cleaning & Hygiene supplies from a Mumbai-based product supplier.'
   },
   'about.html': {
-    title: 'About M&A Industries | Product Sourcing, Mumbai',
-    description: 'Meet the Mumbai team behind M&A Industries and see how we help businesses compare materials, product formats and pack sizes.'
+    title: 'About M&A Industries | Product Supplier in Mumbai',
+    description: 'Meet M&A Industries, a Mumbai supplier of sugarcane products, recycled household goods and cleaning supplies for homes and businesses.'
   },
   'categories.html': {
-    title: 'Product Collections | M&A Industries',
-    description: 'Browse two collections from M&A Industries. Explore M&A cleaning and hygiene essentials or sugarcane and recycled essentials.'
+    title: 'Product Categories | M&A Industries Mumbai',
+    description: 'Browse sugarcane and recycled ranges alongside M&A Cleaning & Hygiene products for home, workplace and commercial use.'
   },
   'products.html': {
-    title: 'Product Catalogue | M&A Industries',
-    description: 'Compare uses, dimensions and pack options for sugarcane essentials, recycled household goods and M&A cleaning products.'
+    title: 'Product Catalogue | M&A Industries Mumbai',
+    description: 'Compare uses, specifications and pack options for sugarcane, recycled household and cleaning products in the M&A Industries catalogue.'
   },
   'contact.html': {
-    title: 'Contact M&A Industries, Mumbai | Product & Bulk Enquiries',
-    description: 'Contact M&A Industries in Mumbai on +91 98191 57417 to discuss product options, pack sizes, pricing or bulk supply.'
+    title: 'Contact M&A Industries | Product Enquiries in Mumbai',
+    description: 'Contact M&A Industries in Mumbai for product details, pack options, pricing and bulk supply across sugarcane, recycled and cleaning ranges.'
   }
 };
 
+export const SHARE_PREVIEW_IMAGE = 'assets/images/share-preview.jpg';
+export const SHARE_PREVIEW_ALT = 'M&A Industries sugarcane, recycled household and cleaning products';
+
+function upsertMeta(html, attribute, name, value) {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tag = new RegExp(`(<meta\\s+${attribute}="${escapedName}"\\s+content=")[^"]*(">)`);
+  if (tag.test(html)) return html.replace(tag, `$1${escapeHtml(value)}$2`);
+  return html.replace('</head>', `    <meta ${attribute}="${name}" content="${escapeHtml(value)}">\n  </head>`);
+}
+
 export function syncPageMetadata(html, file) {
   const { title, description } = PAGE_META[file];
-  return html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
-    .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")/g, `$1${escapeHtml(title)}$2`)
-    .replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(")/g, `$1${escapeHtml(description)}$2`);
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`);
+  for (const [attribute, name, value] of [
+    ['name', 'description', description],
+    ['property', 'og:type', 'website'],
+    ['property', 'og:site_name', 'M&A Industries'],
+    ['property', 'og:title', title],
+    ['property', 'og:description', description],
+    ['property', 'og:image', SHARE_PREVIEW_IMAGE],
+    ['property', 'og:image:type', 'image/jpeg'],
+    ['property', 'og:image:width', '1200'],
+    ['property', 'og:image:height', '630'],
+    ['property', 'og:image:alt', SHARE_PREVIEW_ALT],
+    ['name', 'twitter:card', 'summary_large_image'],
+    ['name', 'twitter:title', title],
+    ['name', 'twitter:description', description],
+    ['name', 'twitter:image', SHARE_PREVIEW_IMAGE],
+    ['name', 'twitter:image:alt', SHARE_PREVIEW_ALT]
+  ]) html = upsertMeta(html, attribute, name, value);
+  return html;
 }
 
 export function buildStructuredData(file, catalogue, origin) {
@@ -47,14 +73,14 @@ export function buildStructuredData(file, catalogue, origin) {
       ['products.html', 'categories.html'].includes(file) ? 'CollectionPage' : 'WebPage',
     '@id': url + '#webpage', url, name: title, description, inLanguage: 'en-IN',
     publisher: { '@id': organizationId }, isPartOf: { '@id': websiteId },
-    primaryImageOfPage: { '@type': 'ImageObject', url: new URL('assets/images/share-preview-sugarcane.jpg', base).href, width: 1200, height: 630 }
+    primaryImageOfPage: { '@type': 'ImageObject', url: new URL(SHARE_PREVIEW_IMAGE, base).href, width: 1200, height: 630, caption: SHARE_PREVIEW_ALT }
   };
   const graph = [{
     '@type': 'Organization', '@id': organizationId, name: 'M&A Industries', url: base.href,
     logo: new URL('assets/images/brand-logo.png', base).href,
     email: 'info@maindustries.in', telephone: '+91 98191 57417',
     address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
-    description: 'Mumbai supplier of sugarcane essentials, recycled household goods and M&A cleaning products.',
+    description: 'Mumbai supplier of sugarcane products, recycled household goods and M&A Cleaning & Hygiene essentials.',
     knowsAbout: catalogue.categories.map(category => category.name),
     contactPoint: { '@id': contactId }
   }, page, {
@@ -91,7 +117,7 @@ export function buildStructuredData(file, catalogue, origin) {
     page.subjectOf = { '@id': documentUrl };
     graph.push({ '@type': 'DigitalDocument', '@id': documentUrl, url: documentUrl,
       name: 'M&A Industries Sugarcane & Recycled Product Catalogue',
-      description: 'Product photographs and available product information for sugarcane, recycled and M&amp;A cleaning ranges.',
+      description: 'Product photographs and available product information for sugarcane, recycled household and cleaning ranges.',
       encodingFormat: 'application/pdf', inLanguage: 'en-IN', publisher: { '@id': organizationId }
     });
   }

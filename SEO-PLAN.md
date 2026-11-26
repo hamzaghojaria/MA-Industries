@@ -1,27 +1,27 @@
-# Search setup and maintenance
+# Search and sharing metadata
 
-Updated: 28 October 2026.
+Updated: 27 November 2026.
 
-The website has five canonical pages: Home, About, Categories, Products and Contact. All 33 products remain in the existing catalogue with stable popup links. No standalone product or category-guide pages are generated.
+The static site has five canonical pages and 52 products across seven subcategories in two collections: 19 Cleaning & Hygiene products and 33 Sugarcane & Recycled products. Product details open from the shared catalogue; the site does not generate individual product pages.
 
 ## Implemented
 
-- Unique page titles and descriptions, with matching Open Graph and Twitter text, live in scripts/site/seo.mjs. Run npm run sync:metadata after editing them; npm run check detects stale source metadata.
-- The production build emits absolute canonical and sharing URLs using SITE_URL (default https://maindustries.in), a five-page sitemap and robots.txt.
-- Organization, WebSite, page-specific types, sales ContactPoint, BreadcrumbList and category/product ItemList schema use the current content and Maaz's +91 98191 57417 number. Home and Products also describe the downloadable sugarcane/recycled PDF as a DigitalDocument.
-- The homepage title and description identify Mumbai supplier and bulk-order intent. Photos have existing alternative text and responsive candidates; decorative images remain decorative.
-- Render redirects /index.html to /. Existing exact redirects preserve retired product URLs and open the matching catalogue popup.
-- Product prices, stock guarantees, ratings, reviews and certifications are not invented. This enquiry catalogue does not claim Google shopping rich-result eligibility.
+- Page-specific titles and descriptions are maintained in `scripts/site/seo.mjs`. `npm run sync:metadata` writes matching HTML, Open Graph and X card metadata.
+- All pages use a shared 1200 x 630 social image composed from the M&A logo and current sugarcane, recycled and cleaning product photos. Its alt text, dimensions and JPEG type are synchronized with each page.
+- The production build applies absolute canonical, social-image and Open Graph URLs from `SITE_URL` (default `https://maindustries.in`), then generates a five-page sitemap and `robots.txt`.
+- JSON-LD covers the organization, website, page type, sales contact, breadcrumbs, category/product lists and downloadable product catalogue. It uses the same configured public origin.
+- Existing product and category links remain stable. Redirects in `render.yaml` map retired product URLs to their catalogue details.
+- Product prices, stock guarantees, ratings, reviews and certifications are not invented. The enquiry catalogue does not claim merchant-listing eligibility.
 
 ## Verification and deployment
 
-Run npm run validate. It checks browser syntax, source synchronization, regression tests, the clean production build, page links, canonical/sitemap agreement, structured data, local fonts and responsive image candidates.
+Run `npm run check`, `npm run build` and `npm run verify:build` before deployment. `npm run audit` reports asset references, exact duplicates and tracked generated files.
 
-Deploy dist/ and apply render.yaml route changes. After deployment, submit https://maindustries.in/sitemap.xml in the verified Google Search Console property and inspect all five page URLs. Search Console access and production deployment were not performed in this workspace task. Live indexing, rankings and Core Web Vitals have not been measured for this build.
+After deployment, submit `https://maindustries.in/sitemap.xml` in the verified Google Search Console property and inspect the five page URLs. Search Console access, live indexing, rankings and Core Web Vitals have not been measured from this workspace.
 
-## Official guidance used
+## Official guidance
 
-- [Google's developer SEO guide](https://developers.google.com/search/docs/fundamentals/get-started-developers): crawlable links and accessible content.
-- [Canonical URL guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls): consistent canonical signals.
-- [Sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap): canonical sitemap entries.
-- [Product snippet requirements](https://developers.google.com/search/docs/appearance/structured-data/product-snippet): no fabricated prices or reviews to obtain rich results.
+- [Google Search Central: title links](https://developers.google.com/search/docs/appearance/title-link)
+- [Google Search Central: snippets and meta descriptions](https://developers.google.com/search/docs/appearance/snippet)
+- [Google Search Central: Organization structured data](https://developers.google.com/search/docs/appearance/structured-data/organization)
+- [Google Search Central: sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
