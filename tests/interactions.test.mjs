@@ -20,11 +20,9 @@ test('every card product link stays in the catalogue popup', () => {
   const html = page.get('products').innerHTML;
   assert.doesNotMatch(html, /href="product-[^"]+\.html"/);
   const product = page.window.MACatalogueData.papers[0];
-  assert.equal((html.match(new RegExp(`href="#paper-${product.id}"`, 'g')) || []).length, 4);
-  const card = {dataset: {paperId: product.id}};
-  const target = {closest: selector => selector === '[data-paper-id]' ? card : null};
-  page.get('products').dispatch('click', {target});
-  assert.equal(page.location.hash, '#paper-' + product.id);
+  const href = '#paper-' + product.id;
+  assert.equal(html.split('href="' + href + '"').length - 1, 1);
+  page.location.hash = href;
   page.window.listeners.hashchange[0]();
   assert.equal(page.get('detail').open, true);
 });
@@ -47,7 +45,7 @@ test('every mobile category option can select products and reset to the full cat
   page.get('reset-catalogue').click();
   assert.equal(page.get('category-select').value, 'all');
   assert.equal(page.get('active-category').textContent, 'All products');
-  assert.match(page.get('category-description').textContent, /sugarcane-based and recycled/);
+  assert.match(page.get('category-description').textContent, /M&A cleaning products/);
 });
 
 test('every product keeps specifications and enquiry controls without an extra details dropdown', () => {
@@ -59,11 +57,12 @@ test('every product keeps specifications and enquiry controls without an extra d
     for (const heading of ['Material', 'Uses &amp; applications', 'Specifications']) assert.ok(html.includes(`<h3>${heading}</h3>`), product.id);
     assert.ok(product.overview && product.overview.length > product.desc.length, product.id);
     const overview = product.overview.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
-    assert.ok(html.includes(overview) && html.indexOf(overview) < html.indexOf('<h3>Specifications</h3>'), product.id);
+    const copy = html.replaceAll('<strong>', '').replaceAll('</strong>', '');
+    assert.ok(copy.includes(overview) && copy.indexOf(overview) < copy.indexOf('<h3>Specifications</h3>'), product.id);
     assert.doesNotMatch(html, /product-extra-details|<summary>More details|What to share:/, product.id);
     assert.doesNotMatch(html, /View full product page|href="product-[^"]+\.html"/, product.id);
     assert.ok(html.includes(`data-choose-paper="${product.id}"`), product.id);
-    assert.doesNotMatch(html, /<figcaption>|Illustrative (?:product|shape)|[Ii]mage for reference|Manufacturer product photograph/, product.id);
+    assert.doesNotMatch(html, /<figcaption>|Illustrative (?:product|shape)|[Ii]mage for reference|Manufacturer product photograph/);
   }
 });
 
@@ -83,7 +82,7 @@ test('catalogue initializes and delegated paging/filter/reset controls stay func
   assert.equal(page.get('paper-options').children.length, page.window.MACatalogueData.papers.length + 1);
   assert.equal((page.get('products').innerHTML.match(/class="product-photo"/g) || []).length, 6);
   assert.match(page.get('products').innerHTML, /loading="lazy"/);
-  assert.match(page.get('products').innerHTML, /alt="Ribbed travel tumbler"/);
+  assert.ok(page.get('products').innerHTML.includes(`alt="${page.window.MACatalogueData.papers[0].imageAlt}"`));
   page.get('pagination').dispatch('click', { target: page.get('pagination').children.at(-1) });
   assert.match(page.get('results-count').textContent, /7–12/);
   page.get('filter-sugarcane-bags').click();
@@ -122,7 +121,7 @@ test('mobile category selection, desktop buttons and reset stay synchronized', (
   page.get('category-select').dispatch('change');
   assert.match(page.get('results-count').textContent, /1–6 of 10 products/);
   assert.equal(page.get('active-category').textContent, 'Recycled Household Products');
-  assert.equal(page.get('active-category').scrolled, true);
+  assert.ok(!page.get('active-category').scrolled, 'changing categories keeps the filter in place');
   page.get('filter-sugarcane-bags').click();
   assert.equal(page.get('category-select').value, 'sugarcane-bags');
   assert.equal(page.get('active-category').textContent, 'Sugarcane Food Packaging');
@@ -140,18 +139,16 @@ test('expanded sugarcane ranges paginate and preselect a new sourcing item', () 
   assert.match(page.get('products').innerHTML, /Standing pouches/);
   page.location.hash = '#paper-bio-pe-bin-liners';
   page.window.listeners.hashchange[0]();
-  assert.match(page.get('detail-body').innerHTML, /Specifications and availability confirmed on enquiry/);
+  assert.match(page.get('detail-body').innerHTML, /Ask us to confirm the format, pack options and current availability/);
   assert.match(page.get('detail-body').innerHTML, /bio-pe-bin-liners-photo\.jpg/);
   const choice = new page.Element(); choice.dataset.choosePaper = 'bio-pe-bin-liners';
   page.get('detail').dispatch('click', {target: choice});
   assert.equal(page.get('paper').value, 'Rubbish bags');
 });
 
-test('keyboard product selection opens details and preselects the enquiry', () => {
+test('a product hash opens details and preselects the enquiry', () => {
   const page = boot();
-  const card = new page.Element(); card.dataset.paperId = 'sugarcane-copy-paper';
-  page.get('products').dispatch('keydown', { target: card, key: 'Enter' });
-  assert.equal(page.location.hash, '#paper-sugarcane-copy-paper');
+  page.location.hash = '#paper-sugarcane-copy-paper';
   page.window.listeners.hashchange[0]();
   assert.equal(page.get('detail').open, true);
   assert.match(page.get('detail-body').innerHTML, /Sugarcane office paper/);

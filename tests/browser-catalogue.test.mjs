@@ -48,7 +48,7 @@ test('saved portable catalogue has consistent slides, images, selector entries a
   }
   assert.doesNotMatch(output, /<figcaption>|Illustrative product image|Product image for reference/);
   assert.equal(options.length, slides.length);
-  assert.equal([...output.matchAll(/<img src="data:image\/jpeg;base64,/g)].length, slides.length);
+  assert.equal([...output.matchAll(/<img src="data:image\/(?:jpeg|png);base64,/g)].length, slides.length);
   assert.equal([...output.matchAll(/<th scope="row">/g)].length, 85);
   slides.forEach((slide, index) => {
     assert.equal(Number(options[index][1]), index);

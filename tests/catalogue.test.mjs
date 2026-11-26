@@ -29,7 +29,7 @@ test('catalogue validates groups and rejects duplicate IDs', () => {
   assert.throws(() => utils.validateCatalogue([{ ...papers[0], group: 'missing' }], categories), /Unknown/);
 });
 
-test('catalogue contains only the four active sugarcane and recycled ranges', () => {
+test('catalogue preserves the four lead ranges and appends Clean Republic categories', () => {
   const featured = ['sugarcane-kitchenware', 'sugarcane-bags', 'sugarcane-paper', 'recycled-household'];
   assert.deepEqual(Array.from(categories.slice(0, 4), category => category.id), featured);
   const leadingCount = papers.filter(product => featured.includes(product.group)).length;
@@ -37,10 +37,12 @@ test('catalogue contains only the four active sugarcane and recycled ranges', ()
   assert.ok(papers.slice(leadingCount).every(product => !featured.includes(product.group)));
   assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-kitchenware').slice(0, 6), product => product.id), ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles', 'cutting-boards']);
   assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-paper').slice(0, 2), product => product.id), ['sugarcane-paper-cups', 'sugarcane-bath-tissues']);
-  assert.equal(papers.length, 33);
-  assert.equal(categories.length, 4);
+  assert.equal(papers.length, 52);
+  assert.equal(categories.length, 7);
   assert.equal(new Set(papers.map(product => product.id)).size, papers.length);
-  assert.ok(papers.every(product => featured.includes(product.group)));
+  assert.ok(papers.slice(0, leadingCount).every(product => featured.includes(product.group)));
+  assert.deepEqual(Array.from(categories.slice(4), category => category.id), ['clean-republic-household', 'clean-republic-hygiene', 'clean-republic-commercial']);
+  assert.ok(papers.slice(leadingCount).every(product => categories.slice(4).some(category => category.id === product.group)));
 });
 
 test('product WhatsApp drafts identify the item and ask for relevant specifications', () => {

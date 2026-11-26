@@ -17,18 +17,22 @@ for folder in ('ranges', 'founders'):
 sources.extend(sorted((ROOT / 'assets/images/gallery').glob('recycling-*.jpg')))
 # JPEG catalogue photos now lead the collection; keep their cards lightweight.
 product_files = json.loads((ROOT / 'scripts/site/manifests/product-images.json').read_text(encoding='utf-8'))
-sources.extend(ROOT / 'assets/images/products' / name for name in product_files if name.endswith('.jpg'))
+sources.extend(ROOT / 'assets/images/products' / name for name in product_files
+               if name.endswith(('.jpg', '.jpeg')) or name.startswith('clean-republic-'))
 for source in sources:
     if source.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.webp'):
         continue
     with Image.open(source) as original:
         image = ImageOps.exif_transpose(original)
         image = image.convert('RGBA' if 'A' in image.getbands() else 'RGB')
-        if source.parent.name == 'products' and image.width < 640:
+        if source.parent.name == 'products' and source.suffix.lower() in ('.jpg', '.jpeg') and image.width < 640:
             raise ValueError(f'Product preview requires a source at least 640px wide: {source.name}')
         variants = []
         # Never upscale a small source; descriptors always match actual pixels.
-        for width in sorted({min(size, image.width) for size in (320, 640, 960)}):
+        target_widths = (320, 640, 960) if source.suffix.lower() in ('.jpg', '.jpeg') else (320,)
+        if source.name.startswith('clean-republic-'):
+            target_widths = (320, 640)
+        for width in sorted({min(size, image.width) for size in target_widths}):
             folder = source.parent.name if source.parent.name != 'images' else 'brand'
             target = ROOT / 'assets/images/responsive' / folder / f'{source.stem}-{width}.webp'
             target.parent.mkdir(parents=True, exist_ok=True)

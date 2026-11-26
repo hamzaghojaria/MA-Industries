@@ -8,10 +8,11 @@
 
   if (studio) {
     const recommendations = {
-      serve: { title: 'Everyday, reimagined.', range: 'Sugarcane household', text: 'Explore reusable cups, bowls, cutting boards and kitchen essentials. Confirm composition and suitability for your application.', link: 'products.html?category=sugarcane-kitchenware#collection', image: 'assets/images/responsive/ranges/sugarcane-kitchenware-photo-640.webp', alt: 'Sugarcane kitchenware collection', label: 'Explore kitchen essentials', number: '01', theme: 'sage' },
-      store: { title: 'Keep the good things.', range: 'Sugarcane food packaging', text: 'Discover food-storage bags, cling wraps and liners. Tell us what you need to store, the format and your required quantity.', link: 'products.html?category=sugarcane-bags#collection', image: 'assets/images/responsive/ranges/sugarcane-bags-photo-640.webp', alt: 'Bio-based bags and wraps', label: 'Explore bags & wraps', number: '02', theme: 'rose' },
-      organise: { title: 'Make room for possibility.', range: 'Recycled household', text: 'Find storage boxes and cleaning tools. Ask about item-specific recycled content, sizes and available options.', link: 'products.html?category=recycled-household#collection', image: 'assets/images/responsive/ranges/recycled-household-photo-640.webp', alt: 'Recycled household products', label: 'Explore household products', number: '03', theme: 'sage' },
-      pack: { title: 'A new chapter for sugarcane.', range: 'Sugarcane paper', text: 'Explore sugarcane paper sheets, rolls and foodservice essentials. Share your format and quantity requirements.', link: 'products.html?category=sugarcane-paper#collection', image: 'assets/images/responsive/ranges/sugarcane-paper-photo-640.webp', alt: 'Sugarcane paper essentials', label: 'Explore sugarcane paper', number: '04', theme: 'sage' }
+      serve: { title: 'Sugarcane household goods', range: 'Sugarcane household', text: 'Set up a prep counter, put drinkware on the table or stock a cupboard with the basics you reach for every day.', link: 'products.html?category=sugarcane-kitchenware#collection', image: 'assets/images/responsive/ranges/sugarcane-kitchenware-photo-640.webp', alt: 'Sugarcane kitchenware collection', label: 'Explore kitchen essentials', theme: 'sage' },
+      store: { title: 'Food storage bags & wraps', range: 'Sugarcane food packaging', text: 'Portion ingredients, cover a dish or keep leftovers together. Compare bags and wraps by width, size and pack.', link: 'products.html?category=sugarcane-bags#collection', image: 'assets/images/responsive/ranges/sugarcane-bags-photo-640.webp', alt: 'Bio-based bags and wraps', label: 'Explore bags & wraps', theme: 'rose' },
+      organise: { title: 'Recycled storage & cleaning tools', range: 'Recycled household', text: 'Sort the things you keep or stock the tools you clean with. Start with storage box dimensions or the surface each tool is made for.', link: 'products.html?category=recycled-household#collection', image: 'assets/images/responsive/ranges/recycled-household-photo-640.webp', alt: 'Recycled household products', label: 'Explore household products', theme: 'sage' },
+      pack: { title: 'Sugarcane paper & foodservice', range: 'Sugarcane paper', text: 'Choose by where the paper will go. Review sheets for the printer, rolls for converting and cups or bowls for the service counter.', link: 'products.html?category=sugarcane-paper#collection', image: 'assets/images/responsive/ranges/sugarcane-paper-photo-640.webp', alt: 'Sugarcane paper essentials', label: 'Explore sugarcane paper', theme: 'sage' },
+      clean: { title: 'M&A cleaning & hygiene', range: 'M&A cleaning', text: 'Think about the surface and how often you clean it. Browse the M&A cleaning range for the floor round, the washroom or a commercial cleaning job.', link: 'categories.html#clean-republic', image: 'assets/images/responsive/products/clean-republic-pine-floor-cleaner-320.webp', alt: 'M&A Pine Floor Cleaner bottle with deep green botanical label', label: 'Explore cleaning & hygiene', theme: 'sage' }
     };
     const buttons = [...studio.querySelectorAll('[data-material-choice]')];
     const output = studio.querySelector('.studio-result');
@@ -22,7 +23,6 @@
       const item = recommendations[button.dataset.materialChoice];
       for (const choice of buttons) choice.setAttribute('aria-pressed', String(choice === button));
       studio.dataset.theme = item.theme;
-      studio.querySelector('[data-studio-number]').textContent = item.number;
       studio.querySelector('[data-studio-range]').textContent = item.range;
       output.querySelector('h3').textContent = item.title;
       output.querySelector('p').textContent = item.text;
@@ -39,8 +39,8 @@
       changeAnimations = [];
       if (!reduced.matches && output.animate) {
         changeAnimations = [
-          output.animate([{ transform: 'translateY(8px)' }, { transform: 'translateY(0)' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }),
-          image.animate([{ transform: 'scale(1.06)' }, { transform: 'scale(1)' }], { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)' })
+          output.animate([{ transform: 'translateY(5px)' }, { transform: 'translateY(0)' }], { duration: 240, easing: 'cubic-bezier(.2,.7,.2,1)' }),
+          image.animate([{ transform: 'scale(1.025)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'cubic-bezier(.2,.7,.2,1)' })
         ];
       }
     });
@@ -48,7 +48,7 @@
 
   // One frame at most per pointer update. A measured card is reused until exit;
   // scrolling or resizing clears it rather than measuring on every mousemove.
-  const selector = '.range-mosaic figure,.directory-card,.brand-card,.founder-card,.product,.studio-art';
+  const selector = '.range-mosaic figure,.brand-card,.founder-card,.studio-art';
   let active = null;
   let bounds;
   let pointer;

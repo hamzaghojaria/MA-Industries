@@ -42,6 +42,7 @@
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         dom.navigation.querySelectorAll('a').forEach(link => {
+          if (link.getAttribute('aria-current') === 'page') return;
           const active = link.getAttribute('href') === '#' + entry.target.id;
           link.classList.toggle('is-current', active);
           if (active) link.setAttribute('aria-current', 'location');

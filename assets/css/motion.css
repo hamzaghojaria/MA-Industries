@@ -16,7 +16,6 @@
   pointer-events: none;
 }
 
-[data-heading-line] { display: inline-block; }
 .enquiry-ready::before {
   content: '\2713';
   display: inline-grid;
@@ -57,10 +56,6 @@
   transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
 }
 
-.hero-range-art {
-  background: radial-gradient(ellipse at 90% 0%, #cbd8bd70, transparent 65%), #e7e8dc;
-}
-
 .button, .card-whatsapp, .gallery-controls button, .directory-jumps a {
   transition: background .22s, color .22s, transform .25s var(--ease-out), box-shadow .25s;
 }
@@ -74,130 +69,40 @@
   transition: transform .25s var(--ease-out);
 }
 
-.directory-jumps a {
-  border-radius: 6px;
-}
-
-/* Collection gateways beneath the category-page title. */
+/* Collection links are visible together at every screen width. */
 .directory-jumps {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 20px;
-  max-width: 1120px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 960px;
+  margin-top: 22px;
 }
-
 .directory-jumps .collection-jump {
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 22px;
-  padding: 22px;
-  min-width: 0;
-  border: 1px solid #d8cbbb;
-  border-radius: 18px;
-  background: #fffaf2;
-  text-decoration: none;
-  box-shadow: 0 6px 22px #493b2510;
-}
-
-.directory-jumps .collection-jump-green {
-  background: #f1f5ed;
-  border-color: #c9d5c1;
-}
-
-.collection-jump-image {
-  width: 100px;
-  height: 126px;
-  flex-shrink: 0;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.directory-jumps .collection-jump-copy {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 9px;
-}
-
-.directory-jumps .collection-jump-label {
-  color: var(--accent);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-}
-
-.collection-jump-copy strong {
-  color: #283528;
-  font: 500 clamp(20px, 2vw, 28px)/1.2 'Playfair Display', Georgia, serif;
-}
-
-.directory-jumps .collection-jump-description {
-  line-height: 1.6;
-}
-
-.directory-jumps .collection-jump-count {
-  padding-top: 5px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.directory-jumps .collection-jump-arrow {
   display: grid;
-  place-items: center;
-  align-self: flex-end;
-  flex: 0 0 32px;
-  height: 32px;
-  border: 1px solid #d8cbbb;
-  border-radius: 50%;
-  color: var(--accent);
-  font-size: 18px;
+  grid-template-columns: clamp(54px, 9vw, 76px) minmax(0, 1fr) auto;
+  gap: 14px;
+  min-width: 0;
+  padding: 10px 14px 10px 10px;
+  border: 1px solid #9fb39b;
+  border-radius: 10px;
+  background: #f8faf3;
+  color: #183b2b;
 }
-
-.collection-jump:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
+.directory-jumps .collection-jump:hover { border-color: #3d624c; background: #e6eee1; }
+.collection-jump-image { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 6px; }
+.directory-jumps .collection-jump-copy { display: grid; gap: 5px; color: inherit; }
+.collection-jump-copy strong { font: 700 clamp(12px, 1.05vw, 16px)/1.3 'DM Sans', Arial, sans-serif; }
+.directory-jumps .collection-jump-count { color: #4b5d4c; }
+.directory-jumps .collection-jump-arrow { color: inherit; font-size: 20px; transition: transform .2s var(--ease-out); }
+.collection-jump:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 660px) {
+  .directory-jumps { grid-template-columns: minmax(0, 1fr); }
 }
-
-@media (max-width: 700px) {
-  .directory-jumps {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: 4px;
-    padding: 6px 4px 16px;
-    scrollbar-width: thin;
-    scrollbar-color: #a8b29e #e4e7dc;
-  }
-
-  .directory-jumps .collection-jump {
-    flex: 1 1 100%;
-    box-sizing: border-box;
-    scroll-snap-align: start;
-    gap: 14px;
-    padding: 18px;
-  }
-
-  .collection-jump-image {
-    width: 68px;
-    height: 112px;
-  }
-
-  .directory-jumps .collection-jump-arrow {
-    position: absolute;
-    bottom: 14px;
-    right: 14px;
-    width: 26px;
-    height: 26px;
-  }
-
-  .directory-jumps .collection-jump-count {
-    padding-right: 22px;
-  }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .collection-jump:hover .collection-jump-arrow { transform: translateY(3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .directory-jumps .collection-jump-arrow { transition: none; }
 }
 
 .faq details {
@@ -264,53 +169,13 @@
     transform: translate(2px,-2px);
   }
 
-  .directory-jumps a:hover {
-    transform: translateY(-3px);
-    background: #fffdf7;
-    box-shadow: 0 5px 16px #2734210d;
-  }
-
   .card-whatsapp:hover {
     box-shadow: 0 5px 16px #16754912;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .range-mosaic figure {
-    animation: range-float 5.5s ease-in-out infinite;
-    animation-play-state: paused;
-  }
-
-  .range-mosaic figure:nth-child(2) { animation-delay: -1.1s; }
-  .range-mosaic figure:nth-child(3) { animation-delay: -2.2s; }
-  .range-mosaic figure:nth-child(4) { animation-delay: -3.3s; }
-  .range-mosaic.motion-in-view figure { animation-play-state: running; }
-  .range-mosaic figure:is(:hover, :focus-within) { animation-play-state: paused; }
-
-  .studio-art .studio-photo {
-    animation: range-float 6s ease-in-out infinite;
-    animation-play-state: paused;
-  }
-  .studio-art.motion-in-view .studio-photo { animation-play-state: running; }
-  .studio-art:is(:hover, :focus-within) .studio-photo { animation-play-state: paused; }
-
-  .approach .steps article > span {
-    animation: mobile-number-glow 3s ease-in-out infinite;
-    animation-play-state: paused;
-  }
-  .approach.motion-in-view .steps article > span { animation-play-state: running; }
-  .approach .steps article:nth-child(2) > span { animation-delay: -.5s; }
-  .approach .steps article:nth-child(3) > span { animation-delay: -1s; }
-
-  .button:active, .card-whatsapp:active, .directory-jumps a:active {
-    transform: scale(.98);
-  }
-}
-
-/* Independent translate preserves the desktop pointer tilt and image rotation. */
-@keyframes range-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -6px; }
+  .button:active, .directory-jumps a:active { transform: scale(.98); }
 }
 
 @media (prefers-reduced-motion: reduce) {

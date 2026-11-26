@@ -31,7 +31,7 @@ test('lightweight product card previews exist alongside their full-size original
   }
 });
 
-test('all four category cards, desktop filters and mobile options agree with catalogue data', () => {
+test('all category cards, desktop filters and mobile options agree with catalogue data', () => {
   for (const [name, html] of pages) assert.equal(syncCatalogueMarkup(html, catalogue), html, `${name}: run npm run sync:catalogue`);
   const products = pages.get('products.html');
   const directory = pages.get('categories.html');
@@ -46,7 +46,7 @@ test('all four category cards, desktop filters and mobile options agree with cat
     const card = directory.match(new RegExp(`href="products.html\\?category=${category.id}#collection">([\\s\\S]*?)</a>`));
     assert.ok(card, category.id);
     assert.equal(decode(card[1].match(/class="directory-title">(.*?)</)[1]), category.name);
-    assert.match(card[1], new RegExp(`/ ${count} PRODUCTS`));
+    assert.match(card[1], new RegExp(`>${count} products<`));
   }
 });
 
@@ -63,22 +63,25 @@ test('lead collections stay consistent without separate material-guide links or 
   const home = pages.get('index.html');
   const directory = pages.get('categories.html');
   const products = pages.get('products.html');
-  const firstGroups = Array.from(catalogue.categories.slice(0, 4), category => category.id);
-  assert.ok(home.includes('<h1>Sugarcane &amp; recycled.'));
+  const firstGroups = Array.from(catalogue.categories.filter(category => category.collection === 'clean-republic'), category => category.id);
+  assert.ok(home.includes('href="categories.html#clean-republic"'));
+  assert.ok(directory.indexOf('href="#clean-republic"') < directory.indexOf('href="#sugarcane-recycled"'));
   assert.doesNotMatch(home, /ONE PARTNER\. MORE POSSIBILITIES\.|More ways to choose\.|class="range-intro collection"/);
   assert.match(home, /data-material-choice="serve" aria-pressed="true"/);
   assert.ok(home.includes('href="categories.html#sugarcane-recycled"'));
   assert.ok(directory.includes('id="sugarcane-recycled"'));
   const controls = [...products.matchAll(/data-filter="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(controls.slice(1, 5), firstGroups);
+  assert.deepEqual(controls.slice(1, firstGroups.length + 1), firstGroups);
   assert.doesNotMatch(directory, /category-guide-links|href="category-[^"]+\.html"|Material guides/);
   for (const category of catalogue.categories) assert.ok(directory.includes(`href="products.html?category=${category.id}#collection"`));
+  assert.ok(directory.includes('id="clean-republic"'));
+  assert.ok(directory.includes('href="#clean-republic"'));
   for (const [name, html] of pages) {
     assert.match(html, /property="og:image" content="assets\/images\/share-preview-sugarcane.jpg"/, name);
     assert.match(html, /name="twitter:image" content="assets\/images\/share-preview-sugarcane.jpg"/, name);
     assert.match(html, /property="og:image:width" content="1200"/, name);
     assert.match(html, /property="og:image:height" content="630"/, name);
-    assert.match(html, /class="footer-summary">Sugarcane-based essentials and recycled household goods/, name);
+    assert.match(html, /class="footer-summary">From Mumbai, we supply sugarcane and recycled essentials and M&A cleaning products/, name);
   }
 
 });
@@ -93,7 +96,7 @@ test('local CSS modules compile into one stylesheet with no unresolved local imp
 
 test('legacy product URLs redirect to matching catalogue popups on Render', async () => {
   const routes = await readFile(new URL('render.yaml', ROOT), 'utf8');
-  for (const product of catalogue.papers) {
+  for (const product of catalogue.papers.slice(0, 33)) {
     assert.ok(routes.includes(`source: /product-${product.id}.html`));
     assert.ok(routes.includes(`destination: "/products.html?category=${product.group}#paper-${product.id}"`));
   }

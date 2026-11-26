@@ -3,14 +3,6 @@
     {
       "src": "assets/images/responsive/brand/brand-logo-320.webp",
       "width": 320
-    },
-    {
-      "src": "assets/images/responsive/brand/brand-logo-640.webp",
-      "width": 640
-    },
-    {
-      "src": "assets/images/responsive/brand/brand-logo-960.webp",
-      "width": 960
     }
   ],
   "assets/images/ranges/recycled-household-photo.jpg": [
@@ -109,6 +101,62 @@
     {
       "src": "assets/images/responsive/founders/mohammed-dhukka-700.webp",
       "width": 700
+    }
+  ],
+  "assets/images/gallery/recycling-moulding.jpg": [
+    {
+      "src": "assets/images/responsive/gallery/recycling-moulding-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-moulding-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-moulding-960.webp",
+      "width": 960
+    }
+  ],
+  "assets/images/gallery/recycling-pellets.jpg": [
+    {
+      "src": "assets/images/responsive/gallery/recycling-pellets-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-pellets-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-pellets-960.webp",
+      "width": 960
+    }
+  ],
+  "assets/images/gallery/recycling-sorting.jpg": [
+    {
+      "src": "assets/images/responsive/gallery/recycling-sorting-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-sorting-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-sorting-960.webp",
+      "width": 960
+    }
+  ],
+  "assets/images/gallery/recycling-washing.jpg": [
+    {
+      "src": "assets/images/responsive/gallery/recycling-washing-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-washing-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/images/responsive/gallery/recycling-washing-960.webp",
+      "width": 960
     }
   ],
   "assets/images/products/sugarcane-copy-paper-photo.jpg": [
@@ -237,60 +285,194 @@
       "width": 960
     }
   ],
-  "assets/images/gallery/recycling-sorting.jpg": [
+  "assets/images/products/clean-republic-pine-floor-cleaner.png": [
     {
-      "src": "assets/images/responsive/gallery/recycling-sorting-320.webp",
+      "src": "assets/images/responsive/products/clean-republic-pine-floor-cleaner-320.webp",
       "width": 320
     },
     {
-      "src": "assets/images/responsive/gallery/recycling-sorting-640.webp",
+      "src": "assets/images/responsive/products/clean-republic-pine-floor-cleaner-640.webp",
       "width": 640
-    },
-    {
-      "src": "assets/images/responsive/gallery/recycling-sorting-960.webp",
-      "width": 960
     }
   ],
-  "assets/images/gallery/recycling-washing.jpg": [
+  "assets/images/products/clean-republic-concentrated-floor-cleaner.png": [
     {
-      "src": "assets/images/responsive/gallery/recycling-washing-320.webp",
+      "src": "assets/images/responsive/products/clean-republic-concentrated-floor-cleaner-320.webp",
       "width": 320
     },
     {
-      "src": "assets/images/responsive/gallery/recycling-washing-640.webp",
+      "src": "assets/images/responsive/products/clean-republic-concentrated-floor-cleaner-640.webp",
       "width": 640
-    },
-    {
-      "src": "assets/images/responsive/gallery/recycling-washing-960.webp",
-      "width": 960
     }
   ],
-  "assets/images/gallery/recycling-pellets.jpg": [
+  "assets/images/products/clean-republic-kitchen-cleaner.png": [
     {
-      "src": "assets/images/responsive/gallery/recycling-pellets-320.webp",
+      "src": "assets/images/responsive/products/clean-republic-kitchen-cleaner-320.webp",
       "width": 320
     },
     {
-      "src": "assets/images/responsive/gallery/recycling-pellets-640.webp",
+      "src": "assets/images/responsive/products/clean-republic-kitchen-cleaner-640.webp",
       "width": 640
-    },
-    {
-      "src": "assets/images/responsive/gallery/recycling-pellets-960.webp",
-      "width": 960
     }
   ],
-  "assets/images/gallery/recycling-moulding.jpg": [
+  "assets/images/products/clean-republic-lime-dishwash.png": [
     {
-      "src": "assets/images/responsive/gallery/recycling-moulding-320.webp",
+      "src": "assets/images/responsive/products/clean-republic-lime-dishwash-320.webp",
       "width": 320
     },
     {
-      "src": "assets/images/responsive/gallery/recycling-moulding-640.webp",
+      "src": "assets/images/responsive/products/clean-republic-lime-dishwash-640.webp",
       "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-glass-surface-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-glass-surface-cleaner-320.webp",
+      "width": 320
     },
     {
-      "src": "assets/images/responsive/gallery/recycling-moulding-960.webp",
-      "width": 960
+      "src": "assets/images/responsive/products/clean-republic-glass-surface-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-handwash.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-handwash-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-handwash-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-toilet-bowl-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-toilet-bowl-cleaner-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-toilet-bowl-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-industrial-degreaser.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-industrial-degreaser-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-industrial-degreaser-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-air-freshener.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-air-freshener-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-air-freshener-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-car-shampoo.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-car-shampoo-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-car-shampoo-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-multi-purpose-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-multi-purpose-cleaner-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-multi-purpose-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-all-pine-floor-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-all-pine-floor-cleaner-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-all-pine-floor-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-grill-oven-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-grill-oven-cleaner-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-grill-oven-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-upholstery-carpet-cleaner.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-upholstery-carpet-cleaner-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-upholstery-carpet-cleaner-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-alkaline-degreaser.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-alkaline-degreaser-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-alkaline-degreaser-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-limescale-remover.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-limescale-remover-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-limescale-remover-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-drain-unblock-liquid.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-drain-unblock-liquid-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-drain-unblock-liquid-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-bathtub-foam-liquid.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-bathtub-foam-liquid-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-bathtub-foam-liquid-640.webp",
+      "width": 640
+    }
+  ],
+  "assets/images/products/clean-republic-diffuser-oils.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-diffuser-oils-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-diffuser-oils-640.webp",
+      "width": 640
     }
   ]
 }

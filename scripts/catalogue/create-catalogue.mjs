@@ -18,14 +18,21 @@ await writeFile(resolve(tempDirectory, 'catalogue-data.json'), JSON.stringify(ca
 
 const bundledPython = resolve(ROOT, 'tmp/pdf-venv/Scripts/python.exe');
 let python = process.env.PYTHON?.trim() || 'python';
+let pythonArgs = [];
 try {
   await access(bundledPython, constants.X_OK);
   if (!process.env.PYTHON) python = bundledPython;
+  await execFileSync(python, ['-c', 'import pymupdf, reportlab, PIL'], { stdio: 'ignore' });
 } catch {
-  // Use the Python executable on PATH when the local Windows environment is absent.
+  // A stale bundled environment can still contain an interpreter but lack its packages.
+  // Use uv's managed temporary environment when it is available.
+  if (!process.env.PYTHON && process.platform === 'win32') {
+    python = 'uv';
+    pythonArgs = ['run', '--with', 'reportlab', '--with', 'pillow', '--with', 'pymupdf', 'python'];
+  }
 }
 
-execFileSync(python, [resolve(ROOT, 'scripts/catalogue/create-focused-catalogue.py'), ...process.argv.slice(2)], {
+execFileSync(python, [...pythonArgs, resolve(ROOT, 'scripts/catalogue/create-focused-catalogue.py'), ...process.argv.slice(2)], {
   cwd: ROOT,
   stdio: 'inherit'
 });

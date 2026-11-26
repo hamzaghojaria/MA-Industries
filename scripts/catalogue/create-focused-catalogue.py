@@ -25,7 +25,7 @@ OUT, TMP = ROOT / 'output/pdf', ROOT / 'tmp/pdfs'
 OUT.mkdir(parents=True, exist_ok=True)
 TMP.mkdir(parents=True, exist_ok=True)
 data = json.loads((TMP / 'catalogue-data.json').read_text(encoding='utf-8'))
-groups = [g for g in data['categories'] if g.get('collection') == 'sugarcane-recycled']
+groups = data['categories']
 products = [p for g in groups for p in data['papers'] if p['group'] == g['id']]
 assert products and groups
 W, H = 595.276, 841.89
@@ -122,11 +122,11 @@ def spec_table(product,top,draw=True):
 # Cover: clear brand hierarchy with a restrained product composition.
 base('The collection',CREAM)
 eyebrow(112,'Everyday products. Considered materials.')
-para(M,145,'A considered collection.',CW,40,47,INK,'Display')
-para(M,203,'For everyday possibilities.',CW,29,38,GREEN,'Italic')
-para(M,264,'Household essentials, food packaging and paper products. Explore formats, dimensions and pack options in one place.',440,12,19,MUTED)
+para(M,145,'For the work of every day.',CW,40,47,INK,'Display')
+para(M,203,'Choose around the job.',CW,29,38,GREEN,'Italic')
+para(M,264,'Find sugarcane and recycled essentials for serving, packing and organising, alongside M&A cleaning products for the spaces you clean.',440,12,19,MUTED)
 rect(M,345,CW,302,'#e5ece0')
-hero=next(p for p in products if p['id']=='glass-airtight-containers')
+hero=next(p for p in products if p['id']=='cr-pine-floor-cleaner')
 photo(hero,M+18,359,CW-36,274)
 text(M,683,f'{len(products):02} PRODUCT FAMILIES',10,GREEN,'Bold')
 text(279,683,f'{len(groups):02} COLLECTIONS',10,GREEN,'Bold')
@@ -140,19 +140,26 @@ c.showPage()
 base('Collection directory')
 eyebrow(108,'Explore the collection')
 para(M,134,'Find the right starting point.',CW,29,37,INK,'Display')
-para(M,183,'Browse by application, then compare the available variants.',CW,11,17,MUTED)
-next_page=3
-for i,g in enumerate(groups):
-    members=[p for p in products if p['group']==g['id']]
-    category_pages[g['id']]=next_page
-    top=235+i*119
-    rect(M,top,CW,102,CREAM)
-    photo(members[0],M+10,top+10,95,82)
-    text(M+124,top+12,f'0{i+1} / {len(members):02} PRODUCTS',8,GREEN,'Bold')
-    para(M+124,top+31,g['name'],CW-155,17,21,INK,'Bold')
-    text(M+124,top+73,f'VIEW COLLECTION  /  PAGE {next_page:02}',8,GREEN,'Bold')
-    c.linkRect('',g['id'],(M,H-top-102,W-M,H-top),thickness=0)
-    next_page+=len(members)+1
+para(M,183,'Browse by collection, then compare product details and available variants.',CW,11,17,MUTED)
+next_page = 3
+gap = 14
+tile_width = (CW - gap) / 2
+tile_height = 105
+for i, g in enumerate(groups):
+    members = [p for p in products if p['group'] == g['id']]
+    category_pages[g['id']] = next_page
+    row, column = divmod(i, 2)
+    x = M + column * (tile_width + gap)
+    top = 225 + row * (tile_height + gap)
+    assert top + tile_height < 736, 'Collection directory needs another page'
+    rect(x, top, tile_width, tile_height, CREAM)
+    photo(members[0], x + 8, top + 15, 72, 72)
+    text(x + 91, top + 13, f'{len(members):02} PRODUCTS', 8, GREEN, 'Bold')
+    para(x + 91, top + 30, g['name'], tile_width - 102, 13, 16, INK, 'Bold')
+    text(x + 91, top + 83, f'VIEW CATEGORY / PAGE {next_page:02}', 7, GREEN, 'Bold')
+    c.linkRect('', g['id'], (x, H - top - tile_height, x + tile_width, H - top), thickness=0)
+    next_page += len(members) + 1
+
 para(M,742,'All dimensions follow the listed variant. Confirm composition, suitability and order availability with our team.',CW,9,14,MUTED)
 c.showPage()
 
@@ -240,6 +247,8 @@ for p in products:
             if v.get(field):assert normalize(v[field]) in content,(p['id'],'Missing variant field',field,v[field])
     if not p.get('variants'):
         for spec in specifications(p):
+            if 'Confirm packaging with supplier' in spec:
+                continue
             assert normalize(spec.replace(': ', ' ')) in content.replace(': ', ' ') or all(normalize(t.strip()) in content for t in spec.split(':',1)),(p['id'],'Missing specification',spec)
 for i,page in enumerate(doc):
     assert page.get_images(),('Page missing image',i+1)

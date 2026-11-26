@@ -4,14 +4,13 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const running = new Set();
   let observer;
-  let ambientObserver;
 
-  function enter(element, delay = 0, distance = 20) {
+  function enter(element, delay = 0, distance = 10) {
     if (reducedMotion.matches || !element?.animate) return;
     const animation = element.animate([
       { opacity: 0, transform: `translateY(${distance}px)` },
       { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 620, delay, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+    ], { duration: 320, delay, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
     running.add(animation);
     animation.finished.catch(() => {}).finally(() => running.delete(animation));
   }
@@ -50,48 +49,22 @@
   reducedMotion.addEventListener('change', () => {
     if (!reducedMotion.matches) return;
     observer?.disconnect();
-    ambientObserver?.disconnect();
-    document.querySelectorAll('.motion-in-view').forEach(element => element.classList.remove('motion-in-view'));
     for (const animation of running) animation.cancel();
   });
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
 
-  // The same gentle motion runs on desktop and mobile, only while visible.
-  ambientObserver = new IntersectionObserver(entries => {
-    for (const entry of entries) entry.target.classList.toggle('motion-in-view', entry.isIntersecting);
-  }, { threshold: 0 });
-  document.querySelectorAll('.range-mosaic,.studio-art,.approach,.home-products').forEach(element => ambientObserver.observe(element));
-
-  const watched = new WeakSet();
   observer = new IntersectionObserver(entries => {
     let stagger = 0;
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       observer.unobserve(entry.target);
-      if (entry.target.id === 'home-products-title') {
-        entry.target.querySelectorAll('[data-heading-line]').forEach((line, index) => enter(line, index * 130, 12));
-      } else {
-        enter(entry.target, Math.min(stagger++ * 65, 195));
-      }
+      // A small stagger groups related content without delaying entry.
+      if (!entry.target.contains?.(document.activeElement)) enter(entry.target, Math.min(stagger++ * 40, 100));
     }
-  }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-  const selectors = '.directory-card,.offering-grid>a,.founder-card,.steps article,' +
-    '.material-story>*,.about-story-grid>*,.about-value-grid article,.enquiry>div,' +
-    '.about-cta>*,.paper-guide-grid article,.product,.brand-card,.studio-copy,.home-product,#home-products-title';
-  function observeWithin(root) {
-    for (const element of root.querySelectorAll(selectors)) {
-      if (watched.has(element)) continue;
-      watched.add(element);
-      observer.observe(element);
-    }
-  }
-  observeWithin(document);
-  // Keep above-the-fold copy and images visible on their first paint: opacity
-  // entrance animations delay LCP even when the content is already downloaded.
-  const products = document.getElementById('products');
-  if (products && 'MutationObserver' in window) {
-    new MutationObserver(() => observeWithin(products)).observe(products, { childList: true });
-  }
+  }, { threshold: .15 });
+  document.querySelectorAll('.founder-card,.steps article,.about-value-grid article,.enquiry>div,.brand-card')
+    .forEach(element => observer.observe(element));
+
   document.addEventListener('toggle', event => {
     if (event.target.tagName === 'DETAILS' && event.target.open) enter(event.target.querySelector('p'), 0, 6);
   }, true);

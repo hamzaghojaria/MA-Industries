@@ -12,7 +12,7 @@ test('application choices update one recommendation, its destination and the ima
   const result = page.get('result');
   const image = page.get('image');
   const link = page.get('link');
-  const choices = ['serve', 'store', 'organise', 'pack'].map(key => {
+  const choices = ['serve', 'store', 'organise', 'pack', 'clean'].map(key => {
     const button = page.get(key);
     button.dataset.materialChoice = key;
     button.setAttribute('aria-pressed', String(key === 'serve'));
@@ -34,6 +34,7 @@ test('application choices update one recommendation, its destination and the ima
     ['store', 'sugarcane-bags', 'sugarcane-bags'],
     ['organise', 'recycled-household', 'recycled-household'],
     ['pack', 'sugarcane-paper', 'sugarcane-paper'],
+    ['clean', '#clean-republic', 'clean-republic-pine-floor-cleaner'],
     ['serve', 'sugarcane-kitchenware', 'sugarcane-kitchenware']
   ]) {
     image.setAttribute('srcset', 'previous-image.webp 640w');

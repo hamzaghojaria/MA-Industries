@@ -29,7 +29,7 @@ test('enabling reduced motion cancels animations already in progress', () => {
   const preference = {matches: false, addEventListener(_type, callback) { preferenceChanged = callback; }};
   page.window.matchMedia = () => preference;
   const element = {animate() { return {finished: new Promise(() => {}), cancel() { cancelled++; }}; }};
-  page.document.querySelectorAll = selector => selector.includes('.directory-card') ? [element] : [];
+  page.document.querySelectorAll = selector => selector.includes('.founder-card') ? [element] : [];
   class Observer {
     constructor(callback) { this.callback = callback; }
     observe(target) { this.callback([{target, isIntersecting: true}]); }

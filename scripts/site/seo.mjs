@@ -6,24 +6,24 @@ import { ROOT } from './config.mjs';
 
 export const PAGE_META = {
   'index.html': {
-    title: 'Sugarcane & Recycled Supplier, Mumbai | M&A Industries',
-    description: 'Source sugarcane household goods, food packaging, paper essentials and recycled products from M&A Industries in Mumbai. Enquire about specifications and bulk orders.'
+    title: 'Sugarcane, Recycled & Cleaning Products | M&A Industries',
+    description: 'Find sugarcane tableware, food packaging, paper, recycled household essentials and M&A cleaning products from M&A Industries in Mumbai.'
   },
   'about.html': {
-    title: 'About M&A Industries | Sugarcane & Recycled Products, Mumbai',
-    description: 'Meet the team behind M&A Industries in Mumbai. Discover our approach to sourcing sugarcane essentials and recycled household products.'
+    title: 'About M&A Industries | Product Sourcing, Mumbai',
+    description: 'Meet the Mumbai team behind M&A Industries and see how we help businesses compare materials, product formats and pack sizes.'
   },
   'categories.html': {
-    title: 'Sugarcane & Recycled Categories | M&A Industries',
-    description: 'Explore four product categories: sugarcane household goods, food packaging, sugarcane paper and recycled household products.'
+    title: 'Product Collections | M&A Industries',
+    description: 'Browse two collections from M&A Industries. Explore M&A cleaning and hygiene essentials or sugarcane and recycled essentials.'
   },
   'products.html': {
-    title: 'Sugarcane & Recycled Product Catalogue | M&A Industries',
-    description: 'Browse product photos, materials, dimensions and pack options for sugarcane and recycled products. Enquire with M&A Industries in Mumbai.'
+    title: 'Product Catalogue | M&A Industries',
+    description: 'Compare uses, dimensions and pack options for sugarcane essentials, recycled household goods and M&A cleaning products.'
   },
   'contact.html': {
     title: 'Contact M&A Industries, Mumbai | Product & Bulk Enquiries',
-    description: 'Contact M&A Industries in Mumbai on +91 98191 57417. Discuss product dimensions, pack quantities, sugarcane and recycled products and bulk sourcing.'
+    description: 'Contact M&A Industries in Mumbai on +91 98191 57417 to discuss product options, pack sizes, pricing or bulk supply.'
   }
 };
 
@@ -54,7 +54,7 @@ export function buildStructuredData(file, catalogue, origin) {
     logo: new URL('assets/images/brand-logo.png', base).href,
     email: 'info@maindustries.in', telephone: '+91 98191 57417',
     address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
-    description: 'Sugarcane-based essentials and recycled household products.',
+    description: 'Mumbai supplier of sugarcane essentials, recycled household goods and M&A cleaning products.',
     knowsAbout: catalogue.categories.map(category => category.name),
     contactPoint: { '@id': contactId }
   }, page, {
@@ -91,7 +91,7 @@ export function buildStructuredData(file, catalogue, origin) {
     page.subjectOf = { '@id': documentUrl };
     graph.push({ '@type': 'DigitalDocument', '@id': documentUrl, url: documentUrl,
       name: 'M&A Industries Sugarcane & Recycled Product Catalogue',
-      description: 'Product photographs, materials, dimensions and available pack specifications for sugarcane and recycled household products.',
+      description: 'Product photographs and available product information for sugarcane, recycled and M&amp;A cleaning ranges.',
       encodingFormat: 'application/pdf', inLanguage: 'en-IN', publisher: { '@id': organizationId }
     });
   }

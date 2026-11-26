@@ -20,11 +20,20 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
   const counts = new Map(categories.map(category => [category.id, 0]));
   for (const product of papers) counts.set(product.group, counts.get(product.group) + 1);
   const count = id => counts.get(id);
-  const names = new Map(categories.map(category => [category.id, category.name]));
-  const positions = new Map(categories.map((category, index) => [category.id, index + 1]));
-  const groups = [
-    { id: 'sugarcane-recycled', name: 'Sugarcane & Recycled', categories: categories.filter(category => category.collection === 'sugarcane-recycled') }
+  const collections = [
+    { id: 'clean-republic', name: 'Cleaning & Hygiene', className: 'directory-clean-republic', description: 'Find considered cleaning essentials for home routines, shared washrooms and commercial spaces.', cover: 'assets/images/responsive/products/clean-republic-pine-floor-cleaner-320.webp' },
+    { id: 'sugarcane-recycled', name: 'Sugarcane & Recycled', className: 'directory-green', description: 'Set the table, pack the next portion or make more of a cupboard. Compare sugarcane products, paper formats and recycled household essentials by the job they need to do.', cover: 'assets/images/ranges/sugarcane-kitchenware-photo.jpg' }
   ];
+  const groups = collections.map(collection => ({
+    ...collection,
+    categories: categories.filter(category => category.collection === collection.id)
+  }));
+  const folder = 'assets/images/ranges/';
+  const catalogueImage = category => {
+    if (category.collection === 'sugarcane-recycled') return folder + category.id + '-photo.jpg';
+    const featured = papers.find(product => product.group === category.id);
+    return featured?.cardImage || featured?.image;
+  };
   // Own the entire grouped control so desktop order cannot drift from mobile/data.
   html = html.replace(/(<aside class="catalogue-sidebar"[^>]*>)[\s\S]*?(<\/aside>)/,
     (_, start, end) => start + '<div class="category-desktop"><h2>Browse categories</h2>' +
@@ -35,30 +44,45 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
   html = html.replace(/(<select\b[^>]*id="category-select"[^>]*>)[\s\S]*?(<\/select>)/,
     (_, start, end) => start + newline + [
       `              <option value="all">All products (${papers.length})</option>`,
-      ...categories.map(category => `              <option value="${category.id}">${escapeHtml(category.name)} (${count(category.id)})</option>`)
+      ...groups.flatMap(group => group.categories).map(category => `              <option value="${category.id}">${escapeHtml(category.name)} (${count(category.id)})</option>`)
     ].join(newline) + newline + '            ' + end);
-  html = html.replace(/(<a class="directory-card" href="products.html\?category=([^"#]+)#collection">)([\s\S]*?)(<\/a>)/g,
-    (_, start, id, body, end) => start + body
-      .replace(/(<span class="directory-title">)[\s\S]*?(<\/span>)/, `$1${escapeHtml(names.get(id))}$2`)
-      .replace(/\d{2} \/ \d+( PRODUCTS)/, `${String(positions.get(id)).padStart(2, '0')} / ${count(id)}$1`) + end);
-  // Reorder the cards in each collection while keeping the original destinations.
-  html = html.replace(/<section class="directory-section[^>]*>[\s\S]*?<\/section>/g, section => {
-    const cards = [...section.matchAll(/<a class="directory-card" href="products.html\?category=([^"#]+)#collection">[\s\S]*?<\/a>/g)]
-      .sort((a, b) => positions.get(a[1]) - positions.get(b[1]));
-    let index = 0;
-    return section.replace(/<a class="directory-card" href="products.html\?category=[^"#]+#collection">[\s\S]*?<\/a>/g, () => cards[index++][0]);
-  });
-  for (const group of groups) {
+  const productCount = total => total === 1 ? '1 product' : total + ' products';
+  const gateways = groups.map(group => {
     const total = group.categories.reduce((sum, category) => sum + count(category.id), 0);
-    const jump = new RegExp(`(href="#${group.id}"[\\s\\S]*?<span class="collection-jump-count">)[\\s\\S]*?(<\\/span>)`);
-    html = html.replace(jump, `$1${total} products &middot; ${group.categories.length} categories$2`);
+    return [
+      '<a class="collection-jump" href="#' + group.id + '">',
+      '<img class="collection-jump-image" src="' + group.cover + '" alt="" width="320" height="320">',
+      '<span class="collection-jump-copy"><strong>' + escapeHtml(group.name) + '</strong>',
+      '<span class="collection-jump-count">' + productCount(total) + ' &middot; ' + group.categories.length + ' categories</span></span>',
+      '<span class="collection-jump-arrow" aria-hidden="true">&#8595;</span></a>'
+    ].join('');
+  }).join(newline + '        ');
+  html = html.replace(/(<div class="directory-jumps"[^>]*>)[\s\S]*?(<\/div>)/,
+    (_, start, end) => start + newline + '        ' + gateways + newline + '      ' + end);
 
-  }
-  html = html.replace(/\b\d+ PRODUCTS \/ \d+ CATEGORIES/g, `${papers.length} PRODUCTS / ${categories.length} CATEGORIES`)
-    .replace(/Browse all \d+ paper, packaging/g, `Browse all ${papers.length} paper, packaging`);
-  html = html.replace(/(class="range-link">)\d+ categories · \d+ products/g,
-    `$1${categories.length} categories · ${papers.length} products`)
-    .replace(/Browse all \d+ sugarcane and recycled/g, `Browse all ${papers.length} sugarcane and recycled`);
+  const sections = groups.map(group => {
+    const cards = group.categories.map(category => {
+      const image = catalogueImage(category);
+      return [
+        '<a class="directory-card" href="products.html?category=' + category.id + '#collection">',
+        image ? '<div class="directory-image"><span class="watermarked-image"><img src="' + escapeHtml(image) + '" alt="" width="640" height="640" loading="lazy" decoding="async"></span></div>' : '',
+        '<div class="directory-copy"><span class="directory-count">' + productCount(count(category.id)) + '</span>',
+        '<h3><span class="directory-title">' + escapeHtml(category.name) + '</span><span class="directory-arrow" aria-hidden="true">&#8599;</span></h3>',
+        '<p class="directory-card-lead"><em>' + escapeHtml(category.line) + '</em></p>',
+        '<p>' + escapeHtml(category.desc) + '</p></div></a>'
+      ].join('');
+    }).join(newline + '        ');
+    return [
+      '<section class="directory-section ' + group.className + '" id="' + group.id + '" aria-labelledby="' + group.id + '-title">',
+      '      <div class="section-heading"><h2 id="' + group.id + '-title">' + escapeHtml(group.name) + '</h2><p>' + escapeHtml(group.description) + '</p></div>',
+      '      <div class="directory-grid">',
+      '        ' + cards,
+      '      </div>',
+      '    </section>'
+    ].join(newline);
+  });
+  html = html.replace(/\s*<section class="directory-section[^>]*>[\s\S]*?(?=<section class="about-section about-cta category-cta">)/,
+    newline + '    ' + sections.join(newline + '    ') + newline + '    ');
   return html;
 }
 
