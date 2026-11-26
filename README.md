@@ -1,8 +1,8 @@
 # M&A Industries website
 
-A static catalogue led by sugarcane-based essentials and recycled household goods. The current catalogue has **33 products in 4 categories**. No database, checkout, backend form submission, or npm dependencies are required.
+A static product catalogue covering **52 products across 7 categories** in two ranges: Sugarcane & Recycled and M&A Cleaning & Hygiene. No database, checkout, backend form submission, or npm dependencies are required.
 
-The shared merchandising order is sugarcane household goods, sugarcane food packaging, sugarcane paper, recycled household products. `assets/js/catalogue-data.js` defines that order for products, filters, enquiry suggestions and generated pages. Quoted technical specifications are reconciled in `scripts/references/manufacturer-product-specs.json`. Product IDs and original reference numbers remain stable; card display numbers follow the current browsing order. The PDF catalogue covers the sugarcane and recycled collection, with one product family per page, aligned variant tables and specifications drawn from the same data.
+`assets/js/catalogue-data.js` defines category and product names, filters, enquiry suggestions and generated pages. Technical specifications are reconciled in `scripts/references/manufacturer-product-specs.json`. Product IDs and original reference numbers remain stable. The PDF catalogue covers the current product ranges, with one product family per page and specifications drawn from the same data.
 
 After adding or replacing a JPEG product photo, run `python scripts/images/create-responsive-images.py` before building. It creates the card previews and responsive candidates; use source photos at least 640 pixels wide. The build rejects missing card-preview entries. Commit the generated files and image manifest together.
 
@@ -15,9 +15,10 @@ The homepage Material Studio lets visitors choose an application and updates a m
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Homepage, range introductions, gallery, enquiry form, and two brand cards |
-| `categories.html` | Sugarcane & Recycled categories; cards open the filtered catalogue |
+| `categories.html` | Sugarcane & Recycled and Cleaning & Hygiene category cards |
 | `products.html` | Category filters, search, sorting, six products per page, dialogs, enquiries |
 | `about.html` | Company information and founders |
+| `contact.html` | Product enquiries and contact details |
 
 Category cards open `products.html?category=<category-id>#collection`. Desktop visitors use the sidebar; at 900px and below, a category dropdown appears above search. Both controls share the same category state and counts. The selected category description appears inline above the products. Selecting a category or changing search/sort returns to page one. Reset clears category, search, and sorting.
 
@@ -29,7 +30,7 @@ The homepage brand cards have separate website/profile actions. M&A Engineerings
 
 ```text
 .
-|-- index.html, about.html, categories.html, products.html
+|-- index.html, about.html, categories.html, products.html, contact.html
 |-- assets/
 |   |-- css/
 |   |   |-- style.css          Entry point; imports the component CSS modules
@@ -44,7 +45,7 @@ The homepage brand cards have separate website/profile actions. M&A Engineerings
 |   |   |-- app.js             Catalogue, gallery, dialogs, enquiry behavior
 |   |   |-- navigation.js      Shared header/menu behavior on every page
 |   |   `-- experience.js      Progressive animation and reading progress
-|   |-- images/                Brand, product, category, founder, mill photos
+|   |-- images/                Brand, product, category, founder, mill and share-preview photos
 |   `-- catalogues/            Published PDF catalogue
 |-- scripts/
 |   |-- site/
@@ -57,7 +58,7 @@ The homepage brand cards have separate website/profile actions. M&A Engineerings
 |   |   `-- manifests/        Public product/category image allowlists
 |   |-- catalogue/             PDF data export and generation
 |   |-- cards/                 Visiting-card generator
-|   |-- images/                Image optimization utilities
+|   |-- images/                Image optimization and social-preview utilities
 |   `-- references/            Prompts and research notes; not deployed
 |-- tests/                     Data, interaction, motion, page-integrity checks
 |-- output/pdf/                Generated catalogue/visiting-card artifacts
@@ -138,7 +139,7 @@ Contributor conventions:
 
 Run `npm run validate`. Tests cover catalogue validity, all category selections, search, sorting, pagination, reset, dialogs, enquiry drafts, menu behavior, reduced motion, static labels/counts, assets, and generated page details. Deployment verification checks every generated HTML page and its local targets. Tests do not replace visual review.
 
-After shared CSS changes, review **all four pages** at phone, tablet, and desktop widths. Also check the 900px category-control boundary and 1100px toolbar boundary:
+After shared CSS changes, review **all five pages** at phone, tablet, and desktop widths. Also check the 900px category-control boundary and 1100px toolbar boundary:
 
 - No page-wide overflow; intended product, brand, and gallery swipe areas still scroll.
 - Search, sort, and reset align; mobile category labels fit.
@@ -167,21 +168,24 @@ Generate a visiting card:
 python scripts/cards/create-visiting-card.py --website https://maindustries.in/ --person maaz
 ```
 
-Supported people: `maaz`, `aadil`, `mohammed`, `yahya`.
+Supported people: `maaz`, `aadil`, `mohammed`, `yahya`, `hamza`.
 
-After validation, this Windows PowerShell 5 one-liner stages, commits, and pushes only if each preceding command succeeds:
+After validation, review changes and stage only the intended paths:
 
 ```powershell
-git add .; if ($LASTEXITCODE -eq 0) { git commit -m "Refactor shared website styles and checks"; if ($LASTEXITCODE -eq 0) { git push } }
+git status --short
+git add README.md scripts/site/seo.mjs
+git diff --cached --check
+git commit -m "Remove unused assets and refresh project docs"
 ```
 
 
 ## Catalogue and repository maintenance
 
-The downloadable catalogue covers 33 sugarcane and recycled product families across four collections, with one product family per page and 40 pages in total. It includes every published specification row from the website, with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF uses the current forest-green and cream palette with the logo on every page.
+The downloadable catalogue covers all 52 current product families across seven categories, with one product family per page (62 pages including introductory pages). It includes published specification rows with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF uses the current forest-green and cream palette with the logo on every page.
 
 Run `npm run catalogue` to regenerate the PDF and self-contained browser edition under `output/pdf/`. The public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
 
 Run `npm run audit` for a read-only file/asset inventory. `npm run sync:metadata` synchronizes search and social text from `scripts/site/seo.mjs`. Run `npm run validate` before deployment. See `SEO-PLAN.md` and `PERFORMANCE.md` for current setup and remaining deployment checks.
 
-The PDF and self-contained browser catalogue were refreshed on 25 October 2026 with the current products, images, descriptions, applications and all 85 manufacturer variants.
+The PDF and self-contained browser catalogue are generated from current website data. Run `npm run catalogue` after product or image updates; review the generated PDF and browser edition before publishing.

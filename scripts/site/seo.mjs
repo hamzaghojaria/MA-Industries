@@ -116,7 +116,7 @@ export function buildStructuredData(file, catalogue, origin) {
   if (file === 'index.html' || file === 'products.html') {
     page.subjectOf = { '@id': documentUrl };
     graph.push({ '@type': 'DigitalDocument', '@id': documentUrl, url: documentUrl,
-      name: 'M&A Industries Sugarcane & Recycled Product Catalogue',
+      name: 'M&A Industries Product Catalogue',
       description: 'Product photographs and available product information for sugarcane, recycled household and cleaning ranges.',
       encodingFormat: 'application/pdf', inLanguage: 'en-IN', publisher: { '@id': organizationId }
     });
