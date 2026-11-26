@@ -461,8 +461,8 @@ header nav a[aria-current="page"] {
 .directory-section .section-heading > h2 {
   margin: 0;
   color: #183b2b;
-  font: 500 clamp(40px, 4.5vw, 67px)/1.08 'DM Sans', Arial, sans-serif;
-  letter-spacing: -2.5px;
+  font: italic 500 clamp(40px, 4.5vw, 67px)/1.08 'Playfair Display', Georgia, serif;
+  letter-spacing: -1.2px;
   text-wrap: balance;
 }
 
