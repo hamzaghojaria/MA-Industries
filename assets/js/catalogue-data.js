@@ -1497,9 +1497,36 @@
     "overview": "Put a fresh finish on the regular floor round. The retail range lists four fragrances and 1 L and 5 L packs. Check the label for suitability and directions on your floor type."
   },
   {
-    "id": "cr-floor-cleaner",
+    "id": "cr-floor-cleaner-retail",
     "name": "Floor Cleaner",
-    "referenceNames": ["Advanced Floor Cleaner", "Concentrated Floor Cleaner"],
+    "referenceNames": [],
+    "group": "clean-republic-household",
+    "tag": "M&A CLEANING & HYGIENE",
+    "desc": "A concentrated cleaner for daily mopping and deeper floor care.",
+    "uses": [
+      "Daily floor cleaning",
+      "Deep cleaning",
+      "Home and office floors"
+    ],
+    "color": "#a7b9a1",
+    "bg": "#eef0e8",
+    "image": "assets/images/products/clean-republic-floor-cleaner-retail.png",
+    "imageAlt": "Small retail Floor Cleaner bottle with a soft rose and cream label",
+    "index": 1002,
+    "gsm": null,
+    "material": "Concentrated floor-cleaning formulation",
+    "specifications": [
+      "Pack sizes: 500 mL and 5 L",
+      "Surfaces listed by supplier: Tile, marble, granite and vinyl",
+      "Supplier formulation notes: Residue-free, concentrated cleaner for daily mopping and deeper cleaning. Described as biodegradable and septic tank safe."
+    ],
+    "details": "A concentrated floor cleaner for tile, marble, granite and vinyl. The supplied retail catalogue describes it as residue-free and suitable for daily mopping or deep cleaning, including food-handling areas. Confirm dilution and surface suitability with the supplier.",
+    "overview": "A practical everyday floor cleaner in 500 mL and 5 L packs. The catalogue lists tile, marble, granite and vinyl; check dilution and surface guidance before use."
+  },
+  {
+    "id": "cr-floor-cleaner",
+    "name": "Advanced Floor Cleaner",
+    "referenceNames": [],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A concentrated cleaner for daily mopping and deeper floor care.",
@@ -1511,13 +1538,13 @@
     "color": "#a7b9a1",
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-concentrated-floor-cleaner.png",
-    "imageAlt": "Handled floral floor cleaner jug with a soft cream and mauve botanical label",
-    "index": 1002,
+    "imageAlt": "Large handled Advanced Floor Cleaner jug with a soft rose and cream label",
+    "index": 1003,
     "gsm": null,
     "material": "Concentrated floor-cleaning formulation",
     "specifications": [
-      "Pack sizes: 500 mL and 5 L in the retail catalogue. 5 L and 50 L in the commercial catalogue.",
-      "Commercial fragrances: Rose, Lemon and Lavender",
+      "Pack sizes: 5 L and 50 L",
+      "Fragrances: Rose, Lemon and Lavender",
       "Surfaces listed by supplier: Tile, marble, granite and vinyl",
       "Supplier formulation notes: Concentrated cleaner for routine mopping and deeper cleaning. Described as biodegradable and septic tank safe."
     ],
@@ -1540,7 +1567,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-kitchen-cleaner.png",
     "imageAlt": "Kitchen surface cleaner trigger bottle with a muted cream and sage label",
-    "index": 1003,
+    "index": 1004,
     "gsm": null,
     "material": "Water-based surface-cleaning formulation",
     "specifications": [
@@ -1568,7 +1595,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-lime-dishwash.png",
     "imageAlt": "Lime dishwash bottle with pale green liquid and a subtle botanical label",
-    "index": 1004,
+    "index": 1005,
     "gsm": null,
     "material": "Lime extract dishwashing liquid",
     "specifications": [
@@ -1595,7 +1622,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-glass-surface-cleaner.png",
     "imageAlt": "Glass cleaner trigger bottle with a light neutral label and fine leaf illustration",
-    "index": 1005,
+    "index": 1006,
     "gsm": null,
     "material": "Glass and surface-cleaning formulation",
     "specifications": [
@@ -1623,7 +1650,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-handwash.png",
     "imageAlt": "Handwash pump bottle with a soft cream and pale green botanical label",
-    "index": 1006,
+    "index": 1007,
     "gsm": null,
     "material": "pH-balanced liquid handwash with skin conditioners",
     "specifications": [
@@ -1650,7 +1677,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-toilet-bowl-cleaner.png",
     "imageAlt": "Angled toilet bowl cleaner bottle with an understated cream botanical label",
-    "index": 1007,
+    "index": 1008,
     "gsm": null,
     "material": "Thick, clinging toilet and urinal cleaning gel",
     "specifications": [
@@ -1677,7 +1704,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-industrial-degreaser.png",
     "imageAlt": "Commercial degreaser jug with a soft cream label and small neutral detail",
-    "index": 1008,
+    "index": 1009,
     "gsm": null,
     "material": "Industrial degreasing formulation",
     "specifications": [
@@ -1705,7 +1732,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-air-freshener.png",
     "imageAlt": "Air freshener refill bottle with a soft cream and pale lavender botanical label",
-    "index": 1009,
+    "index": 1010,
     "gsm": null,
     "material": "Liquid air-care formulation; confirm fragrance options with supplier",
     "specifications": [
@@ -1731,7 +1758,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-car-shampoo.png",
     "imageAlt": "Automotive shampoo bottle with pale blue liquid and a minimal car illustration",
-    "index": 1010,
+    "index": 1011,
     "gsm": null,
     "material": "Automotive shampoo; confirm formulation details with supplier",
     "specifications": [
@@ -1759,7 +1786,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-multi-purpose-cleaner.png",
     "imageAlt": "All-purpose cleaner trigger bottle with a discreet cream botanical label",
-    "index": 1011,
+    "index": 1012,
     "gsm": null,
     "material": "Water-based multi-purpose surface cleaner",
     "specifications": [
@@ -1784,7 +1811,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-all-pine-floor-cleaner.png",
     "imageAlt": "Pine floor cleaner jug with an understated cream botanical label",
-    "index": 1012,
+    "index": 1013,
     "gsm": null,
     "material": "Pine oil and surfactant formulation",
     "specifications": [
@@ -1808,7 +1835,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-grill-oven-cleaner.png",
     "imageAlt": "Oven cleaner trigger bottle with a minimal oven illustration on its cream label",
-    "index": 1013,
+    "index": 1014,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1831,7 +1858,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-upholstery-carpet-cleaner.png",
     "imageAlt": "Fabric cleaner jug with a restrained cream and pale mauve label",
-    "index": 1014,
+    "index": 1015,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1855,7 +1882,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-alkaline-degreaser.png",
     "imageAlt": "Alkaline degreaser jug with a discreet cream label and fine cookware illustration",
-    "index": 1015,
+    "index": 1016,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1879,7 +1906,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-limescale-remover.png",
     "imageAlt": "Angled limescale remover bottle with a quiet cream and pale blue label",
-    "index": 1016,
+    "index": 1017,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1902,7 +1929,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-drain-unblock-liquid.png",
     "imageAlt": "Drain cleaner bottle with an understated cream label and simple drain illustration",
-    "index": 1017,
+    "index": 1018,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1925,7 +1952,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-bathtub-foam-liquid.png",
     "imageAlt": "Bath foam cleaner bottle with a soft cream and pale blue label",
-    "index": 1018,
+    "index": 1019,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -1948,7 +1975,7 @@
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-diffuser-oils.png",
     "imageAlt": "Amber diffuser oil bottle with a quiet cream botanical label and reeds",
-    "index": 1019,
+    "index": 1020,
     "gsm": null,
     "material": "Formulation available on enquiry",
     "specifications": [
@@ -2027,7 +2054,7 @@ const priorityProducts = {
   'sugarcane-kitchenware': ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles'],
   'sugarcane-bags': ['double-zipper-bags', 'easy-cut-cling-wraps', 'food-storage-roll-bags', 'food-storage-pop-up-bags'],
   'sugarcane-paper': ['sugarcane-paper-cups', 'sugarcane-bath-tissues', 'sugarcane-soup-bowls', 'sugarcane-packaging-paper'],
-  'clean-republic-household': ['cr-pine-floor-cleaner', 'cr-floor-cleaner', 'cr-kitchen-cleaner', 'cr-dishwash-liquid', 'cr-glass-surface-cleaner']
+  'clean-republic-household': ['cr-pine-floor-cleaner', 'cr-floor-cleaner-retail', 'cr-floor-cleaner', 'cr-kitchen-cleaner', 'cr-dishwash-liquid', 'cr-glass-surface-cleaner']
 };
 const productRank = product => {
   const order = priorityProducts[product.group] || [];

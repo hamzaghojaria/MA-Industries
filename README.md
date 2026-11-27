@@ -1,6 +1,6 @@
 # M&A Industries website
 
-A static product catalogue covering **52 products across 7 categories** in two ranges: Sugarcane & Recycled and M&A Cleaning & Hygiene. No database, checkout, backend form submission, or npm dependencies are required.
+A static product catalogue covering **53 products across 7 categories** in two ranges: Sugarcane & Recycled and M&A Cleaning & Hygiene. No database, checkout, backend form submission, or npm dependencies are required.
 
 `assets/js/catalogue-data.js` defines category and product names, filters, enquiry suggestions and generated pages. Technical specifications are reconciled in `scripts/references/manufacturer-product-specs.json`. Product IDs and original reference numbers remain stable. The PDF catalogue covers the current product ranges, with one product family per page and specifications drawn from the same data.
 
@@ -184,7 +184,7 @@ git commit -m "Remove unused assets and refresh project docs"
 
 ## Catalogue and repository maintenance
 
-The full downloadable catalogue covers all 52 current product families across seven categories, with one product family per page (62 pages including introductory pages). The category page also offers a 19-product Cleaning & Hygiene catalogue and a 33-product Sugarcane & Recycled catalogue. Each is generated separately; running `npm run catalogue:ranges` does not replace the full catalogue. PDFs include published specification rows with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. They use the current forest-green and cream palette with the logo on every page.
+The full downloadable catalogue covers all 53 current product families across seven categories, with one product family per page (63 pages including introductory pages). The category page also offers a 20-product Cleaning & Hygiene catalogue and a 33-product Sugarcane & Recycled catalogue. Each is generated separately; running `npm run catalogue:ranges` does not replace the full catalogue. PDFs include published specification rows with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. They use the current forest-green and cream palette with the logo on every page.
 
 Run `npm run catalogue` to regenerate the full PDF and self-contained browser edition under `output/pdf/`. Run `npm run catalogue:ranges` to regenerate the two collection PDFs and their public copies under `assets/catalogues/`. The full public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
 

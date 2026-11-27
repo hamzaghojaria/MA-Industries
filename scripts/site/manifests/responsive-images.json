@@ -295,6 +295,16 @@
       "width": 640
     }
   ],
+  "assets/images/products/clean-republic-floor-cleaner-retail.png": [
+    {
+      "src": "assets/images/responsive/products/clean-republic-floor-cleaner-retail-320.webp",
+      "width": 320
+    },
+    {
+      "src": "assets/images/responsive/products/clean-republic-floor-cleaner-retail-640.webp",
+      "width": 640
+    }
+  ],
   "assets/images/products/clean-republic-concentrated-floor-cleaner.png": [
     {
       "src": "assets/images/responsive/products/clean-republic-concentrated-floor-cleaner-320.webp",
