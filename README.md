@@ -170,6 +170,7 @@ python scripts/cards/create-visiting-card.py --website https://maindustries.in/ 
 ```
 
 Supported people: `maaz`, `aadil`, `mohammed`, `yahya`, `hamza`.
+The generator writes a two-page print PDF with 90 x 50 mm trim and 3 mm bleed, plus a two-face SVG that CorelDRAW can import. The SVG faces are arranged side by side for editing; use the PDF as the print master.
 
 After validation, review changes and stage only the intended paths:
 

@@ -1,5 +1,6 @@
 """Create a two-sided 90 x 50 mm card with 3 mm print bleed."""
 from pathlib import Path
+import xml.etree.ElementTree as ET
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor, white
 from reportlab.lib.units import mm
@@ -69,7 +70,7 @@ def qr_code(x, y, address, size=25):
     renderPDF.draw(drawing, c, x*mm, y*mm)
     c.linkURL(address, (x*mm, y*mm, (x+size)*mm, (y+size)*mm))
 
-# Front: align the brand, contact details and product ranges with the website.
+# Front: keep the contact details clear and the brand lockup centered.
 c.setFillColor(CREAM)
 c.rect(0, 0, W, H, fill=1, stroke=0)
 text(8, 47, DISPLAY_PHONE, 8, 'Helvetica-Bold')
@@ -78,25 +79,10 @@ right(88, 47, NAME, 8.5 if args.person == 'yahya' else 10, 'Helvetica-Bold')
 right(88, 42.5, TITLE, 7.0 if args.person == 'yahya' else 7.5, color=MUTED)
 # A white panel preserves the supplied logo's original background.
 c.setFillColor(white)
-c.roundRect(8*mm, 24*mm, 80*mm, 15*mm, 2*mm, fill=1, stroke=0)
-c.drawImage(str(ROOT / 'assets/images/brand-logo.png'), 12*mm, 25.5*mm,
-            width=72*mm, height=13.05*mm, mask='auto')
-centered(48, 20.5, 'Thoughtful materials. Everyday possibilities.', 8.2, 'Times-Italic', GREEN)
-
-# Small, consistent product photographs introduce all three current ranges.
-samples = [
-    ('assets/images/products/sugarcane-bowls-pack.png', 'SUGARCANE'),
-    ('assets/images/products/recycled-storage-boxes-photo.webp', 'RECYCLED'),
-    ('assets/images/products/clean-republic-pine-floor-cleaner.png', 'CLEANING & HYGIENE')
-]
-sample_x = [15, 41.5, 68]
-for (image, label), x in zip(samples, sample_x):
-    c.setFillColor(white)
-    c.roundRect((x-1)*mm, 5.2*mm, 16*mm, 11.4*mm, 1*mm, fill=1, stroke=0)
-    c.drawImage(str(ROOT / image), x*mm, 6*mm, width=14*mm, height=9.8*mm,
-                preserveAspectRatio=True, anchor='c', mask='auto')
-    centered(x+7, 3.8, label, 4.7 if label != 'CLEANING & HYGIENE' else 4.1,
-             'Helvetica-Bold', SOFT_INK)
+c.roundRect(8*mm, 20.5*mm, 80*mm, 15*mm, 2*mm, fill=1, stroke=0)
+c.drawImage(str(ROOT / 'assets/images/brand-logo.png'), 11*mm, 21.3*mm,
+            width=74*mm, height=13.4*mm, mask='auto')
+centered(48, 14.5, 'Practical products for everyday work.', 9.5, 'Times-Italic', GREEN)
 c.linkURL('https://wa.me/' + PHONE, (8*mm,44*mm,42*mm,49*mm))
 c.linkURL('mailto:' + EMAIL, (8*mm,40*mm,43*mm,44*mm))
 c.showPage()
@@ -145,3 +131,43 @@ assert DISPLAY_PHONE in doc[0].get_text()
 assert 'Scan to chat' in doc[1].get_text()
 assert any(link.get('uri') == 'https://wa.me/' + PHONE for link in doc[1].get_links())
 print(final)
+
+# CorelDRAW can import this vector SVG; the PDF remains the print master with trim/bleed boxes.
+svg_ns = 'http://www.w3.org/2000/svg'
+ET.register_namespace('', svg_ns)
+ET.register_namespace('xlink', 'http://www.w3.org/1999/xlink')
+page_width, page_height = doc[0].rect.width, doc[0].rect.height
+gap = 10 * mm
+sheet_width = page_width * 2 + gap
+svg_root = ET.Element(f'{{{svg_ns}}}svg', {
+    'version': '1.1',
+    'width': f'{sheet_width / 72 * 25.4:.3f}mm',
+    'height': f'{page_height / 72 * 25.4:.3f}mm',
+    'viewBox': f'0 0 {sheet_width:.3f} {page_height:.3f}'
+})
+ET.SubElement(svg_root, f'{{{svg_ns}}}title').text = f'M&A Industries - {NAME} visiting card, front and back'
+ET.SubElement(svg_root, f'{{{svg_ns}}}desc').text = (
+    'Two 96 x 56 mm card faces, including 3 mm bleed, side by side with a 10 mm gap.'
+)
+for index, page in enumerate(doc):
+    source_root = ET.fromstring(page.get_svg_image(text_as_path=True))
+    prefix = f'face{index+1}_'
+    ids = {node.get('id'): prefix + node.get('id') for node in source_root.iter() if node.get('id')}
+    group = ET.SubElement(svg_root, f'{{{svg_ns}}}g', {
+        'transform': f'translate({index * (page_width + gap):.3f},0)'
+    })
+    for child in list(source_root):
+        for node in child.iter():
+            for key, value in list(node.attrib.items()):
+                if key == 'id' and value in ids:
+                    node.set(key, ids[value])
+                else:
+                    for old, new in ids.items():
+                        value = value.replace(f'url(#{old})', f'url(#{new})')
+                        if value == f'#{old}':
+                            value = f'#{new}'
+                    node.set(key, value)
+        group.append(child)
+svg_path = OUT / f'MA-Industries-{FILE_NAME}-Visiting-Card-Corel.svg'
+ET.ElementTree(svg_root).write(svg_path, encoding='utf-8', xml_declaration=True)
+print(svg_path)
