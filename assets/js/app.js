@@ -35,7 +35,7 @@
     if (dom.categoryHeading) dom.categoryHeading.textContent = state.category === 'all' ? 'All products' : categoryById.get(state.category).name;
     // Keep category guidance in the browsing flow rather than a separate page.
     if (dom.categoryDescription) dom.categoryDescription.textContent = state.category === 'all'
-      ? 'Search by name or start with what you need to do. The catalogue covers food service, storage, paper and M&A cleaning and hygiene essentials.'
+      ? 'Search by name or start with what you need to do. The catalogue covers food service, storage, paper and M&A cleaning products.'
       : categoryById.get(state.category).desc;
     for (const button of dom.filters) {
       const active = button.dataset.filter === state.category;

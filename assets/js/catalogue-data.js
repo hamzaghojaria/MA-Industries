@@ -1489,15 +1489,15 @@
     "material": "Pine-oil floor cleaning liquid",
     "specifications": [
       "Pack sizes: 1 L and 5 L",
-      "Fragrances: Original Pine, Rose, Lavender and Lemon",
-      "Surfaces listed by supplier: Tile, ceramic, porcelain, marble, granite and other compatible hard floors",
-      "Formulation: Pine-oil based. The supplier flyer describes it as chlorine free."
+      "Fragrances: The range catalogue lists Original Pine, Rose, Lavender and Lemon. The separate Pine Floor Cleaner flyer lists Lemon, Lavender and Rose.",
+      "Surfaces: Tiles, marble, granite and most hard surfaces; the separate flyer also names porcelain and ceramic.",
+      "Supplier-described formulation and claims: Pine oil and cleaning agents. Supplied materials claim 99.99% germ removal, 100% natural, chlorine free and eco-friendly, and describe it as safe for pets and children; verify claims and safety guidance against the current product label."
     ],
-    "details": "Pine-oil floor cleaner for routine mopping on common hard floors. The supplied range catalogue lists Original Pine, Rose, Lavender and Lemon; a separate product flyer shows Lemon, Lavender and Rose. Confirm the selected fragrance and pack before ordering.",
-    "overview": "Put a fresh finish on the regular floor round. The retail range lists four fragrances and 1 L and 5 L packs. Check the label for suitability and directions on your floor type."
+    "details": "Pine-oil floor cleaner for routine mopping on common hard floors. The range catalogue and separate product flyer differ on listed fragrances, so confirm the current fragrance and pack options with the supplier. Check current label directions and safety guidance before use.",
+    "overview": "For routine mopping on compatible hard floors. The range catalogue lists 1 L and 5 L packs; confirm the fragrance range against the current label, as the supplied references differ."
   },
   {
-    "id": "cr-floor-cleaner-retail",
+    "id": "cr-floor-cleaner",
     "name": "Floor Cleaner",
     "referenceNames": [],
     "group": "clean-republic-household",
@@ -1524,7 +1524,7 @@
     "overview": "A practical everyday floor cleaner in 500 mL and 5 L packs. The catalogue lists tile, marble, granite and vinyl; check dilution and surface guidance before use."
   },
   {
-    "id": "cr-floor-cleaner",
+    "id": "cr-advanced-floor-cleaner",
     "name": "Advanced Floor Cleaner",
     "referenceNames": [],
     "group": "clean-republic-household",
@@ -1554,7 +1554,7 @@
   {
     "id": "cr-kitchen-cleaner",
     "name": "Advanced Kitchen Cleaner",
-    "referenceNames": ["Kitchen Cleaner", "Multi-Purpose Kitchen Cleaner"],
+    "referenceNames": ["Kitchen Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A water-based cleaner for food-prep counters and other kitchen surfaces.",
@@ -1573,10 +1573,10 @@
     "specifications": [
       "Pack sizes: 500 mL and 5 L",
       "Base: Water based",
-      "Applications: Counters, walls, doors, appliance exteriors and furniture",
-      "Cleaning targets: Stains, grime and grease"
+      "Applications: Kitchen counters, walls, doors, appliances and furniture; household and commercial use",
+      "Supplier-described performance: Targets stains, grime, grease and bacteria; leaves a fresh fragrance and is described as gentle on surfaces"
     ],
-    "details": "The supplier describes this all-in-one water-based cleaner as suitable for kitchen counters, walls, doors, appliances and furniture. Follow the product label for application and surface compatibility.",
+    "details": "The supplier describes a water-based cleaner for kitchen counters, walls, doors, appliances and furniture. Its catalogue claims it removes stains, grime, grease and bacteria, leaves a fresh fragrance and is gentle on surfaces. Follow the current product label for application and surface compatibility.",
     "overview": "Keep a cleaner for the surfaces that see the most use, from counters and appliance exteriors to walls and doors. Check the label for application and surface compatibility, and ask about pack options for your kitchen."
   },
   {
@@ -1599,11 +1599,12 @@
     "gsm": null,
     "material": "Lime extract dishwashing liquid",
     "specifications": [
-      "Pack sizes: 500 mL and 5 L in the retail catalogue. 5 L and 50 kg in the commercial catalogue.",
-      "Water compatibility: Soft and hard water",
-      "Cleaning targets: Grease, oil and food residues"
+      "Pack sizes: 500 mL and 5 L in the retail catalogue; 5 L and 50 kg in the commercial catalogue",
+      "Formulation: Lime extracts and degreasing agents",
+      "Cleaning: Targets grease, oil and stubborn food residues; produces rich foam and is described as gentle on hands",
+      "Water compatibility: Soft and hard water; listed for homes, restaurants and canteens"
     ],
-    "details": "The supplier describes a lime-extract dishwash liquid for grease and food residues, suitable for home, restaurants and canteens. Pack sizes differ between the supplied catalogues, so confirm the current pack options before ordering.",
+    "details": "The supplier describes a lime-extract dishwash liquid with degreasing agents for grease, oil and food residues. It is described as rich foaming, gentle on hands and suitable for soft or hard water. The retail and commercial catalogues list different pack options; confirm current availability before ordering.",
     "overview": "From the family sink to the canteen wash station, choose a dishwash liquid for your washing routine. Ask which pack sizes are available for your usage, especially when comparing a smaller bottle with a bulk order."
   },
   {
@@ -1656,9 +1657,10 @@
     "specifications": [
       "Pack sizes: 5 L and 50 kg",
       "Fragrances: Mysore Sandalwood, Green Apple and Lemon Lime",
-      "Supplier formulation notes: pH balanced, moisturising and described as paraben free"
+      "Supplier-described formulation: pH balanced, moisturising, with skin conditioners and antibacterial agents; described as safe for frequent use",
+      "Supplier claims: Paraben free. Confirm current ingredients and label claims with the supplier."
     ],
-    "details": "The supplied catalogue describes a pH-balanced handwash with moisturising skin conditioners. It also makes antibacterial and paraben-free claims; verify current formulation and label details with the supplier. Pack size listings differ between catalogues.",
+    "details": "The supplied catalogue lists a pH-balanced handwash with moisturising skin conditioners and antibacterial agents, in 5 L and 50 kg packs. It claims the product is paraben free and suitable for frequent use; confirm current formulation and label details with the supplier.",
     "overview": "Think about how often your washroom dispensers need topping up. This liquid handwash is formulated with moisturising skin conditioners. Confirm the current pack format and ingredient information when you enquire."
   },
   {
@@ -1682,10 +1684,10 @@
     "material": "Thick, clinging toilet and urinal cleaning gel",
     "specifications": [
       "Pack size: 5 L",
-      "Surfaces: Ceramic and porcelain bowls and urinals",
-      "Cleaning targets: Limescale, rust stains and odours"
+      "Surfaces: Ceramic and porcelain toilet bowls and urinals",
+      "Supplier-described performance: Disinfecting and descaling properties; targets limescale, rust stains and odours; leaves a fresh fragrance"
     ],
-    "details": "The supplier describes a thick, clinging formula for ceramic and porcelain toilet bowls and urinals. Follow the product label for safe use and surface compatibility.",
+    "details": "The supplier describes a thick, clinging gel with disinfecting and descaling properties for ceramic and porcelain toilet bowls and urinals. It targets limescale, rust stains and odours. Follow the current label for safe use and surface compatibility.",
     "overview": "Set aside a cleaner for toilet bowls and urinals during the washroom round. The clinging formula is described for ceramic and porcelain. Follow label guidance and confirm it suits your facility before ordering."
   },
   {
@@ -1709,9 +1711,9 @@
     "material": "Industrial degreasing formulation",
     "specifications": [
       "Pack sizes: 5 kg, 50 kg and 200 kg",
-      "Application: Diluted application or spot treatment, as described by the supplier",
+      "Applications: Kitchen equipment, machinery, exhaust fans and tiles",
       "Cleaning targets: Grease, oil, carbon and industrial grime",
-      "Supplier formulation notes: Described as fast acting and non-corrosive. Confirm compatibility and dilution before use."
+      "Supplier-described performance: Fast acting and non-corrosive; may be diluted or used as a spot treatment. Confirm material compatibility and instructions before use."
     ],
     "details": "A heavy-duty degreaser for kitchen equipment, machinery, exhaust fans and tiles. The supplier describes it as fast-acting and non-corrosive; confirm dilution ratios, PPE and material compatibility with the product label.",
     "overview": "Start with the equipment or surface that collects grease and oil, such as a kitchen exhaust fan or machinery. Ask for the matching dilution and handling guidance, then compare the quoted bulk pack formats."
@@ -1762,11 +1764,11 @@
     "gsm": null,
     "material": "Automotive shampoo; confirm formulation details with supplier",
     "specifications": [
-      "Availability: Pre-order enquiry",
-      "Catalogue naming: Car Shampoo on the cover; Auto Wash Shampoo in the pre-order list. Confirm whether both references describe the same formulation.",
-      "Pack sizes and dilution: Confirm on enquiry"
+      "Availability: Listed for pre-order",
+      "Catalogue references: Car Shampoo (cover) and Auto Wash Shampoo (pre-order list); retained as one automotive wash listing",
+      "The cover identifies it as pH neutral. Pack sizes, dilution and further technical specifications are not stated; confirm with the supplier."
     ],
-    "details": "The catalogue cover identifies a pH-neutral car shampoo but does not provide detailed pack sizes or use instructions. Contact the supplier for current product specifications.",
+    "details": "Listed under Car Shampoo on the catalogue cover and Auto Wash Shampoo in the pre-order list. The cover identifies it as pH neutral, but no pack sizes or detailed instructions are supplied. Contact the supplier for current specifications.",
     "overview": "Add vehicle washing to your cleaning and hygiene enquiry. Tell us whether you need shampoo for occasional washes or regular automotive care, so we can confirm the current pack formats and washing guidance.",
     "sourcingOnly": true
   },
@@ -1791,10 +1793,11 @@
     "material": "Water-based multi-purpose surface cleaner",
     "specifications": [
       "Pack sizes: 500 mL and 5 L",
-      "Surfaces: Counters, walls, doors, appliance exteriors and furniture",
-      "Cleaning targets: Stains, grime and grease"
+      "Base: Water based",
+      "Applications: Counters, walls, doors, appliances and furniture; household and commercial use",
+      "Supplier-described performance: Targets stains, grime, grease and bacteria; leaves a fresh fragrance and is described as gentle on surfaces"
     ],
-    "overview": "Use this listing for the multi-purpose format in the commercial range. The supplier lists counters, walls, doors, appliances and furniture, with 500 mL and 5 L packs."
+    "overview": "A water-based multi-purpose cleaner for household and commercial surfaces. The supplier lists 500 mL and 5 L packs and describes it for counters, walls, doors, appliances and furniture."
   },
   {
     "id": "cr-all-pine-floor-cleaner",
@@ -1817,8 +1820,8 @@
     "specifications": [
       "Pack sizes: 1 L, 5 L and 35 L",
       "Fragrances: Lavender, Sandalwood, Lemongrass, Lemon and Original Pine Camphor",
-      "Application: Diluted or as a spot treatment according to the supplier",
-      "Supplier formulation notes: Described as fast acting and non-corrosive. Confirm compatibility and dilution before use."
+      "Formulation: Original Pine oil and surfactants",
+      "Applications and cleaning targets: Floors and tiles; targets grease, oil, carbon and industrial grime. Supplier says fast acting and non-corrosive and lists diluted use or spot treatment. Confirm compatibility and dilution before use."
     ],
     "overview": "For commercial floor cleaning, the supplier lists a pine-oil and surfactant formulation for removing grease, oil, carbon and grime. The supplier catalogue lists 1 L, 5 L and 35 L options."
   },
@@ -2054,7 +2057,7 @@ const priorityProducts = {
   'sugarcane-kitchenware': ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles'],
   'sugarcane-bags': ['double-zipper-bags', 'easy-cut-cling-wraps', 'food-storage-roll-bags', 'food-storage-pop-up-bags'],
   'sugarcane-paper': ['sugarcane-paper-cups', 'sugarcane-bath-tissues', 'sugarcane-soup-bowls', 'sugarcane-packaging-paper'],
-  'clean-republic-household': ['cr-pine-floor-cleaner', 'cr-floor-cleaner-retail', 'cr-floor-cleaner', 'cr-kitchen-cleaner', 'cr-dishwash-liquid', 'cr-glass-surface-cleaner']
+  'clean-republic-household': ['cr-pine-floor-cleaner', 'cr-floor-cleaner', 'cr-advanced-floor-cleaner', 'cr-kitchen-cleaner', 'cr-dishwash-liquid', 'cr-glass-surface-cleaner']
 };
 const productRank = product => {
   const order = priorityProducts[product.group] || [];

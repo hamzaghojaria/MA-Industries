@@ -135,3 +135,66 @@ services:
       - type: redirect
         source: /product-sugarcane-hangers.html
         destination: "/products.html?category=sugarcane-kitchenware#paper-sugarcane-hangers"
+      - type: redirect
+        source: /product-cr-pine-floor-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-pine-floor-cleaner"
+      - type: redirect
+        source: /product-cr-floor-cleaner-retail.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-floor-cleaner"
+      - type: redirect
+        source: /product-cr-floor-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-floor-cleaner"
+      - type: redirect
+        source: /product-cr-advanced-floor-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-advanced-floor-cleaner"
+      - type: redirect
+        source: /product-cr-kitchen-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-kitchen-cleaner"
+      - type: redirect
+        source: /product-cr-dishwash-liquid.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-dishwash-liquid"
+      - type: redirect
+        source: /product-cr-glass-surface-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-glass-surface-cleaner"
+      - type: redirect
+        source: /product-cr-handwash.html
+        destination: "/products.html?category=clean-republic-hygiene#paper-cr-handwash"
+      - type: redirect
+        source: /product-cr-toilet-bowl-cleaner.html
+        destination: "/products.html?category=clean-republic-hygiene#paper-cr-toilet-bowl-cleaner"
+      - type: redirect
+        source: /product-cr-industrial-degreaser.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-industrial-degreaser"
+      - type: redirect
+        source: /product-cr-liquid-air-freshener.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-liquid-air-freshener"
+      - type: redirect
+        source: /product-cr-car-shampoo.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-car-shampoo"
+      - type: redirect
+        source: /product-cr-multi-purpose-cleaner.html
+        destination: "/products.html?category=clean-republic-household#paper-cr-multi-purpose-cleaner"
+      - type: redirect
+        source: /product-cr-all-pine-floor-cleaner.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-all-pine-floor-cleaner"
+      - type: redirect
+        source: /product-cr-grill-oven-cleaner.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-grill-oven-cleaner"
+      - type: redirect
+        source: /product-cr-upholstery-carpet-cleaner.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-upholstery-carpet-cleaner"
+      - type: redirect
+        source: /product-cr-alkaline-degreaser.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-alkaline-degreaser"
+      - type: redirect
+        source: /product-cr-limescale-remover.html
+        destination: "/products.html?category=clean-republic-hygiene#paper-cr-limescale-remover"
+      - type: redirect
+        source: /product-cr-drain-unblock-liquid.html
+        destination: "/products.html?category=clean-republic-hygiene#paper-cr-drain-unblock-liquid"
+      - type: redirect
+        source: /product-cr-bathtub-foam-liquid.html
+        destination: "/products.html?category=clean-republic-hygiene#paper-cr-bathtub-foam-liquid"
+      - type: redirect
+        source: /product-cr-diffuser-oils.html
+        destination: "/products.html?category=clean-republic-commercial#paper-cr-diffuser-oils"

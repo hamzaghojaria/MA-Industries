@@ -1,0 +1,35 @@
+{
+  "productCount": 20,
+  "categories": {
+    "clean-republic-household": 7,
+    "clean-republic-hygiene": 5,
+    "clean-republic-commercial": 8
+  },
+  "sources": {
+    "rangeRetail": "Advance Range Catalogue CR (1).pdf",
+    "rangeCommercial": "Advance Range Catalogue CR (3).pdf",
+    "pineCleanerFlyer": "Clean Republic Pine Floor Cleaner.pdf"
+  },
+  "products": [
+    { "id": "cr-pine-floor-cleaner", "catalogueName": "Advanced Pine Floor Cleaner", "references": [{ "source": "rangeRetail", "pages": [4] }, { "source": "pineCleanerFlyer", "pages": [1, 2, 3, 4] }], "notes": "Fragrance lists differ: the range catalogue includes Original Pine, while the separate flyer lists Lemon, Lavender and Rose." },
+    { "id": "cr-floor-cleaner", "catalogueName": "Floor Cleaner", "references": [{ "source": "rangeRetail", "pages": [5] }] },
+    { "id": "cr-advanced-floor-cleaner", "catalogueName": "Advanced Floor Cleaner", "references": [{ "source": "rangeCommercial", "pages": [3] }] },
+    { "id": "cr-kitchen-cleaner", "catalogueName": "Advanced Kitchen Cleaner", "references": [{ "source": "rangeRetail", "pages": [3] }] },
+    { "id": "cr-dishwash-liquid", "catalogueName": "Advanced Lime Dishwash Liquid", "references": [{ "source": "rangeRetail", "pages": [4] }, { "source": "rangeCommercial", "pages": [4] }], "notes": "One product listing across both catalogues; pack sizes differ by range." },
+    { "id": "cr-glass-surface-cleaner", "catalogueName": "Advanced Glass & Surface Cleaner", "references": [{ "source": "rangeRetail", "pages": [3] }, { "source": "rangeCommercial", "pages": [5] }], "notes": "One product listing repeated across both catalogues." },
+    { "id": "cr-handwash", "catalogueName": "Advanced Protect + Care LS (Handwash)", "references": [{ "source": "rangeCommercial", "pages": [4] }] },
+    { "id": "cr-toilet-bowl-cleaner", "catalogueName": "Advanced Toilet & Bowl Cleaner", "references": [{ "source": "rangeCommercial", "pages": [5] }] },
+    { "id": "cr-industrial-degreaser", "catalogueName": "Advanced All Purpose Degreaser", "references": [{ "source": "rangeCommercial", "pages": [6] }] },
+    { "id": "cr-liquid-air-freshener", "catalogueName": "Advanced Liquid Air Freshener", "references": [{ "source": "rangeCommercial", "pages": [6] }] },
+    { "id": "cr-car-shampoo", "catalogueName": "Car Shampoo", "references": [{ "source": "rangeCommercial", "pages": [1, 7] }], "notes": "The cover says pH Neutral; the pre-order list calls it Auto Wash shampoo. Pack sizes and further specifications are not stated." },
+    { "id": "cr-multi-purpose-cleaner", "catalogueName": "Advanced Multi Purpose Cleaner", "references": [{ "source": "rangeCommercial", "pages": [3] }] },
+    { "id": "cr-all-pine-floor-cleaner", "catalogueName": "Advanced All Pine Floor Cleaner", "references": [{ "source": "rangeCommercial", "pages": [7] }] },
+    { "id": "cr-grill-oven-cleaner", "catalogueName": "Grill & Oven Cleaner", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-upholstery-carpet-cleaner", "catalogueName": "Upholstery & Carpet Cleaner", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-alkaline-degreaser", "catalogueName": "Heavy Duty Alkaline Degreaser for SS", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-limescale-remover", "catalogueName": "Lime Scale Remover", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-drain-unblock-liquid", "catalogueName": "Drain Unblock Liquid", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-bathtub-foam-liquid", "catalogueName": "Bathtub Foam Liquid", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true },
+    { "id": "cr-diffuser-oils", "catalogueName": "Diffuser Oils for Diffuser Machines", "references": [{ "source": "rangeCommercial", "pages": [7] }], "preOrderOnly": true }
+  ]
+}

@@ -37,7 +37,7 @@ test('catalogue preserves the four lead ranges and appends Clean Republic catego
   assert.ok(papers.slice(leadingCount).every(product => !featured.includes(product.group)));
   assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-kitchenware').slice(0, 6), product => product.id), ['ribbed-travel-tumbler', 'glass-airtight-containers', 'sugarcane-toothbrushes', 'sugarcane-hangers', 'rice-paddles', 'cutting-boards']);
   assert.deepEqual(Array.from(papers.filter(product => product.group === 'sugarcane-paper').slice(0, 2), product => product.id), ['sugarcane-paper-cups', 'sugarcane-bath-tissues']);
-  assert.equal(papers.length, 52);
+  assert.equal(papers.length, 53);
   assert.equal(categories.length, 7);
   assert.equal(new Set(papers.map(product => product.id)).size, papers.length);
   assert.ok(papers.slice(0, leadingCount).every(product => featured.includes(product.group)));

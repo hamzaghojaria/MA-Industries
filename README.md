@@ -2,7 +2,7 @@
 
 A static product catalogue covering **53 products across 7 categories** in two ranges: Sugarcane & Recycled and M&A Cleaning & Hygiene. No database, checkout, backend form submission, or npm dependencies are required.
 
-`assets/js/catalogue-data.js` defines category and product names, filters, enquiry suggestions and generated pages. Technical specifications are reconciled in `scripts/references/manufacturer-product-specs.json`. Product IDs and original reference numbers remain stable. The PDF catalogue covers the current product ranges, with one product family per page and specifications drawn from the same data.
+`assets/js/catalogue-data.js` defines category and product names, filters, enquiry suggestions and generated pages. Sugarcane and recycled specifications are reconciled in `scripts/references/manufacturer-product-specs.json`; Cleaning & Hygiene entries are checked against the supplied range catalogues and traced in `scripts/references/cleaning-hygiene-catalogue-audit.json`. Product IDs and original reference numbers remain stable. The PDF catalogue covers the current product ranges, with one product family per page and specifications drawn from the same data.
 
 After adding or replacing a JPEG product photo, run `python scripts/images/create-responsive-images.py` before building. It creates the card previews and responsive candidates; use source photos at least 640 pixels wide. The build rejects missing card-preview entries. Commit the generated files and image manifest together.
 
