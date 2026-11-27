@@ -26,6 +26,8 @@ const PUBLIC_FILES = [
   SHARE_PREVIEW_IMAGE,
   ...['sugarcane-paper', 'sugarcane-kitchenware', 'sugarcane-bags', 'recycled-household'].map(id => 'assets/images/ranges/' + id + '-photo.jpg'),
   'assets/catalogues/MA-Industries-Catalogue.pdf',
+  'assets/catalogues/MA-Industries-Cleaning-Hygiene-Catalogue.pdf',
+  'assets/catalogues/MA-Industries-Sugarcane-Recycled-Catalogue.pdf',
   'assets/images/founders/aadil-dhukka.jpg',
   'assets/images/founders/maaz-dawa.jpg',
   'assets/images/founders/mohammed-dhukka.jpg',

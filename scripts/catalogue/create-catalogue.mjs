@@ -32,7 +32,12 @@ try {
   }
 }
 
-execFileSync(python, [...pythonArgs, resolve(ROOT, 'scripts/catalogue/create-focused-catalogue.py'), ...process.argv.slice(2)], {
-  cwd: ROOT,
-  stdio: 'inherit'
-});
+const generator = resolve(ROOT, 'scripts/catalogue/create-focused-catalogue.py');
+const baseArgs = [...pythonArgs, generator];
+if (process.argv.includes('--ranges')) {
+  for (const collection of ['clean-republic', 'sugarcane-recycled']) {
+    execFileSync(python, [...baseArgs, '--collection', collection], { cwd: ROOT, stdio: 'inherit' });
+  }
+} else {
+  execFileSync(python, [...baseArgs, ...process.argv.slice(2)], { cwd: ROOT, stdio: 'inherit' });
+}

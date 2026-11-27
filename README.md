@@ -84,6 +84,7 @@ Use **Node.js 20 or newer**, with npm on your PATH. No `npm install` is needed. 
 | `npm run verify:build` | Check existing deployment links, assets, anchors, IDs, and JSON-LD |
 | `npm run validate` | Run check, tests, build, and deployment verification in sequence |
 | `npm run catalogue` | Regenerate the downloadable PDF catalogue |
+| `npm run catalogue:ranges` | Regenerate the Cleaning & Hygiene and Sugarcane & Recycled PDF catalogues |
 | `npm run catalogue -- --preview` | Also render the PDF cover and contents pages |
 
 Preview production output locally:
@@ -182,9 +183,9 @@ git commit -m "Remove unused assets and refresh project docs"
 
 ## Catalogue and repository maintenance
 
-The downloadable catalogue covers all 52 current product families across seven categories, with one product family per page (62 pages including introductory pages). It includes published specification rows with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. The PDF uses the current forest-green and cream palette with the logo on every page.
+The full downloadable catalogue covers all 52 current product families across seven categories, with one product family per page (62 pages including introductory pages). The category page also offers a 19-product Cleaning & Hygiene catalogue and a 33-product Sugarcane & Recycled catalogue. Each is generated separately; running `npm run catalogue:ranges` does not replace the full catalogue. PDFs include published specification rows with dimensions, thickness, pack counts and weights where supplied. Missing measurements remain on enquiry. They use the current forest-green and cream palette with the logo on every page.
 
-Run `npm run catalogue` to regenerate the PDF and self-contained browser edition under `output/pdf/`. The public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
+Run `npm run catalogue` to regenerate the full PDF and self-contained browser edition under `output/pdf/`. Run `npm run catalogue:ranges` to regenerate the two collection PDFs and their public copies under `assets/catalogues/`. The full public PDF path stays stable for existing download links. `scripts/catalogue/create-focused-catalogue.py` owns PDF layout; `browser_catalogue.py` and `interactive.html` own the browser edition; `catalogue_images.py` shares optimized images. Python dependencies are listed in `scripts/catalogue/requirements.txt`. Set `PYTHON` when using a custom interpreter.
 
 Run `npm run audit` for a read-only file/asset inventory. `npm run sync:metadata` synchronizes search and social text from `scripts/site/seo.mjs`. Run `npm run validate` before deployment. See `SEO-PLAN.md` and `PERFORMANCE.md` for current setup and remaining deployment checks.
 

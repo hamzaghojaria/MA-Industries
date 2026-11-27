@@ -74,7 +74,7 @@ export function syncCatalogueMarkup(html, { papers, categories }) {
     }).join(newline + '        ');
     return [
       '<section class="directory-section ' + group.className + '" id="' + group.id + '" aria-labelledby="' + group.id + '-title">',
-      '      <div class="section-heading"><h2 id="' + group.id + '-title">' + escapeHtml(group.name) + '</h2><p>' + escapeHtml(group.description) + '</p></div>',
+      '      <div class="section-heading"><h2 id="' + group.id + '-title">' + escapeHtml(group.name) + '</h2><p>' + escapeHtml(group.description) + '</p><a class="button collection-download" href="assets/catalogues/MA-Industries-' + (group.id === 'clean-republic' ? 'Cleaning-Hygiene' : 'Sugarcane-Recycled') + '-Catalogue.pdf" download>Download category catalogue <span aria-hidden="true">↓</span></a></div>',
       '      <div class="directory-grid">',
       '        ' + cards,
       '      </div>',

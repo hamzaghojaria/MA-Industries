@@ -1,5 +1,6 @@
 ﻿"""Produce the branded client catalogue and browser edition from shared product data."""
 import html
+import argparse
 import json
 import math
 import shutil
@@ -24,15 +25,27 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT, TMP = ROOT / 'output/pdf', ROOT / 'tmp/pdfs'
 OUT.mkdir(parents=True, exist_ok=True)
 TMP.mkdir(parents=True, exist_ok=True)
+parser = argparse.ArgumentParser(description='Build the full catalogue or one collection catalogue.')
+parser.add_argument('--collection', choices=['clean-republic', 'sugarcane-recycled'])
+args = parser.parse_args()
 data = json.loads((TMP / 'catalogue-data.json').read_text(encoding='utf-8'))
-groups = data['categories']
+groups = [g for g in data['categories'] if not args.collection or g['collection'] == args.collection]
 products = [p for g in groups for p in data['papers'] if p['group'] == g['id']]
 assert products and groups
 W, H = 595.276, 841.89
 M, CW = 40, W-80
 INK, GREEN, MUTED = '#24382e', '#245c3a', '#647269'
 CREAM, LINE = '#f5f4ee', '#dce3d8'
-DEST = OUT / 'MA-Industries-Catalogue.pdf'
+FILENAMES = {
+    'clean-republic': 'MA-Industries-Cleaning-Hygiene-Catalogue.pdf',
+    'sugarcane-recycled': 'MA-Industries-Sugarcane-Recycled-Catalogue.pdf'
+}
+COLLECTION_NAMES = {
+    'clean-republic': 'Cleaning & Hygiene',
+    'sugarcane-recycled': 'Sugarcane & Recycled'
+}
+collection_name = COLLECTION_NAMES.get(args.collection, 'The collection')
+DEST = OUT / (FILENAMES[args.collection] if args.collection else 'MA-Industries-Catalogue.pdf')
 fonts = Path(reportlab.__file__).parent / 'fonts'
 for name, candidates in {
     'Body': ['C:/Windows/Fonts/arial.ttf', str(fonts/'Vera.ttf')],
@@ -42,9 +55,9 @@ for name, candidates in {
 }.items():
     pdfmetrics.registerFont(TTFont(name, next(p for p in candidates if Path(p).exists())))
 c = canvas.Canvas(str(DEST), pagesize=(W,H), pageCompression=1)
-c.setTitle('M&A Industries | Product Collection')
+c.setTitle('M&A Industries | ' + (COLLECTION_NAMES.get(args.collection, 'Product Collection')))
 c.setAuthor('M&A Industries')
-c.setSubject('Sugarcane, household, food packaging and paper product specifications')
+c.setSubject('Sugarcane, recycled household, cleaning and hygiene product specifications')
 page_number = 0
 product_pages = {}
 category_pages = {}
@@ -120,16 +133,20 @@ def spec_table(product,top,draw=True):
     return top+height
 
 # Cover: clear brand hierarchy with a restrained product composition.
-base('The collection',CREAM)
-eyebrow(112,'Everyday products. Considered materials.')
+base(collection_name,CREAM)
+eyebrow(112,collection_name if args.collection else 'Everyday products. Considered materials.')
 para(M,145,'For the work of every day.',CW,40,47,INK,'Display')
-para(M,203,'Choose around the job.',CW,29,38,GREEN,'Italic')
-para(M,264,'Find sugarcane and recycled essentials for serving, packing and organising, alongside M&A cleaning products for the spaces you clean.',440,12,19,MUTED)
+para(M,203,collection_name if args.collection else 'Choose around the job.',CW,29,38,GREEN,'Italic')
+cover_copy = {
+    'clean-republic': 'Browse cleaning, surface-care and hygiene essentials for homes, workplaces and commercial spaces.',
+    'sugarcane-recycled': 'Explore sugarcane essentials for serving and packing, alongside recycled household goods for everyday organising.'
+}.get(args.collection, 'Find sugarcane and recycled essentials for serving, packing and organising, alongside M&A cleaning products for the spaces you clean.')
+para(M,264,cover_copy,440,12,19,MUTED)
 rect(M,345,CW,302,'#e5ece0')
-hero=next(p for p in products if p['id']=='cr-pine-floor-cleaner')
+hero=next((p for p in products if p['id']=='cr-pine-floor-cleaner'),products[0])
 photo(hero,M+18,359,CW-36,274)
 text(M,683,f'{len(products):02} PRODUCT FAMILIES',10,GREEN,'Bold')
-text(279,683,f'{len(groups):02} COLLECTIONS',10,GREEN,'Bold')
+text(279,683,f'{len(groups):02} CATEGORIES',10,GREEN,'Bold')
 line(M,719)
 text(M,739,'+91 98191 57417',13,INK,'Bold')
 text(M,762,'info@maindustries.in  /  maindustries.in',10,MUTED)
@@ -255,16 +272,22 @@ for i,page in enumerate(doc):
     for block in page.get_text('blocks'):
         assert 0<=block[0] and 0<=block[1] and block[2]<=W+1 and block[3]<=H+1,(i+1,'Text outside page',block)
     page.get_pixmap(matrix=pymupdf.Matrix(1.05,1.05),alpha=False).save(TMP/f'focused-{i+1:02}.png')
-for folder in [ROOT/'assets/catalogues',ROOT/'dist/assets/catalogues']:
-    folder.mkdir(parents=True,exist_ok=True);shutil.copyfile(DEST,folder/'MA-Industries-Catalogue.pdf')
-cols,tw,th=6,220,322
-sheet=Image.new('RGB',(cols*tw,math.ceil(len(doc)/cols)*th),'#dce3d8');draw=ImageDraw.Draw(sheet)
-for i in range(len(doc)):
-    with Image.open(TMP/f'focused-{i+1:02}.png') as preview:
-        preview.thumbnail((210,295));x=(i%cols)*tw+5;y=(i//cols)*th+5;sheet.paste(preview,(x,y));draw.text((x,y+298),f'Page {i+1}',fill=INK)
-sheet.save(OUT/'MA-Industries-Catalogue-Overview.png')
-(TMP/'catalogue-page-map.json').write_text(json.dumps(product_pages,indent=2))
-browser=OUT/'MA-Industries-Interactive-Catalogue.html'
-create_browser_catalogue(ROOT,browser,products,groups,enquiry)
-print(f'Created {len(doc)} verified pages: {len(products)} products across {len(groups)} collections.')
-print(DEST);print(browser)
+if args.collection:
+    public_copy=ROOT/'assets/catalogues'/DEST.name
+    public_copy.parent.mkdir(parents=True,exist_ok=True)
+    shutil.copyfile(DEST,public_copy)
+else:
+    for folder in [ROOT/'assets/catalogues',ROOT/'dist/assets/catalogues']:
+        folder.mkdir(parents=True,exist_ok=True);shutil.copyfile(DEST,folder/'MA-Industries-Catalogue.pdf')
+    cols,tw,th=6,220,322
+    sheet=Image.new('RGB',(cols*tw,math.ceil(len(doc)/cols)*th),'#dce3d8');draw=ImageDraw.Draw(sheet)
+    for i in range(len(doc)):
+        with Image.open(TMP/f'focused-{i+1:02}.png') as preview:
+            preview.thumbnail((210,295));x=(i%cols)*tw+5;y=(i//cols)*th+5;sheet.paste(preview,(x,y));draw.text((x,y+298),f'Page {i+1}',fill=INK)
+    sheet.save(OUT/'MA-Industries-Catalogue-Overview.png')
+    (TMP/'catalogue-page-map.json').write_text(json.dumps(product_pages,indent=2))
+    browser=OUT/'MA-Industries-Interactive-Catalogue.html'
+    create_browser_catalogue(ROOT,browser,products,groups,enquiry)
+    print(DEST);print(browser)
+print(f'Created {len(doc)} verified pages: {len(products)} products across {len(groups)} categories.')
+print(DEST)
