@@ -1678,7 +1678,7 @@
     "color": "#b7c9ba",
     "bg": "#eef0e8",
     "image": "assets/images/products/clean-republic-toilet-bowl-cleaner.png",
-    "imageAlt": "Angled toilet bowl cleaner bottle with an understated cream botanical label",
+    "imageAlt": "5 L Advanced Toilet & Bowl Cleaner drum with a muted cream and powder-blue label",
     "index": 1008,
     "gsm": null,
     "material": "Thick, clinging toilet and urinal cleaning gel",
