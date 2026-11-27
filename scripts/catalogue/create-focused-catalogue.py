@@ -44,6 +44,35 @@ COLLECTION_NAMES = {
     'clean-republic': 'Cleaning & Hygiene',
     'sugarcane-recycled': 'Sugarcane & Recycled'
 }
+INTRO_PAGES = {
+    'all': {
+        'image': 'assets/images/catalogue-intros/full-range-industry-grid.png',
+        'eyebrow': 'For the spaces and routines you look after',
+        'title': 'Products for the work of every day.',
+        'copy': 'From food service and paper to recycled household essentials and cleaning, our ranges support the everyday work of homes, workplaces and shared spaces.',
+        'labels': ['Hospitality', 'Food & Beverage', 'Packing & Retail', 'Care & Education', 'Commercial Cleaning', 'Industry & Recycling'],
+        'promise': 'Choose by task. Compare products, sizes and formats.',
+        'cards': [('SERVE', 'Tableware and food-service essentials'), ('PACK', 'Paper, bags and packaging formats'), ('CARE', 'Cleaning and household products')]
+    },
+    'clean-republic': {
+        'image': 'assets/images/catalogue-intros/cleaning-hygiene-industry-grid.png',
+        'eyebrow': 'Cleaning & Hygiene',
+        'title': 'Cleaning for the spaces people share.',
+        'copy': 'Explore floor and surface care, washroom hygiene and commercial cleaning for hospitality, transport, food service, healthcare, education and industrial settings.',
+        'labels': ['Hospitality', 'Commercial Cleaning', 'Auto & Transport', 'Health & Care', 'Food Service', 'Industry'],
+        'promise': 'Start with the space. Check the surface, pack and instructions.',
+        'cards': [('HOME & SURFACE', 'Floor, kitchen and glass care'), ('HAND & WASHROOM', 'Handwash and washroom care'), ('COMMERCIAL', 'Cleaning for work and transport')]
+    },
+    'sugarcane-recycled': {
+        'image': 'assets/images/catalogue-intros/sugarcane-recycled-industry-grid.png',
+        'eyebrow': 'Sugarcane & Recycled',
+        'title': 'Thoughtful essentials for daily use.',
+        'copy': 'Explore sugarcane-based products for serving, packing and paper use, alongside recycled household goods for kitchens, offices and storage.',
+        'labels': ['Food Service', 'Kitchen & Dining', 'Packaging', 'Office & Paper', 'Home Storage', 'Recycling'],
+        'promise': 'Find a useful format for serving, packing or organising.',
+        'cards': [('SUGARCANE', 'Kitchenware, bags and paper'), ('RECYCLED', 'Household storage and tools'), ('BY FORMAT', 'Compare sizes and pack details')]
+    }
+}
 collection_name = COLLECTION_NAMES.get(args.collection, 'The collection')
 DEST = OUT / (FILENAMES[args.collection] if args.collection else 'MA-Industries-Catalogue.pdf')
 fonts = Path(reportlab.__file__).parent / 'fonts'
@@ -91,6 +120,48 @@ def base(label, background='#ffffff'):
     c.setFillColor(HexColor(MUTED));c.setFont('Body',8);c.drawRightString(W-M,H-814-8,f'{page_number:02}')
 
 def eyebrow(top,value): text(M,top,value.upper(),8.5,GREEN,'Bold')
+
+def introduction_page():
+    key=args.collection or 'all'
+    content=INTRO_PAGES[key]
+    base('Introduction')
+    eyebrow(106,content['eyebrow'])
+    title_height=para(M,131,content['title'],CW,27,33,INK,'Display')
+    copy_top=140+title_height
+    copy_height=para(M,copy_top,content['copy'],CW,10.5,15,MUTED)
+    grid_top=max(231,copy_top+copy_height+17)
+    grid_height=CW*2/3
+    grid_image=ImageReader(BytesIO(image_bytes(ROOT/content['image'])))
+    c.drawImage(grid_image,M,H-grid_top-grid_height,width=CW,height=grid_height,mask='auto')
+    cell_width=CW/3;cell_height=grid_height/2;label_height=34
+    for i,label in enumerate(content['labels']):
+        column,row= i%3,i//3
+        x=M+column*cell_width;top=grid_top+row*cell_height
+        bar_top=top+cell_height-label_height
+        rect(x,bar_top,cell_width,label_height,GREEN)
+        style=ParagraphStyle('industry-label',fontName='Bold',fontSize=8.5,leading=10.5,textColor=HexColor('#ffffff'),alignment=1)
+        label_para=Paragraph(html.escape(label),style)
+        _,label_text_height=label_para.wrap(cell_width-14,label_height-6)
+        label_para.drawOn(c,x+7,H-bar_top-(label_height-label_text_height)/2-label_text_height)
+    # Fine white seams keep the six photographs distinct when printed.
+    rect(M+cell_width-1,grid_top,2,grid_height,'#ffffff')
+    rect(M+cell_width*2-1,grid_top,2,grid_height,'#ffffff')
+    rect(M,grid_top+cell_height-1,CW,2,'#ffffff')
+    promise_top=grid_top+grid_height+16
+    para(M,promise_top,content['promise'],CW,10,14,GREEN,'Bold')
+    cards_top=promise_top+25;gap=8;card_width=(CW-gap*2)/3;card_height=63
+    title_style=ParagraphStyle('intro-card-title',fontName='Bold',fontSize=7.5,leading=9,textColor=HexColor(GREEN),alignment=1)
+    detail_style=ParagraphStyle('intro-card-copy',fontName='Body',fontSize=7.2,leading=9,textColor=HexColor(MUTED),alignment=1)
+    for i,(heading,copy) in enumerate(content['cards']):
+        x=M+i*(card_width+gap)
+        rect(x,cards_top,card_width,card_height,CREAM)
+        rect(x,cards_top,card_width,2,GREEN)
+        head=Paragraph(html.escape(heading),title_style);_,hh=head.wrap(card_width-12,20)
+        head.drawOn(c,x+6,H-(cards_top+10)-hh)
+        body=Paragraph(html.escape(copy),detail_style);_,bh=body.wrap(card_width-12,26)
+        body.drawOn(c,x+6,H-(cards_top+29)-bh)
+    assert cards_top+card_height < 790, (key,'introduction page overflow',cards_top+card_height)
+    c.showPage()
 
 def enquiry(product):
     return 'https://wa.me/919819157417?text='+quote('Hello M&A Industries, I would like to enquire about '+product['name']+'. Please share specifications, pack sizes, pricing and availability.')
@@ -153,12 +224,15 @@ text(M,762,'info@maindustries.in  /  maindustries.in',10,MUTED)
 c.linkURL('https://maindustries.in/',(M,H-780,W-M,H-735))
 c.showPage()
 
+# Page two introduces the audience and uses a collection-specific image grid.
+introduction_page()
+
 # Collection directory, with internal links and explicit page locations.
 base('Collection directory')
 eyebrow(108,'Explore the collection')
 para(M,134,'Find the right starting point.',CW,29,37,INK,'Display')
 para(M,183,'Browse by collection, then compare product details and available variants.',CW,11,17,MUTED)
-next_page = 3
+next_page = 4
 gap = 14
 tile_width = (CW - gap) / 2
 tile_height = 105
@@ -251,7 +325,7 @@ c.showPage();c.save()
 
 # Validate final output text, links, pagination and bounds, then render every page.
 doc=pymupdf.open(DEST)
-assert len(doc)==len(products)+len(groups)+3
+assert len(doc)==len(products)+len(groups)+4
 normalize=lambda value:' '.join(value.replace('\u00b5','\u03bc').split())
 for p in products:
     page=doc[product_pages[p['id']]-1];content=normalize(page.get_text())
