@@ -1498,8 +1498,8 @@
   },
   {
     "id": "cr-floor-cleaner",
-    "name": "Advanced Floor Cleaner",
-    "referenceNames": ["Floor Cleaner", "Concentrated Floor Cleaner"],
+    "name": "Floor Cleaner",
+    "referenceNames": ["Advanced Floor Cleaner", "Concentrated Floor Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A concentrated cleaner for daily mopping and deeper floor care.",
