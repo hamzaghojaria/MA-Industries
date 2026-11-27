@@ -1470,7 +1470,8 @@
   },
   {
     "id": "cr-pine-floor-cleaner",
-    "name": "Pine Floor Cleaner",
+    "name": "Advanced Pine Floor Cleaner",
+    "referenceNames": ["Pine Floor Cleaner", "Clean Republic Pine Floor Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Pine-oil floor cleaner for routine hard-floor care, with a choice of fragrances.",
@@ -1497,7 +1498,8 @@
   },
   {
     "id": "cr-floor-cleaner",
-    "name": "Concentrated Floor Cleaner",
+    "name": "Advanced Floor Cleaner",
+    "referenceNames": ["Floor Cleaner", "Concentrated Floor Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A concentrated cleaner for daily mopping and deeper floor care.",
@@ -1524,7 +1526,8 @@
   },
   {
     "id": "cr-kitchen-cleaner",
-    "name": "Multi-Purpose Kitchen Cleaner",
+    "name": "Advanced Kitchen Cleaner",
+    "referenceNames": ["Kitchen Cleaner", "Multi-Purpose Kitchen Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A water-based cleaner for food-prep counters and other kitchen surfaces.",
@@ -1551,7 +1554,8 @@
   },
   {
     "id": "cr-dishwash-liquid",
-    "name": "Lime Dishwash Liquid",
+    "name": "Advanced Lime Dishwash Liquid",
+    "referenceNames": ["Lime Dishwash Liquid", "Dishwash Liquid"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Lime dishwash liquid for greasy dishes and food residues.",
@@ -1577,7 +1581,8 @@
   },
   {
     "id": "cr-glass-surface-cleaner",
-    "name": "Glass & Surface Cleaner",
+    "name": "Advanced Glass & Surface Cleaner",
+    "referenceNames": ["Glass & Surface Cleaner", "Glass & Window Cleaner", "Clean-Glass Glass & Surface Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A quick-drying cleaner for fingerprints and marks on glass and mirrors.",
@@ -1604,7 +1609,8 @@
   },
   {
     "id": "cr-handwash",
-    "name": "Protect + Care LS Handwash",
+    "name": "Advanced Protect + Care LS (Handwash)",
+    "referenceNames": ["Protect + Care LS Handwash", "Protect + Care Liquid Soap"],
     "group": "clean-republic-hygiene",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A pH-balanced handwash for frequently used basins and washrooms.",
@@ -1630,7 +1636,8 @@
   },
   {
     "id": "cr-toilet-bowl-cleaner",
-    "name": "Toilet & Bowl Cleaner",
+    "name": "Advanced Toilet & Bowl Cleaner",
+    "referenceNames": ["Toilet & Bowl Cleaner"],
     "group": "clean-republic-hygiene",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A clinging toilet and urinal cleaner for stains, limescale and odours.",
@@ -1656,7 +1663,8 @@
   },
   {
     "id": "cr-industrial-degreaser",
-    "name": "All-Purpose Industrial Degreaser",
+    "name": "Advanced All Purpose Degreaser",
+    "referenceNames": ["All-Purpose Industrial Degreaser"],
     "group": "clean-republic-commercial",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A heavy-duty degreaser for equipment, machinery and tiled surfaces.",
@@ -1683,7 +1691,8 @@
   },
   {
     "id": "cr-liquid-air-freshener",
-    "name": "Liquid Air Freshener",
+    "name": "Advanced Liquid Air Freshener",
+    "referenceNames": ["Liquid Air Freshener"],
     "group": "clean-republic-commercial",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Liquid fragrance for kitchens, washrooms, offices and other indoor areas.",
@@ -1709,7 +1718,8 @@
   },
   {
     "id": "cr-car-shampoo",
-    "name": "pH-Neutral Car Shampoo",
+    "name": "Car Shampoo",
+    "referenceNames": ["Auto Wash Shampoo", "pH-Neutral Car Shampoo"],
     "group": "clean-republic-commercial",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "A pH-neutral shampoo for vehicle washing enquiries.",
@@ -1726,7 +1736,7 @@
     "material": "Automotive shampoo; confirm formulation details with supplier",
     "specifications": [
       "Availability: Pre-order enquiry",
-      "Product reference: pH-neutral Car Shampoo appears on the commercial cover and Auto Wash Shampoo appears in the pre-order list.",
+      "Catalogue naming: Car Shampoo on the cover; Auto Wash Shampoo in the pre-order list. Confirm whether both references describe the same formulation.",
       "Pack sizes and dilution: Confirm on enquiry"
     ],
     "details": "The catalogue cover identifies a pH-neutral car shampoo but does not provide detailed pack sizes or use instructions. Contact the supplier for current product specifications.",
@@ -1735,7 +1745,8 @@
   },
   {
     "id": "cr-multi-purpose-cleaner",
-    "name": "Advanced Multi-Purpose Cleaner",
+    "name": "Advanced Multi Purpose Cleaner",
+    "referenceNames": ["Advanced Multi-Purpose Cleaner", "Multi Purpose Cleaner"],
     "group": "clean-republic-household",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Water-based cleaner for household and commercial surfaces.",
@@ -1832,7 +1843,8 @@
   },
   {
     "id": "cr-alkaline-degreaser",
-    "name": "Heavy Duty Alkaline Degreaser for Stainless Steel",
+    "name": "Heavy Duty Alkaline Degreaser for SS",
+    "referenceNames": ["Heavy Duty Alkaline Degreaser for Stainless Steel"],
     "group": "clean-republic-commercial",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Stainless steel degreasing product listed for pre-order.",
@@ -1855,7 +1867,8 @@
   },
   {
     "id": "cr-limescale-remover",
-    "name": "Limescale Remover",
+    "name": "Lime Scale Remover",
+    "referenceNames": ["Limescale Remover"],
     "group": "clean-republic-hygiene",
     "tag": "M&A CLEANING & HYGIENE",
     "desc": "Limescale removal product listed for pre-order.",

@@ -54,7 +54,7 @@
     const matches = papers.filter(paper =>
       (category === 'all' || paper.group === category) &&
       // Category changes and paging need no searchable specification text.
-      (!search || [paper.name, paper.desc, paper.tag || '', paper.material || '', ...paper.uses,
+      (!search || [paper.name, paper.desc, paper.tag || '', paper.material || '', ...(paper.referenceNames || []), ...paper.uses,
         ...specificationFields(paper).flatMap(field => [field.label, field.value])].join(' ').toLowerCase().includes(search))
     );
     // Sort a filtered copy so the original collection order remains unchanged.
